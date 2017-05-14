@@ -52,7 +52,8 @@
 		<module>spcselling-services</module>
 		<module>spcselling-webs</module>
 		<module>spcselling-infrastructure</module>
-		<module>spcselling-config</module>
+		<!-- <module>spcselling-config</module> -->
+		
 	</modules>
 
 	<dependencies>
