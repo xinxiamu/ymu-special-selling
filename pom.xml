@@ -56,6 +56,7 @@
 
 		<module>spcselling-config</module>
 		<module>spcselling-gateway</module>
+		<module>spcselling-server</module>
 	</modules>
 
 	<dependencies>
