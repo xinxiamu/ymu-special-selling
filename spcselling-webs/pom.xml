@@ -10,8 +10,4 @@
   <name>spcselling-webs</name>
   <description>门户</description>
 
-	<modules>
-		<module>spcselling-config-client</module>
-	</modules>
-
 </project>
