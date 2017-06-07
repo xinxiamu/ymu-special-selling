@@ -5,8 +5,8 @@
     <artifactId>ymu-special-selling</artifactId>
     <version>1.0.0</version>
   </parent>
-  <groupId>com.ymu.spcselling.config</groupId>
-  <artifactId>spcselling-config</artifactId>
+  <artifactId>spcselling-config</artifactId>  
+  <packaging>pom</packaging>
   <name>spcselling-config</name>
-  <description>配置管理中心</description>
+  <description>配置中心</description>
 </project>
