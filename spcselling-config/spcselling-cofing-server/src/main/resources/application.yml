@@ -1,0 +1,25 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  
+spring: 
+  cloud:
+    config: 
+      server: 
+        git: 
+          uri:
+          searchPaths:
+          username:
+          password:
+
+spring: 
+  profiles:
+#    active: native
+      
+      
+    
+        
+          
