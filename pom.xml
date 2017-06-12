@@ -15,10 +15,11 @@
 	<description>
 		spring-cloud微服务架构
 	</description>
-
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		
 		<dubbo.version>2.5.3</dubbo.version>
 		<zookeeper.version>3.4.6</zookeeper.version>
 		<swagger.version>2.6.1</swagger.version>
