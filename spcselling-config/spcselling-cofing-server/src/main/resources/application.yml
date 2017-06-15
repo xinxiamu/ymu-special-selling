@@ -1,3 +1,7 @@
+spring:
+  application: 
+    name: config-server
+
 server:
   port: 8888
 
@@ -10,14 +14,14 @@ spring:
     config: 
       server: 
         git: 
-          uri:
-          searchPaths:
-          username:
-          password:
+          uri: https://github.com/xinxiamu/ymu-special-selling.git
+          searchPaths: spcselling-config/spcselling-config-repo
+          username: xinxiamu
+          password: wnt*ZMT*701712  
 
 spring: 
   profiles:
-#    active: native 
+    active: native #读取resources下面的配置文件
       
       
     
