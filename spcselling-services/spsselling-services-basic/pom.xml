@@ -8,5 +8,5 @@
   <artifactId>spsselling-services-basic</artifactId>
   <packaging>pom</packaging>
   <name>spsselling-services-basic</name>
-  <description>基础支撑服务。这里的服务可以互相依赖调用。每个服务一个数据库,物理隔离。</description>
+  <description>业务基础支撑服务。这里的服务可以互相依赖调用。每个服务一个数据库,物理隔离。</description>
 </project>
