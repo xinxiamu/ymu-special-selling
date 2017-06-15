@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: service-sys-email
+
+spring: 
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      
+encrypt:
+  failOnError: false
