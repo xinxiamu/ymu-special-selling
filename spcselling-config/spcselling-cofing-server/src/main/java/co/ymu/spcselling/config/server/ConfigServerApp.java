@@ -6,10 +6,10 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 @EnableConfigServer	//开启配置中心功能
 @SpringBootApplication
-public class SpcsellingConfigServerApp {
+public class ConfigServerApp {
 
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(SpcsellingConfigServerApp.class).web(true).run(args);
+		new SpringApplicationBuilder(ConfigServerApp.class).web(true).run(args);
 	}
 
 }
