@@ -1,6 +1,6 @@
 spring:
   application:
-    name: sys-email
+    name: sysemail
 
 spring: 
   cloud:
