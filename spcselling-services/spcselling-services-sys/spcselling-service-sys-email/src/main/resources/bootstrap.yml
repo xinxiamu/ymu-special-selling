@@ -1,6 +1,9 @@
 spring:
   application:
     name: sysemail
+    
+server: 
+  port: 8001   
 
 spring: 
   cloud:
