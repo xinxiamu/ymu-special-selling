@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: sysmail
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      profile: dev
+      label: master
+
+server:
+  port: 8001
