@@ -1,4 +1,4 @@
-show:
+info:
   from: git
   name: syssms
   profile: test
