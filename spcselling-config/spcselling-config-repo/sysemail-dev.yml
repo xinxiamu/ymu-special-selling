@@ -1,2 +1,1 @@
-from=local-dev
-to=mk-dev
+from: git-dev
