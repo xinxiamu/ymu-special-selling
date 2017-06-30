@@ -1,1 +1,4 @@
-from=local-prod
+show:
+  from: git
+  name: syssms
+  profile: prod

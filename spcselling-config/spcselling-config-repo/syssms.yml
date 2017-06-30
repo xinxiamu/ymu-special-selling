@@ -1,1 +1,4 @@
-from=local
+show:
+  from: git
+  name: syssms
+  profile: default

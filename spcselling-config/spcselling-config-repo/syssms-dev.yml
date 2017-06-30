@@ -1,1 +1,4 @@
-from=local-dev
+show:
+  from: git
+  name: syssms
+  profile: dev

@@ -1,1 +1,4 @@
-from=local-test
+show:
+  from: git
+  name: syssms
+  profile: test
