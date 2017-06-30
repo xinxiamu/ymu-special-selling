@@ -1,8 +1,0 @@
-server:
-  port: 1112
-eureka:
-  instance:
-    hostname: server2
-  client:
-    serviceUrl:
-      defaultZone: http://server1:1111/eureka/,http://server3:1113/eureka/ #做集群
