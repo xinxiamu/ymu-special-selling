@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 @RestController
 public class TestController {
-	
-	@Value("${from}")
+
+//	@Value("${from}")
 	private String from;
 
 	@RequestMapping("/from")
