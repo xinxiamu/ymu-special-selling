@@ -2,7 +2,7 @@ server:
   port: 1111
 eureka:
   instance:
-    hostname: server1
+    hostname: eureka-server1
   client:
     serviceUrl:
-      defaultZone: http://server2:1112/eureka/,http://server3:1113/eureka/ #做集群
+      defaultZone: http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/ #做集群
