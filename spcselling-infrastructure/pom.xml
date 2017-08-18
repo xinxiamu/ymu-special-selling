@@ -13,7 +13,6 @@
 		<dependency>
 			<groupId>com.ymu</groupId>
 			<artifactId>ymu-framework</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
