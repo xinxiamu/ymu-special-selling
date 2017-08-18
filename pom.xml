@@ -93,6 +93,12 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>com.ymu</groupId>
+				<artifactId>ymu-framework</artifactId>
+				<version>1.0</version>
+			</dependency>
+
 			<!-- spring cloud -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
