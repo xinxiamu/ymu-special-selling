@@ -12,10 +12,10 @@ spring:
 ---
 #访问测试：http://localhost:8888/syssms/dev/master 规则/{application}/{profile}[/{label}]
 #指向同一个git仓库
-spring: 
+spring:
   cloud:
-    config: 
-      server: 
+    config:
+      server:
         git:
           uri: https://github.com/xinxiamu/ymu-special-selling.git
           searchPaths: spcselling-config/spcselling-config-repo
