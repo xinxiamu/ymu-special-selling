@@ -46,10 +46,6 @@
 	</repositories>
 
 	<modules>
-		<module>mservice-apis</module>
-		<module>mservice-services</module>
-		<module>mservice-webs</module>
-		<module>mservice-infrastructure</module>
 		<module>spcselling-services</module>
 		<module>spcselling-webs</module>
 		<module>spcselling-infrastructure</module>
