@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: syssms
+  cloud:
+    config:
+      uri: http://localhost:8888/
+server:
+  port: 8002
+encrypt:
+  failOnError: false
