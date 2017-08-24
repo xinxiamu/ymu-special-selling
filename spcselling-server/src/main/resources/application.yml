@@ -2,6 +2,6 @@ spring:
   application:
     name: eureka-server
   profiles: 
-#    active: dev-server1 #激活的配置文件，更改这里部署三个server做集群
+    active: dev-server1 #激活的配置文件，更改这里部署三个server做集群
 #    active: dev-server2 
-    active: dev-server3 
+#    active: dev-server3
