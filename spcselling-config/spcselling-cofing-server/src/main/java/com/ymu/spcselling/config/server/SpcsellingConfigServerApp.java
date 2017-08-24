@@ -1,4 +1,4 @@
-package co.ymu.spcselling.config.server;
+package com.ymu.spcselling.config.server;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
