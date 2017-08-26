@@ -1,9 +1,0 @@
-server:
-  port: 2002
-
----
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
- 
