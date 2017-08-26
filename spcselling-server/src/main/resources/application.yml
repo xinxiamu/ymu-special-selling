@@ -7,8 +7,8 @@ spring:
 #    active: dev-server3
 
 ---
-# 在开发过程中，我们常常希望Eureka Server能够迅速有效地踢出已关停的节点，但是新手由于Eureka自我保护模式，以及心跳周期长的原因，常常会遇到Eureka Server不踢出已关停的节点的问题。生成环境不需要配置
-eureka:
-  server:
-    enable-self-preservation: false #设为false，关闭自我保护
-    eviction-interval-timer-in-ms: 4000  # 清理间隔（单位毫秒，默认是60*1000）
+# 在开发过程中，我们常常希望Eureka Server能够迅速有效地踢出已关停的节点，但是新手由于Eureka自我保护模式，以及心跳周期长的原因，常常会遇到Eureka Server不踢出已关停的节点的问题。生成环境不需要配置。服务注册方要做相应设置
+#eureka:
+#  server:
+#    enable-self-preservation: false #设为false，关闭自我保护
+#    eviction-interval-timer-in-ms: 4000  # 清理间隔（单位毫秒，默认是60*1000）
