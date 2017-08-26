@@ -1,1 +1,3 @@
-from: git-dev
+user:
+  username: git-dev
+  sex: 男-dev
