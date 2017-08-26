@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: sysemail
+
+---
+server:
+  port: 8001
+  
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/  
+
+---    
+spring:    
+  cloud:
+    config:
+      discovery:
+        enable: true
+        serviceId: config-server
+#      uri: http://localhost:2001/,http://localhost:2002/,http://localhost:2003/
+      profile: dev
+#      label: master
