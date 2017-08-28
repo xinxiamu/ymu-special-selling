@@ -1,14 +1,30 @@
+server:
+  port: 8002
+
+---
 spring:
   application:
-    name: sysemail
-    
-server: 
-  port: 8001   
+    name: service-sys-email
 
-spring: 
+---
+spring:
   cloud:
-    config:
-      uri: http://localhost:8888/
-      
+    config: #配置中心
+      name: service-sys-email
+      profile: dev
+      label: master
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: config-server
+
+---
+eureka: #服务注册
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
+
+---
 encrypt:
   failOnError: false
