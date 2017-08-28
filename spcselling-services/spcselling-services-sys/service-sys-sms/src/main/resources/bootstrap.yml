@@ -1,10 +1,31 @@
+server:
+  port: 8001
+
+---
 spring:
   application:
-    name: syssms
+    name: service-sys-sms
+
+---
+spring:
   cloud:
     config:
-      uri: http://localhost:8888/
-server:
-  port: 8002
+      name: service-sys-sms
+      profile: dev
+      label: master
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: config-server
+
+---
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
+
+---
 encrypt:
   failOnError: false
