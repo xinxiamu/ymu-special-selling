@@ -6,14 +6,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RefreshScope
-@RestController("/user")
+@RestController
 public class UserController {
 
 	@Value("${user.username}")
 	private String username;
 
+	@Value("${user.sex}")
+	private String sex;
+
 	@RequestMapping("/getUserName")
 	public String getUserName() {
 		return this.username;
+	}
+
+	@RequestMapping("/sex")
+	public String sex() {
+		return this.sex;
 	}
 }
