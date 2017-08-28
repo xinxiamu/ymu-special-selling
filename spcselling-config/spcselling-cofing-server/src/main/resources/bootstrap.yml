@@ -4,7 +4,7 @@ spring:
 
 ---
 server:
-  port: 8888
+  port: 8888 #更改端口，启动多个做负载达到高可用
   
 ---
 eureka:
@@ -18,9 +18,9 @@ eureka:
 spring:    
   cloud:
     config:
-     server:
-      git:
-        uri: https://github.com/xinxiamu/ymu-special-selling.git
-        search-paths: spcselling-config/spcselling-config-repo
-#        username:
-#        password:
+      server:
+        git:
+          uri: https://github.com/xinxiamu/ymu-special-selling.git
+          search-paths: spcselling-config/spcselling-config-repo
+#          username:
+#          password:
