@@ -1,47 +1,73 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.ymu.spcselling</groupId>
-		<artifactId>ymu-special-selling</artifactId>
-		<version>1.0.0</version>
-	</parent>
-	<artifactId>spcselling-services</artifactId>
-	<packaging>pom</packaging>
-	<name>spcselling-services</name>
-	<description>微服务</description>
-	<modules>
-		<module>spsselling-services-basic</module>
-		<module>spcselling-services-business</module>
-		<module>spcselling-services-sys</module>
-	</modules>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ymu.spcselling</groupId>
+        <artifactId>ymu-special-selling</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <artifactId>spcselling-services</artifactId>
+    <packaging>pom</packaging>
+    <name>spcselling-services</name>
+    <description>微服务</description>
+    <modules>
+        <module>spsselling-services-basic</module>
+        <module>spcselling-services-business</module>
+        <module>spcselling-services-sys</module>
+    </modules>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka</artifactId>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- 用户修改git文件，调用接口自动刷新： -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 
-		<!-- 热部署工具 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
 
-	</dependencies>
+        <!-- 热部署工具 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<fork>
-						true
-					</fork>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Brixton.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>
+                        true
+                    </fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
