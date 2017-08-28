@@ -19,7 +19,6 @@ spring:
         service-id: config-server
 
 ---
-
 eureka:
   instance:
     prefer-ip-address: true
