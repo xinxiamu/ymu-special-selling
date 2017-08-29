@@ -36,6 +36,12 @@
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
 
+        <!--消费服务-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+
         <!-- 热部署工具 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
