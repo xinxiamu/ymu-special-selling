@@ -23,7 +23,8 @@ eureka:
   instance:
     prefer-ip-address: true
   client:
-    service-url: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
+    service-url:
+       defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
 
 ---
 encrypt:

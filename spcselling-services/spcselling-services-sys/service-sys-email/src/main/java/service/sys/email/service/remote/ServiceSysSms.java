@@ -14,5 +14,5 @@ import service.sys.email.service.remote.hystrix.ServiceSysSmsHystrix;
 public interface ServiceSysSms {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add(@RequestParam Integer a, @RequestParam Integer b);
+    String add(@RequestParam Integer a, @RequestParam Integer b);
 }
