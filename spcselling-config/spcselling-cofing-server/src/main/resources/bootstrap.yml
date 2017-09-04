@@ -5,6 +5,14 @@ spring:
 ---
 server:
   port: 8888 #更改端口，启动多个做负载达到高可用
+
+---
+encrypt:
+  keyStore:
+    location: classpath:/server.jks
+    password: letmein
+    alias: mytestkey
+    secret: changeme
   
 ---
 eureka:

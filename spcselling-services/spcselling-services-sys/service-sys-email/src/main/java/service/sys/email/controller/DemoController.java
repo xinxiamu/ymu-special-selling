@@ -23,7 +23,7 @@ public class DemoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add() {
-        return "from:service-email" + this.username;
+        return "from:service-email==" + this.username;
     }
 
     @GetMapping("/hello")
