@@ -11,7 +11,7 @@ import service.sys.sms.service.remote.ServiceSysEMail;
 public class ServiceSysEMailHystrix implements ServiceSysEMail {
 
     @Override
-    public String hello(@RequestParam int a, @RequestParam int b) {
+    public String hello() {
         return "====出错熔断";
     }
 }

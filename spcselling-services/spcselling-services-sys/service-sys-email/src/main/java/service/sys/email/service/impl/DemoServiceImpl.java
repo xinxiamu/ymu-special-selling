@@ -21,7 +21,6 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public String helloWorld(int a, int b) {
-        LOGGER.info("==============调用远程服务");
-        return "hello world:::" + serviceSysSms.add(a, b);
+        return  serviceSysSms.add(a, b);
     }
 }

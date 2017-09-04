@@ -23,11 +23,12 @@ public class DemoController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add() {
-        return this.username;
+        return "from:service-email" + this.username;
     }
 
     @GetMapping("/hello")
     public String hello(@RequestParam int a, @RequestParam int b) {
+        LOGGER.debug("==============测试调用远程服务");
         return demoService.helloWorld(a,b);
     }
 }

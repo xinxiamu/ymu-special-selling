@@ -11,6 +11,6 @@ import service.sys.sms.service.remote.hystrix.ServiceSysEMailHystrix;
 @FeignClient(value = Constants.ServiceAppName.SERVICE_SYS_EMAIL,fallback = ServiceSysEMailHystrix.class)
 public interface ServiceSysEMail {
 
-    @GetMapping("/hello")
-   String hello(@RequestParam(value = "a") int a, @RequestParam(value = "b") int b);
+    @GetMapping("/add")
+   String hello();
 }

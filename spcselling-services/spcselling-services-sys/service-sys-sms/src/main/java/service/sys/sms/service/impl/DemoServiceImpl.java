@@ -16,6 +16,6 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public String hello() {
-        return "hello::::" + serviceSysEMail.hello(3,4);
+        return "hello::::" + serviceSysEMail.hello();
     }
 }
