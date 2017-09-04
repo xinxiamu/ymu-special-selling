@@ -89,11 +89,11 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
+			<!--<dependency>
 				<groupId>com.ymu</groupId>
 				<artifactId>ymu-framework</artifactId>
 				<version>1.0</version>
-			</dependency>
+			</dependency>-->
 
 			<!-- spring cloud -->
 			<dependency>
