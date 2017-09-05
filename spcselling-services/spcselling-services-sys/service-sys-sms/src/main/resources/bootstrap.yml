@@ -28,16 +28,7 @@ eureka:
 
 ---
 encrypt:
-  keyStore:
-    location: classpath:/server.jks
-    password: letmein
-    alias: mytestkey
-    secret: changeme
   fail-on-error: false
-
-feign:
-  okhttp:
-    enabled: true
 
 ---
 logging:

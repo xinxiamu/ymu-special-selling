@@ -7,18 +7,18 @@ server:
   port: 8888 #更改端口，启动多个做负载达到高可用
 
 ---
-security:
-  user:
-    name: mutou
-    password: 701712
+#security:
+#  user:
+#    name: mutou
+#    password: 701712
 
 ---
-encrypt:
-  keyStore:
-    location: classpath:/server.jks
-    password: letmein
-    alias: mytestkey
-    secret: changeme
+#encrypt:
+#  keyStore:
+#    location: classpath:/server.jks
+#    password: letmein
+#    alias: mytestkey
+#    secret: changeme
 
 ---
 eureka:
