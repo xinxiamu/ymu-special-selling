@@ -10,9 +10,9 @@
 	<name>spcselling-infrastructure</name>
 	<description>基础工具</description>
 	<dependencies>
-		<!--<dependency>
+		<dependency>
 			<groupId>com.ymu</groupId>
 			<artifactId>ymu-framework</artifactId>
-		</dependency>-->
+		</dependency>
 	</dependencies>
 </project>
