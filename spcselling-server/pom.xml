@@ -9,6 +9,7 @@
 	<groupId>com.ymu.spcselling.eureka.server</groupId>
 	<artifactId>spcselling-server</artifactId>
 	<name>spcselling-server</name>
+	<packaging>war</packaging>
 	<description>服务注册与发现中心,高可用，做集群（3个）</description>
 
 	<dependencies>
