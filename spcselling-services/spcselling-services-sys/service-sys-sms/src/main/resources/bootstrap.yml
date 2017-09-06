@@ -17,6 +17,8 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+      username: mutou
+      password: 701712
 
 ---
 eureka:
@@ -28,6 +30,11 @@ eureka:
 
 ---
 encrypt:
+  keyStore:
+    location: classpath:/server.jks
+    password: letmein
+    alias: mytestkey
+    secret: changeme
   fail-on-error: false
 
 ---

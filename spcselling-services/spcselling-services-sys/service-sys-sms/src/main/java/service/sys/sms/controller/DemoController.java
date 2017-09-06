@@ -3,6 +3,7 @@ package service.sys.sms.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,9 @@ public class DemoController {
     @Autowired
     private DemoService demoService;
 
+    @Value("${info.pwd}")
+    private String pwd;
+
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add(@RequestParam Integer a, @RequestParam Integer b) {
         ServiceInstance instance = client.getLocalServiceInstance();
@@ -31,5 +35,10 @@ public class DemoController {
     public String helloWorld() {
         LOGGER.info("==========hello");
         return demoService.hello();
+    }
+
+    @GetMapping("/getPwd")
+    public String getPwd() {
+        return pwd;
     }
 }
