@@ -29,8 +29,8 @@
 		<guava.version>20.0</guava.version>
 		<kaptcha.version>0.0.9</kaptcha.version>
 		<mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
-
 		<apache.common.beanutils>1.9.3</apache.common.beanutils>
+		<spring.cloud.version>Dalston.SR3</spring.cloud.version>
 	</properties>
 
 	<!-- 阿里云maven仓库 -->
@@ -43,14 +43,21 @@
 				<enabled>true</enabled>
 			</releases>
 		</repository>
+
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/libs-milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<modules>
 		<module>spcselling-services</module>
 		<module>spcselling-clients</module>
 		<module>spcselling-infrastructure</module>
-		<!-- <module>spcselling-config</module> -->
-
 		<module>spcselling-config</module>
 		<module>spcselling-gateway</module>
 		<module>spcselling-server</module>
@@ -99,7 +106,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Dalston.SR1</version>
+				<version>${spring.cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
