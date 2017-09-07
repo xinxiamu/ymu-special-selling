@@ -28,7 +28,7 @@ eureka: #服务注册
 
 ---
 encrypt:
-  failOnError: false
+  fail-on-error: false
 
 ---
 logging:

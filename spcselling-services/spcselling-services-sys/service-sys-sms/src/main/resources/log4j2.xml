@@ -67,7 +67,7 @@
 		</Logger>
 
 		<!-- spring -->
-		<!--<logger name="org.springframework" level="debug" />-->
+		<logger name="org.springframework" level="debug" />
 
 		<Root level="debug">
 			<AppenderRef ref="STDOUT" />

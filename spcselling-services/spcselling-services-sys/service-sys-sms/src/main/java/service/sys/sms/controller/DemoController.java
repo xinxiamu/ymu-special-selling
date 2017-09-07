@@ -20,8 +20,8 @@ public class DemoController {
     @Autowired
     private DemoService demoService;
 
-    @Value("${info.pwd}")
-    private String pwd;
+//    @Value("${info.pwd}")
+//    private String pwd;
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add(@RequestParam Integer a, @RequestParam Integer b) {
@@ -39,6 +39,6 @@ public class DemoController {
 
     @GetMapping("/getPwd")
     public String getPwd() {
-        return pwd;
+        return "";
     }
 }
