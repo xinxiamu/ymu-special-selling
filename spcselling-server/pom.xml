@@ -9,7 +9,7 @@
 	<groupId>com.ymu.spcselling.eureka.server</groupId>
 	<artifactId>spcselling-server</artifactId>
 	<name>spcselling-server</name>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<description>服务注册与发现中心,高可用，做集群（3个）</description>
 
 	<dependencies>
@@ -18,14 +18,5 @@
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
