@@ -2,7 +2,7 @@ info:
   from: git
   name: syssms
   profile: dev
-  pwd: '{cipher} 24250AQBGV8foGbss9bO6J2+C46G6GmIrFR0IsUPILunHhCJq33L1Xus5zGiituFHnvovIzuN2JdRR+NnyDnshTES5hX5ZuGQZ3bEAaNDZ6G3sYmrcet9C8uCb4SPwhbWQF7gU7lY+jVLvIKcFFO3FgAcVveyhrZv8Qb0aeKsHbKJJDYviUc1la29n/Vhq+9CpbvgoG66U/BTGb9eKLVOBPO9UOvZoIqLm7KsYRFxKEvSX2RBMz5FRvMilnBfs/U/hO4b3+69yVhoYRD1/At2jWSJRZ+6lNSzMAHRZ6OsIjSN69KyCW4qFfy0g3GtHz5OKfCRjFaRKqWfoG2nCM9FKcN+HBzGZrXVWLEUK41VgqQj5wxI2LdBbYWF+Kx6StvrqLkoIqE='
+  pwd: '4266d0261699d981c0e3e88c90b718112176d893f0bd75d063ebae8ab78f0933c4ea'
 
 spring:
   datasource:
