@@ -1,16 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.ymu.spcselling</groupId>
-    <artifactId>spcselling-services</artifactId>
-    <version>1.0.0</version>
-  </parent>
-  <artifactId>spcselling-services-sys</artifactId>
-  <packaging>pom</packaging>
-  <name>spcselling-services-sys</name>
-  <description>系统服务。系统全线共用。短信通知、邮件通知，mq消息，日志系统。</description>
-  <modules>
-  	<module>service-sys-sms</module>
-  	<module>service-sys-email</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ymu.spcselling</groupId>
+        <artifactId>spcselling-services</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <artifactId>spcselling-services-sys</artifactId>
+    <packaging>pom</packaging>
+    <name>spcselling-services-sys</name>
+    <description>系统服务。系统全线共用。短信通知、邮件通知，mq消息，日志系统。</description>
+    <modules>
+        <module>service-sys-sms</module>
+        <module>service-sys-email</module>
+    </modules>
+
 </project>

@@ -4,31 +4,30 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.*;
-import service.sys.email.service.DemoService;
-import service.sys.email.service.remote.ServiceSysSms;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import service.sys.email.service.HelloService;
+import service.sys.sms.api.HelloServiceApi;
 
 @RestController
-public class DemoController {
+public class HelloController implements HelloServiceApi {
 
-    private static final Logger LOGGER = LogManager.getLogger(DemoController.class);
+    private static final Logger LOGGER = LogManager.getLogger(HelloController.class);
 
     @Autowired
-    private DemoService demoService;
+    private HelloService helloService;
 
     @Value("${user.username}")
     private String username;
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @Override
     public String add() {
         return "from:service-email==" + this.username;
     }
 
-    @GetMapping("/hello")
+    @Override
     public String hello(@RequestParam int a, @RequestParam int b) {
         LOGGER.debug("==============测试调用远程服务");
-        return demoService.helloWorld(a,b);
+        return helloService.helloWorld(a,b);
     }
 }

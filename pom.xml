@@ -4,8 +4,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.M3</version>
-        <relativePath/>
+        <!--<version>2.0.0.M3</version>-->
+        <version>1.5.6.RELEASE</version>
     </parent>
     <groupId>com.ymu.spcselling</groupId>
     <artifactId>ymu-special-selling</artifactId>
@@ -30,8 +30,8 @@
         <kaptcha.version>0.0.9</kaptcha.version>
         <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
         <apache.common.beanutils>1.9.3</apache.common.beanutils>
-        <!--<spring.cloud.version>Dalston.SR3</spring.cloud.version>-->
-        <spring.cloud.version>Finchley.M2</spring.cloud.version>
+        <spring.cloud.version>Dalston.SR3</spring.cloud.version>
+        <!--<spring.cloud.version>Finchley.M2</spring.cloud.version>-->
     </properties>
 
     <!-- 阿里云maven仓库 -->
@@ -62,6 +62,7 @@
         <module>spcselling-config</module>
         <module>spcselling-gateway</module>
         <module>spcselling-server</module>
+        <module>spcselling-apis</module>
     </modules>
 
     <dependencies>
@@ -200,11 +201,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
+                <!--<configuration>
                     <fork>
                         true
                     </fork>
-                </configuration>
+                </configuration>-->
             </plugin>
         </plugins>
     </build>

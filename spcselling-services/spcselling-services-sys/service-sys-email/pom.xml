@@ -1,11 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.ymu.spcselling</groupId>
-    <artifactId>spcselling-services-sys</artifactId>
-    <version>1.0.0</version>
-  </parent>
-  <artifactId>service-sys-email</artifactId>
-  <name>service-sys-email</name>
-  <description>邮件发送服务</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ymu.spcselling</groupId>
+        <artifactId>spcselling-services-sys</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <artifactId>service-sys-email</artifactId>
+    <name>service-sys-email</name>
+    <description>邮件发送服务</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ymu.spcselling</groupId>
+            <artifactId>service-sys-email-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ymu.spcselling</groupId>
+            <artifactId>service-sys-sms-api</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
