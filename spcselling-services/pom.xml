@@ -16,6 +16,22 @@
         <module>spcselling-services-sys</module>
     </modules>
 
+     <dependencyManagement>
+         <dependencies>
+             <dependency>
+                 <groupId>com.ymu.spcselling</groupId>
+                 <artifactId>service-sys-email-api</artifactId>
+                 <version>${project.version}</version>
+             </dependency>
+
+             <dependency>
+                 <groupId>com.ymu.spcselling</groupId>
+                 <artifactId>service-sys-sms-api</artifactId>
+                 <version>${project.version}</version>
+             </dependency>
+         </dependencies>
+     </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
