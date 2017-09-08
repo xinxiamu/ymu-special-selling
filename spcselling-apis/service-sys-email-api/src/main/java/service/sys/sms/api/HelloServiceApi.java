@@ -12,5 +12,5 @@ public interface HelloServiceApi {
     String add();
 
     @GetMapping("/hello")
-    String hello(@RequestParam int a, @RequestParam int b);
+    String hello(@RequestParam(value = "a") int a, @RequestParam(value = "b") int b);
 }

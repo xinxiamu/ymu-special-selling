@@ -26,8 +26,10 @@ public class HelloController implements HelloServiceApi {
     }
 
     @Override
-    public String hello(@RequestParam int a, @RequestParam int b) {
+    public String hello(@RequestParam(value = "a") int a, @RequestParam(value = "b") int b) {
         LOGGER.debug("==============测试调用远程服务");
         return helloService.helloWorld(a,b);
     }
+
+
 }

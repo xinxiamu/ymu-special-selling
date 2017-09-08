@@ -23,7 +23,8 @@ spring:
 ---
 eureka:
   instance:
-    prefer-ip-address: true
+    hostname: service-sys-sms
+#    prefer-ip-address: true
   client:
     service-url:
        defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/

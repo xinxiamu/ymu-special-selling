@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface SmsSendServiceApi {
 
     @RequestMapping(value = "/send", method = RequestMethod.GET)
-    String send(@RequestParam Integer a, @RequestParam Integer b);
+    String send(@RequestParam(value = "a") Integer a, @RequestParam(value = "b") Integer b);
 
     @GetMapping("/hello")
     String helloWorld();

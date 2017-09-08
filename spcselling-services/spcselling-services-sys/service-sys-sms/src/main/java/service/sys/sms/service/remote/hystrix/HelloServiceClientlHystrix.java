@@ -16,7 +16,9 @@ public class HelloServiceClientlHystrix implements HelloServiceClient {
     }
 
     @Override
-    public String hello(@RequestParam int a, @RequestParam int b) {
+    public String hello(@RequestParam(value = "a") int a, @RequestParam(value = "b") int b) {
         return "default: 0" ;
     }
+
+
 }

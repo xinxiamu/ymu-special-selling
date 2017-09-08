@@ -17,11 +17,14 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+      username: mutou
+      password: 701712
 
 ---
 eureka: #服务注册
   instance:
-    prefer-ip-address: true
+#    prefer-ip-address: true
+    hostname: service-sys-email
   client:
     service-url:
       defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/

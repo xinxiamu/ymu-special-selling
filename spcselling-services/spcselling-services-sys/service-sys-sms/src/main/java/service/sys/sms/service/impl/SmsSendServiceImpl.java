@@ -15,7 +15,8 @@ public class SmsSendServiceImpl implements SmsSendService {
     private HelloServiceClient helloServiceClient;
 
     @Override
-    public String send() {
-        return "from service-email" + helloServiceClient.hello(3,4);
+    public String send(int a, int b) {
+//        String str = helloServiceClient.hello(a,b); //两个服务之间不可循环调用，否则死循环
+        return "请求我发一条短信";
     }
 }

@@ -31,10 +31,11 @@ public class SmsSendController implements SmsSendServiceApi {
         return "pwd";
     }
 
+
     @Override
-    public String send(@RequestParam Integer a, @RequestParam Integer b) {
+    public String send(@RequestParam(value = "a") Integer a, @RequestParam(value = "b") Integer b) {
         LOGGER.info("==========send");
-         return "send sms:" + (a + b);
+        return "send sms:" + smsSendService.send(a,b);
     }
 
     @Override
