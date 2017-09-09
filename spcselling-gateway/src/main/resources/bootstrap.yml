@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: api-gateway
+
+---
+server:
+  port: 1000
+
+---
+eureka:
+  instance:
+    hostname: api-gateway
+  client:
+    service-url:
+       defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
+
+---
+spring:
+  cloud:
+    config:
+      name: service-sys-sms
+      profile: dev
+      label: master
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: config-server
+      username: mutou
+      password: 701712
+
+---
+zuul:
+  routes:
+    api-sms:
+      path: /api/**
+      #当stripPrefix=true的时候 （http://127.0.0.1:8181/api/hello -> http://192.168.1.100:8080/hello）
+      #当stripPrefix=false的时候（http://127.0.0.1:8181/api/hello -> http://192.168.1.100:8080/api/hello
+      stripPrefix: true
+      service-id: service-sys-sms
+
+ribbon:
+  eureka:
+    enabled: false
+
+api-sms:
+  ribbon:
+    listOfServers: http://service-sys-sms:8001,http://service-sys-sms:8002
