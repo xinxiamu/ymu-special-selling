@@ -4,7 +4,7 @@ spring:
 
 ---
 server:
-  port: 1000
+  port: 9000
 
 ---
 eureka:
@@ -29,19 +29,23 @@ spring:
       password: 701712
 
 ---
+encrypt:
+  key: foo
+
+---
 zuul:
   routes:
     api-sms:
-      path: /api/**
-      #当stripPrefix=true的时候 （http://127.0.0.1:8181/api/hello -> http://192.168.1.100:8080/hello）
-      #当stripPrefix=false的时候（http://127.0.0.1:8181/api/hello -> http://192.168.1.100:8080/api/hello
+      path: /api/sms/**
+      #当stripPrefix=true的时候 （http://127.0.0.1:8181/api/sms/hello -> http://192.168.1.100:8080/hello）
+      #当stripPrefix=false的时候（http://127.0.0.1:8181/api/hello -> http://192.168.1.100:8080/api/sms/hello
       stripPrefix: true
       service-id: service-sys-sms
 
-ribbon:
-  eureka:
-    enabled: false
+#ribbon:
+#  eureka:
+#    enabled: false
 
-api-sms:
-  ribbon:
-    listOfServers: http://service-sys-sms:8001,http://service-sys-sms:8002
+#api-sms:
+#  ribbon:
+#    listOfServers: http://service-sys-sms:8001,http://service-sys-sms:8002
