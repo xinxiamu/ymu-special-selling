@@ -9,8 +9,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface HelloServiceApi {
 
     @GetMapping("/add")
-    String add();
+    default String add() {
+        return null;
+    }
+
+    ;
 
     @GetMapping("/hello")
-    String hello(@RequestParam(value = "a") int a, @RequestParam(value = "b") int b);
+    default String hello(@RequestParam(value = "a") int a, @RequestParam(value = "b") int b) {
+        return null;
+    }
+
+    ;
 }
