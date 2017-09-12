@@ -21,6 +21,6 @@ public class EmailSendServiceImpl implements EmailSendService {
 
     @Override
     public String sendEmail(String email, String content) {
-        return null;
+        return smsSendServiceClient.hello();
     }
 }

@@ -26,7 +26,7 @@ public class EmailSendController implements EmailSendServiceApi {
 
     @Override
     public String send(String email, String content) {
-        return null;
+        return emailSendService.sendEmail(email,content);
     }
 
 
