@@ -21,12 +21,12 @@ public class EmailSendController implements EmailSendServiceApi {
 
     @Override
     public String hello() {
-        return "hello,i am email send";
+        return "hello " + username + ",i am email send";
     }
 
     @Override
     public String send(String email, String content) {
-        return emailSendService.sendEmail(email,content);
+        return emailSendService.sendEmail(email, content);
     }
 
 
