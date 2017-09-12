@@ -5,5 +5,5 @@ package service.sys.sms.service;
  */
 public interface SmsSendService {
 
-    String send(int a, int b);
+    String send(String mobile, String content);
 }

@@ -11,12 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface SmsSendServiceApi {
 
     @RequestMapping(value = "/send", method = RequestMethod.GET)
-    default String send(@RequestParam(value = "a") Integer a, @RequestParam(value = "b") Integer b) {
-        return null;
-    }
+    String send(@RequestParam(value = "mobile") String mobile, @RequestParam(value = "content") String content);
 
     @GetMapping("/hello")
-    default String helloWorld() {
-        return null;
-    }
+    String hello();
 }

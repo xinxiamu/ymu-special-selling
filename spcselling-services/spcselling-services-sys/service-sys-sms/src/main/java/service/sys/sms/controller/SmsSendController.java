@@ -29,15 +29,13 @@ public class SmsSendController implements SmsSendServiceApi {
         return "pwd";
     }
 
-
     @Override
-    public String send(@RequestParam(value = "a") Integer a, @RequestParam(value = "b") Integer b) {
-        LOGGER.info("==========send");
-        return "send sms:" + smsSendService.send(a,b);
+    public String send(String mobile, String content) {
+        return smsSendService.send(mobile,content);
     }
 
     @Override
-    public String helloWorld() {
+    public String hello() {
         LOGGER.info("==========hello");
         String serviceId = eurekaRegistration.getServiceId();
         LOGGER.info("/add, host:" + eurekaRegistration.getInstanceConfig().getHostName(true) + ":" + eurekaRegistration.getNonSecurePort() + ", service_id:" + serviceId);
