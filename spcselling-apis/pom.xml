@@ -11,8 +11,7 @@
     <name>spcselling-apis</name>
     <description>微服务</description>
     <modules>
-        <module>service-sys-email-api</module>
-        <module>service-sys-sms-api</module>
+        <module>service-sys-common-api</module>
     </modules>
 
     <dependencies>
