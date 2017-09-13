@@ -8,12 +8,7 @@ import service.sys.email.service.remote.SmsSendServiceClient;
 public class SmsSendServiceClientHystrix implements SmsSendServiceClient {
 
     @Override
-    public String send(@RequestParam Integer a, @RequestParam Integer b) {
-        return null;
-    }
-
-    @Override
-    public String helloWorld() {
-        return null;
+    public String send(@RequestParam(value = "a") Integer a, @RequestParam(value = "b") Integer b) {
+        return "";
     }
 }
