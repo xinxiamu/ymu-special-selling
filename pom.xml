@@ -94,13 +94,6 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
 
-        <!-- 热部署工具,不可放到父pom中，将会导致无法启动多个实例 -->
-       <!-- <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-        </dependency>-->
-
     </dependencies>
 
     <dependencyManagement>
@@ -208,11 +201,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--<configuration>
-                    <fork>
-                        true
-                    </fork>
-                </configuration>-->
             </plugin>
         </plugins>
     </build>

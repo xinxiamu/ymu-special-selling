@@ -3,9 +3,11 @@ package service.sys.common.controller;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RestController;
 import service.sys.common.api.SendEmailServiceApi;
 
+@RefreshScope
 @RestController
 public class SendEmailController implements SendEmailServiceApi {
 
@@ -18,6 +20,6 @@ public class SendEmailController implements SendEmailServiceApi {
 
     @Override
     public String sendEmail(String email, String content) {
-        return null;
+        return username;
     }
 }

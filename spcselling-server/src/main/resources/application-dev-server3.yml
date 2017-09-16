@@ -1,8 +1,0 @@
-server:
-  port: 1113
-eureka:
-  instance:
-    hostname: eureka-server3
-  client:
-    serviceUrl:
-      defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/ #做集群

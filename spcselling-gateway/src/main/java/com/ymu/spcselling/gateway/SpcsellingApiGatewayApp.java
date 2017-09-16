@@ -10,10 +10,10 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  */
 @EnableZuulProxy
 @SpringBootApplication
-public class SpcsellingAipGatewayApp {
+public class SpcsellingApiGatewayApp {
 
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(SpcsellingAipGatewayApp.class).run(args);
+		new SpringApplicationBuilder(SpcsellingApiGatewayApp.class).run(args);
 	}
 
 }

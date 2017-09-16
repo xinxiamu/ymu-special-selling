@@ -1,0 +1,42 @@
+server:
+  port: 8888
+
+---
+security:
+  user:
+    name: admin
+    password: 123456
+
+---
+#改变url访问路径
+#management:
+#  context-path: /admin
+
+---
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server1:1111/eureka/
+  instance:
+    prefer-ip-address: true
+#    health-check-url-path: /admin/health #查看健康运行状态
+#    status-page-url-path: /admin/info
+
+---
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/xinxiamu/ymu-special-selling.git
+          search-paths: spcselling-config/spcselling-config-repo
+
+---
+# spring-cloud-bus刷新配置
+spring:
+  rabbitmq:
+    host: 119.23.78.160
+    port: 5672
+    username: zmt
+    password: 701712
+    virtual-host: /

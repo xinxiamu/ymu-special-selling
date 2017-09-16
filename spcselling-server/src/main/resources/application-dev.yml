@@ -1,0 +1,8 @@
+server:
+  port: 1111
+eureka:
+  instance:
+    hostname: eureka-server1
+  client:
+    service-url:
+      defaultZone: http://eureka-server1:1111/eureka/
