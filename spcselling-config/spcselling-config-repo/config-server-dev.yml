@@ -1,9 +1,0 @@
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
-#  instance:
-#    prefer-ip-address: true
-
-server:
-  port: 8888 #更改端口，启动多个做负载达到高可用
