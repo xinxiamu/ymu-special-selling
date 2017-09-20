@@ -1,4 +1,4 @@
-package com.ymu.spcselling.infrastructure.idgenerator.bean;
+package service.sys.common.common;
 
 public class IdMeta {
     //开始时间截 (从2015-01-01起)

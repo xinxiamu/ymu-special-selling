@@ -1,9 +1,9 @@
-package service.sys.common.service.impl;
+package service.sys.common.service.local.impl;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-import service.sys.common.service.SendEmailService;
+import service.sys.common.service.local.SendEmailService;
 
 /**
  * Created by Administrator on 2017-09-01.

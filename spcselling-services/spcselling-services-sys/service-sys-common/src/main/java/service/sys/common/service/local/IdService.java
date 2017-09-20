@@ -1,12 +1,10 @@
-package com.ymu.spcselling.infrastructure.idgenerator.service;
+package service.sys.common.service.local;
 
-
-import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-@Service
 public interface IdService {
+
     long genId();
 
     ID expId(long id);

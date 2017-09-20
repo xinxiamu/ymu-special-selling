@@ -1,13 +1,11 @@
-package com.ymu.spcselling.infrastructure.idgenerator.service.impl;
+package service.sys.common.service.local.impl;
 
-import com.ymu.spcselling.infrastructure.idgenerator.bean.ID;
-import com.ymu.spcselling.infrastructure.idgenerator.bean.IdMeta;
 import com.ymu.spcselling.infrastructure.idgenerator.service.IdConverter;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
+//@Data
+//@NoArgsConstructor
 public class IdConverterImpl implements IdConverter {
     public long convert(ID id) {
         long ret = 0;

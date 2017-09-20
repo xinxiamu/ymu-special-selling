@@ -1,6 +1,5 @@
 package com.ymu.spcselling.infrastructure.idgenerator;
 
-import com.ymu.spcselling.infrastructure.idgenerator.bean.ID;
 import com.ymu.spcselling.infrastructure.idgenerator.service.IdConverter;
 import com.ymu.spcselling.infrastructure.idgenerator.service.impl.IdConverterImpl;
 import lombok.extern.slf4j.Slf4j;

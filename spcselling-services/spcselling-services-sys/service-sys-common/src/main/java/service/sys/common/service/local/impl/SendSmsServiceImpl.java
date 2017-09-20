@@ -1,7 +1,7 @@
-package service.sys.common.service.impl;
+package service.sys.common.service.local.impl;
 
 import org.springframework.stereotype.Service;
-import service.sys.common.service.SendSmsService;
+import service.sys.common.service.local.SendSmsService;
 
 /**
  * Created by Administrator on 2017-09-01.

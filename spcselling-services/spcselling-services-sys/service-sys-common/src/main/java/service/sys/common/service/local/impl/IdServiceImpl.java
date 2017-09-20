@@ -1,7 +1,5 @@
-package com.ymu.spcselling.infrastructure.idgenerator.service.impl;
+package service.sys.common.service.local.impl;
 
-import com.ymu.spcselling.infrastructure.idgenerator.bean.ID;
-import com.ymu.spcselling.infrastructure.idgenerator.bean.IdMeta;
 import com.ymu.spcselling.infrastructure.idgenerator.service.IdConverter;
 import com.ymu.spcselling.infrastructure.idgenerator.service.IdService;
 import lombok.Data;
