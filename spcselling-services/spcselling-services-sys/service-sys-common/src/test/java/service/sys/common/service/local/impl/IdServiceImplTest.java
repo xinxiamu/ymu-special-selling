@@ -1,13 +1,13 @@
-package com.ymu.spcselling.infrastructure.idgenerator;
+package service.sys.common.service.local.impl;
 
-import com.ymu.spcselling.infrastructure.idgenerator.service.IdService;
-import com.ymu.spcselling.infrastructure.idgenerator.service.impl.IdServiceImpl;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import com.ymu.spcselling.infrastructure.idgenerator.ID;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import service.sys.common.service.local.IdService;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,14 +16,10 @@ import java.util.Set;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 
-/**
- * Author:frankwoo(吴峻申) <br>
- * Date:2017/8/30 <br>
- * Time:下午11:04 <br>
- * Mail:frank_wjs@hotmail.com <br>
- */
-@Slf4j
 public class IdServiceImplTest {
+
+    private static final Logger log = LogManager.getLogger(IdServiceImplTest.class);
+
     private long id;
     private Set<Long> set;
     private IdService idService;
@@ -32,7 +28,7 @@ public class IdServiceImplTest {
     public void setUp() throws Exception {
         set = new HashSet<>();
         id = 352608540609069079L;
-        idService = new IdServiceImpl(0);
+        idService = new IdServiceImpl();
     }
 
     @After
@@ -46,27 +42,15 @@ public class IdServiceImplTest {
     public void expId() throws Exception {
         ID actual = idService.expId(id);
         Assert.assertThat(actual.getSequence(), equalTo(23L));
-        Assert.assertThat(actual.getWorker(), equalTo(92L));
+        Assert.assertThat(actual.getWorkerId(), equalTo(92L));
         Assert.assertThat(actual.getTimeStamp(), equalTo(84068427231L));
-    }
-
-    @Test
-    public void transTime() throws Exception {
-        Assert.assertThat(idService.transTime(84068427231L).getTime(), equalTo(84068427231L + IdMeta.START_TIME));
-    }
-
-    @Test
-    public void makeId() throws Exception {
-        long actual = idService.makeId(84068427231L, 92L, 23L);
-
-        Assert.assertThat(actual, equalTo(id));
     }
 
     @Test
     public void genId() throws Exception {
         List<IdService> idServices = new ArrayList<>();
         for (int j = 0; j < 1024; j++) {
-            IdService idService = new IdServiceImpl(j);
+            IdService idService = new IdServiceImpl();
             idServices.add(idService);
         }
 
@@ -95,22 +79,26 @@ public class IdServiceImplTest {
     private void loop(int idNum) throws Exception {
         long start = System.currentTimeMillis();
         for (int i = 0; i < idNum; i++) {
-            long id = idService.genId();
-            //log.info("{}", id);
+            long id = idService.genId(0,0);
+            log.info("{}", id);
         }
         long duration = System.currentTimeMillis() - start;
         log.info("total time:{}ms,speed is:{}/ms", duration, idNum / duration);
     }
 
-    @AllArgsConstructor
     static class IdWorkThread implements Runnable {
         private Set<Long> set;
         private IdService idService;
 
+        public IdWorkThread(Set<Long> set, IdService idService) {
+            this.set = set;
+            this.idService = idService;
+        }
+
         @Override
         public void run() {
             while (true) {
-                long id = idService.genId();
+                long id = idService.genId(0,0);
                 log.info("{}", id);
                 if (!set.add(id)) {
                     log.info("duplicate:{}", id);

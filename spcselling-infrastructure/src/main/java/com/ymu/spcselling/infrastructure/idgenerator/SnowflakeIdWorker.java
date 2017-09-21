@@ -1,6 +1,7 @@
-package com.ymu.spcselling.infrastructure.idgenerator.service;
+package com.ymu.spcselling.infrastructure.idgenerator;
 
-import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * <p>
@@ -18,10 +19,11 @@ import lombok.extern.slf4j.Slf4j;
  * Time:下午6:32 <br>
  * Mail:frank_wjs@hotmail.com <br>
  */
-@Slf4j
 public class SnowflakeIdWorker {
-    //开始时间截 (从2015-01-01起)
-    private static final long START_TIME = 1420041600000L;
+    private static final Logger log = LogManager.getLogger(SnowflakeIdWorker.class);
+
+    //开始时间截 (从2017-09-21起)
+    private static final long START_TIME = 1505960235603L;
     // 机器ID所占位数
     private static final long ID_BITS = 5L;
     //数据中心ID所占位数
@@ -40,6 +42,9 @@ public class SnowflakeIdWorker {
     private static final long TIMESTAMP_LEFT_SHIFT_BITS = SEQUENCE_BITS + ID_BITS + DATA_CENTER_ID_BITS;
     // Sequence掩码4095
     private static final long SEQUENCE_MASK = ~(-1L << SEQUENCE_BITS);
+    // 时间戳掩码2的41次方减1
+    public static final long TIMESTAMP_MASK = ~(-1L << 41L);
+
     // 上一毫秒数
     private static long lastTimestamp = -1L;
     //毫秒内Sequence(0~4095)
@@ -121,14 +126,60 @@ public class SnowflakeIdWorker {
         return System.currentTimeMillis();
     }
 
+
+    /**
+     * 构造ID对象生成id
+     * @param id
+     * @return
+     */
+    public static long convert(ID id) {
+        long ret = 0;
+
+        ret |= id.getSequence();
+
+        ret |= id.getWorkerId() << ID_SHIFT_BITS;
+
+        ret |= id.getDataCenterId() << DATA_CENTER_ID_SHIFT_BITS;
+
+        ret |= id.getTimeStamp() << TIMESTAMP_LEFT_SHIFT_BITS;
+
+        return ret;
+    }
+
+    /**
+     * 解析生成的id
+     * @param id
+     * @return 返回ID对象
+     */
+    public static ID convert(long id) {
+        ID ret = new ID();
+
+        ret.setSequence(id & SEQUENCE_MASK);
+
+        ret.setWorkerId((id >>> ID_SHIFT_BITS) & MAX_ID);
+
+        ret.setDataCenterId((id >>> DATA_CENTER_ID_SHIFT_BITS) & MAX_DATA_CENTER_ID);
+
+        ret.setTimeStamp((id >>> TIMESTAMP_LEFT_SHIFT_BITS) & TIMESTAMP_MASK);
+
+        return ret;
+    }
+
     //==============================Test=============================================
     /** 测试 */
-    /*public static void main(String[] args) {
-        SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
-        for (int i = 0; i < 1000; i++) {
+    public static void main(String[] args) {
+        SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 1);
+       /* for (int i = 0; i < 1000; i++) {
             long id = idWorker.nextId();
             System.out.println(Long.toBinaryString(id));
             System.out.println(id);
+        }*/
+
+        for (int i = 0; i < 1000; i++) {
+            long id = idWorker.nextId();
+            System.out.print("===id:" + id);
+            ID ID = convert(id);
+            System.out.println("====ID:" + ID.getTimeStamp() + "::" + ID.getDataCenterId() + "::" + ID.getWorkerId() + "::" + ID.getSequence());
         }
-    }*/
+    }
 }
