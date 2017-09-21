@@ -55,4 +55,14 @@ public class ID implements Serializable {
     public void setSequence(long sequence) {
         this.sequence = sequence;
     }
+
+    @Override
+    public String toString() {
+        return "ID{" +
+                "timeStamp=" + timeStamp +
+                ", dataCenterId=" + dataCenterId +
+                ", workerId=" + workerId +
+                ", sequence=" + sequence +
+                '}';
+    }
 }

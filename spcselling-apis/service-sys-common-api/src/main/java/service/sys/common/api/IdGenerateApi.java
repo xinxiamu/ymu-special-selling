@@ -1,9 +1,11 @@
 package service.sys.common.api;
 
 import com.ymu.spcselling.infrastructure.constants.SpcsConstants;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.ymu.spcselling.infrastructure.idgenerator.ID;
+import org.springframework.web.bind.annotation.*;
+import service.sys.common.vo.req.VIdGenReq;
+
+import javax.validation.Valid;
 
 /**
  * 分布式id生成服务。
@@ -11,6 +13,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(SpcsConstants.API_VERSION + "/id")
 public interface IdGenerateApi {
 
-    @GetMapping("/gen")
-    long genId(@RequestParam(value = "workerId") long workerId);
+    /**
+     * 生成分布式id。
+     * @param vIdGenReq
+     * @return
+     */
+    @PostMapping("/gen")
+    long genId(@RequestBody @Valid VIdGenReq vIdGenReq);
+
+    /**
+     * 解析分布式id。
+     * @param id
+     * @return
+     */
+    @GetMapping("/expId")
+    public ID expId(@RequestParam(value = "id") long id);
 }
