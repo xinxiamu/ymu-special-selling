@@ -4,7 +4,7 @@
 			   packages="org.apache.logging.log4j.test">
 	<Properties>
 		<property name="LOG_HOME">logs</property>
-		<property name="FILE_NAME">email-log</property>
+		<property name="FILE_NAME">service-sys-common-log</property>
 	</Properties>
 	<ThresholdFilter level="trace" />
 

@@ -1,15 +1,15 @@
 {
-    "name": "apidoc-example",
-    "version": "0.3.0",
-    "description": "公共api",
-    "title": "Custom apiDoc browser title",
-    "url": "https://api.ymu.spcs",
+    "name": "系统公共服务接口",
+    "version": "1.0.0",
+    "description": "service-sys-common",
+    "title": "公共服务api",
+    "url": "http://api.ymu.spcs",
     "header": {
-        "title": "header",
+        "title": "",
         "filename": "header.md"
     },
     "footer": {
-        "title": "footer",
+        "title": "",
         "filename": "footer.md"
     },
     "order": [
