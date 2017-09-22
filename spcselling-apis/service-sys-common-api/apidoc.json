@@ -1,0 +1,23 @@
+{
+    "name": "apidoc-example",
+    "version": "0.3.0",
+    "description": "公共api",
+    "title": "Custom apiDoc browser title",
+    "url": "https://api.ymu.spcs",
+    "header": {
+        "title": "header",
+        "filename": "header.md"
+    },
+    "footer": {
+        "title": "footer",
+        "filename": "footer.md"
+    },
+    "order": [
+        "GetUser",
+        "PostUser"
+    ],
+    "template": {
+        "withCompare": true,
+        "withGenerator": true
+    }
+}
