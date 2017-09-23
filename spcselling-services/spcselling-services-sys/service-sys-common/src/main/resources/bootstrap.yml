@@ -1,4 +1,9 @@
 spring:
+  application:
+    name: service-sys-common
+
+---
+spring:
   cloud:
     config: #配置中心
       name: service-sys-common
@@ -8,3 +13,5 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+      username: admin
+      password: 123456
