@@ -24,7 +24,7 @@ eureka: #服务注册
     hostname: service-sys-common
   client:
     service-url:
-      defaultZone: http://eureka-server1:1111/eureka/
+      defaultZone: http://localhost:1111/eureka/
 
 ---
 logging:
