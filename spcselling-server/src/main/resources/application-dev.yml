@@ -2,7 +2,10 @@ server:
   port: 1111
 eureka:
   instance:
-    hostname: eureka-server1
+    hostname: localhost
   client:
     service-url:
       defaultZone: http://eureka-server1:1111/eureka/
+    #不注册自己
+    fetch-registry: false
+    register-with-eureka: false
