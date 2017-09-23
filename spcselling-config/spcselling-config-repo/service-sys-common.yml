@@ -1,7 +1,2 @@
-spring:
-  application:
-    name: service-sys-common
-
----
 encrypt:
   fail-on-error: false

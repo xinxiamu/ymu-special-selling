@@ -28,7 +28,7 @@ eureka: #服务注册
 
 ---
 logging:
-  config: classpath:dev/log4j2.xml
+  config: classpath:/dev/log4j2.xml
 
 
 #spring:
