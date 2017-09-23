@@ -1,3 +1,31 @@
-user:
-  username: git-prod
-  sex: 男-prod
+server:
+  port: 8001
+
+---
+spring:
+  cloud:
+    config:
+      username: admin
+      password: 123456
+
+---
+spring:
+  rabbitmq:
+    host: 119.23.78.160
+    port: 5672
+    username: zmt
+    password: 701712
+    virtual-host: /
+
+---
+eureka: #服务注册
+  instance:
+#    prefer-ip-address: true
+    hostname: service-sys-common
+  client:
+    service-url:
+      defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
+
+---
+logging:
+  config: classpath:prod/log4j2.xml

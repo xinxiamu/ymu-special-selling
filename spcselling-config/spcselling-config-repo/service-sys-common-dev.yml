@@ -1,14 +1,37 @@
-user:
-  username: 木木
-  sex: 男-dev
+server:
+  port: 8001
 
-info:
-  from: git
-  name: syssms
-  profile: dev
-  pwd: '{cipher}4266d0261699d981c0e3e88c90b718112176d893f0bd75d063ebae8ab78f0933c4ea'
-
+---
 spring:
-  datasource:
-    username: dbuser
-    password: '{cipher}1920AQA6re35UlLsM+a0z4LUcJVMQzA5+jU1mIXnZvLZUrO06jh1jTBfcqVQFCBTnKRfST0+PLGUInSh01Yyy50gXJhLz73dRk6PHFq8dGFng8WywpXJYl4eNp4o/ZHXWyzPIuN2lLQzvFvlSxrjnyqyG4D8c4aWEJ2XDZ/CsOyxdPXja1EDW2NkPjSAyEEtyV+NzUlZzgEzE7NrqSsTW658HSS/3S3dl8RnXOp3EKEkNxRivyyAAMY/FPHr+omuQYSjdeUlamoh/u+lg71Ct1fm+2Y2IRnvhID0ZGNP0WVgAK0kPFwFs+MO1BBSrM/ifUNlp92YNDFjDklKV8rxo0iCpJ2zDnm6lt0rEdb5v9bhxwb9JaHjkNUQ+GKcPeVffyRbvPw='
+  cloud:
+    config:
+      username: admin
+      password: 123456
+
+---
+spring:
+  rabbitmq:
+    host: 119.23.78.160
+    port: 5672
+    username: zmt
+    password: 701712
+    virtual-host: /
+
+---
+eureka: #服务注册
+  instance:
+#    prefer-ip-address: true
+    hostname: service-sys-common
+  client:
+    service-url:
+      defaultZone: http://eureka-server1:1111/eureka/
+
+---
+logging:
+  config: classpath:dev/log4j2.xml
+
+
+#spring:
+#  datasource:
+#    username: dbuser
+#    password: '{cipher}1920AQA6re35UlLsM+a0z4LUcJVMQzA5+jU1mIXnZvLZUrO06jh1jTBfcqVQFCBTnKRfST0+PLGUInSh01Yyy50gXJhLz73dRk6PHFq8dGFng8WywpXJYl4eNp4o/ZHXWyzPIuN2lLQzvFvlSxrjnyqyG4D8c4aWEJ2XDZ/CsOyxdPXja1EDW2NkPjSAyEEtyV+NzUlZzgEzE7NrqSsTW658HSS/3S3dl8RnXOp3EKEkNxRivyyAAMY/FPHr+omuQYSjdeUlamoh/u+lg71Ct1fm+2Y2IRnvhID0ZGNP0WVgAK0kPFwFs+MO1BBSrM/ifUNlp92YNDFjDklKV8rxo0iCpJ2zDnm6lt0rEdb5v9bhxwb9JaHjkNUQ+GKcPeVffyRbvPw='
