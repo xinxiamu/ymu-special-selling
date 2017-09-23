@@ -5,7 +5,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <!--<version>2.0.0.M3</version>-->
-        <version>1.5.6.RELEASE</version>
+        <version>1.5.7.RELEASE</version>
     </parent>
     <groupId>com.ymu.spcselling</groupId>
     <artifactId>ymu-special-selling</artifactId>
@@ -63,6 +63,8 @@
         <module>spcselling-gateway</module>
         <module>spcselling-server</module>
         <module>spcselling-apis</module>
+        <module>spsselling-entity</module>
+        <module>spsselling-entity/entity-constants</module>
     </modules>
 
     <dependencies>
@@ -101,7 +103,19 @@
 
             <dependency>
                 <groupId>com.ymu.spcselling</groupId>
+                <artifactId>spcselling-infrastructure</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ymu.spcselling</groupId>
                 <artifactId>service-sys-common-api</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ymu.spcselling</groupId>
+                <artifactId>entity-constants</artifactId>
                 <version>1.0.0</version>
             </dependency>
 
