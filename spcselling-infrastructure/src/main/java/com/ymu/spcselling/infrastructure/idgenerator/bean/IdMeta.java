@@ -1,11 +1,5 @@
 package com.ymu.spcselling.infrastructure.idgenerator.bean;
 
-/**
- * Author:frankwoo(吴峻申) <br>
- * Date:2017/8/30 <br>
- * Time:下午11:44 <br>
- * Mail:frank_wjs@hotmail.com <br>
- */
 public class IdMeta {
     //开始时间截 (从2015-01-01起)
     public static final long START_TIME = 1420041600000L;
