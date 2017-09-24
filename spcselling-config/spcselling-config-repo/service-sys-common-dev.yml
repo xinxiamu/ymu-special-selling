@@ -18,13 +18,13 @@ spring:
     virtual-host: /
 
 ---
-eureka: #服务注册
-  instance:
-#    prefer-ip-address: true
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://localhost:1111/eureka/
+#eureka: #服务注册
+#  instance:
+##    prefer-ip-address: true
+#    hostname: localhost
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:1111/eureka/
 
 ---
 logging:
