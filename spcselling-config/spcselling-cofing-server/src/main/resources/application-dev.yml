@@ -14,11 +14,12 @@ security:
 
 ---
 eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:1111/eureka/
   instance:
     prefer-ip-address: true
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:1111/eureka/
 #    health-check-url-path: /admin/health #查看健康运行状态
 #    status-page-url-path: /admin/info
 

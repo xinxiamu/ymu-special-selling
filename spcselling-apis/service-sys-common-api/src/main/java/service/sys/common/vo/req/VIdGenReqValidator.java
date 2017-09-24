@@ -1,6 +1,7 @@
 package service.sys.common.vo.req;
 
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 public class VIdGenReqValidator implements Validator {
@@ -12,6 +13,7 @@ public class VIdGenReqValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
+        ValidationUtils.rejectIfEmpty(errors, "name", "name.empty");
         VIdGenReq vIdGenReq = (VIdGenReq) o;
         if (vIdGenReq.getDataCenterId() < 0) {
 

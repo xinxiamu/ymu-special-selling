@@ -6,7 +6,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import service.sys.common.api.IdGenerateApi;
 import service.sys.common.service.local.IdService;
@@ -24,21 +27,23 @@ public class IdGenerateController extends AbstractBaseController implements IdGe
         binder.addValidators(new VIdGenReqValidator());
     }
 
+
     @Autowired
     private IdService idService;
 
     @Override
-    public long genId(VIdGenReq vIdGenReq) {
+    public long genId(@RequestBody @Validated VIdGenReq vIdGenReq) {
         long id = idService.genId(vIdGenReq.getDataCenterId(), vIdGenReq.getWorkerId());
         LOGGER.debug("genId:" + id);
         return id;
     }
 
     @Override
-    public ID expId(long id) {
+    public ID expId(@RequestParam(value = "id") long id) {
         ID ID = idService.expId(id);
         LOGGER.debug("ID=", ID.toString());
         return ID;
     }
+
 
 }

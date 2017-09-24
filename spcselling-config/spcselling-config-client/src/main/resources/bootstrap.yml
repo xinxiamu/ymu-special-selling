@@ -1,9 +1,9 @@
 spring:
   application:
-    name: sysemail
+    name: config-client
   cloud:
     config:
-      name: sysemail
+      name: service-sys-common
 
 ---
 server:
@@ -13,7 +13,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
+      defaultZone: http://localhost:1111/eureka/
   instance:
     prefer-ip-address: true #在eureka控制台打开是ip
 #    hostname: client #域名
@@ -28,3 +28,5 @@ spring:
       profile: dev
       label: master
       fail-fast: true
+      username: admin
+      password: 123456
