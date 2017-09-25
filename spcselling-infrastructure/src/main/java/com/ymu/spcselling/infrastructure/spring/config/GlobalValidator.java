@@ -1,4 +1,4 @@
-package service.sys.common.config;
+package com.ymu.spcselling.infrastructure.spring.config;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

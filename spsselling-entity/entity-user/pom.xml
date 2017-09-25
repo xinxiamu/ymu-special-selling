@@ -12,6 +12,13 @@
     <packaging>jar</packaging>
     <name>entity-user</name>
     <description>平台会员实体</description>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.ymu.spcselling</groupId>
+            <artifactId>spcselling-infrastructure</artifactId>
+        </dependency>
+    </dependencies>
 
 
 </project>

@@ -1,5 +1,6 @@
 package service.sys.common.config;
 
+import com.ymu.spcselling.infrastructure.spring.config.GlobalValidator;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;

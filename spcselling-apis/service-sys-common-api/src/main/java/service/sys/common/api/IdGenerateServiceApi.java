@@ -10,7 +10,7 @@ import service.sys.common.vo.req.VIdGenReq;
  * 分布式id生成服务。
  */
 @RequestMapping(SpcsConstants.API_VERSION + "/id")
-public interface IdGenerateApi {
+public interface IdGenerateServiceApi {
 
     /**
      * 生成分布式id

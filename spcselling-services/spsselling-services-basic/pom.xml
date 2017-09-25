@@ -9,8 +9,9 @@
   <packaging>pom</packaging>
   <name>spsselling-services-basic</name>
   <description>业务基础支撑服务。这里的服务可以互相依赖调用。每个服务一个数据库,物理隔离。</description>
-  <!--<modules>
-  	<module>spsselling-entity</module>
-  	<module>service-basic-usercentre</module>
-  </modules>-->
+
+  <modules>
+    <module>service-basic-user</module>
+  </modules>
+
 </project>

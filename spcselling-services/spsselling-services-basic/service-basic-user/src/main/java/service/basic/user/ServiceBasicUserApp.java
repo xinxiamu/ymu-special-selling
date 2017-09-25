@@ -1,12 +1,12 @@
-package com.ymu.spcselling.entity.user;
+package service.basic.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EntityUserApp {
+public class ServiceBasicUserApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EntityUserApp.class, args);
+		SpringApplication.run(ServiceBasicUserApp.class, args);
 	}
 }

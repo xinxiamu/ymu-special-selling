@@ -11,14 +11,14 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import service.sys.common.api.IdGenerateApi;
+import service.sys.common.api.IdGenerateServiceApi;
 import service.sys.common.service.local.IdService;
 import service.sys.common.vo.req.VIdGenReq;
 import service.sys.common.vo.req.VIdGenReqValidator;
 
 @RefreshScope
 @RestController
-public class IdGenerateController extends AbstractBaseController implements IdGenerateApi {
+public class IdGenerateController extends AbstractBaseController implements IdGenerateServiceApi {
 
     private static final Logger LOGGER = LogManager.getLogger(SendEmailController.class);
 

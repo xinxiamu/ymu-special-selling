@@ -6,9 +6,9 @@
         <artifactId>spcselling-apis</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>service-sys-common-api</artifactId>
-    <name>service-sys-common-api</name>
+    <artifactId>service-basic-user-api</artifactId>
+    <name>service-basic-user-api</name>
     <packaging>jar</packaging>
-    <description>系统公共服务api</description>
+    <description>基础服务用户相关api</description>
 
 </project>

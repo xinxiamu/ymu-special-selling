@@ -12,6 +12,7 @@
     <description>微服务</description>
     <modules>
         <module>service-sys-common-api</module>
+        <module>service-basic-user-api</module>
     </modules>
 
     <dependencies>

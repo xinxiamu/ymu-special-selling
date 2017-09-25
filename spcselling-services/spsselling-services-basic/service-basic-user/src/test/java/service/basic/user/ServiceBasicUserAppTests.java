@@ -1,4 +1,4 @@
-package com.ymu.spcselling.entity.user;
+package service.basic.user;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EntityUserAppTests {
+public class ServiceBasicUserAppTests {
 
 	@Test
 	public void contextLoads() {
