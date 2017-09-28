@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Configuration
 @EnableWebMvc
-public class WebConfiguration extends WebMvcConfigurerAdapter {
+public class MWebMvcConfiguration extends WebMvcConfigurerAdapter {
 
     //定义自己的消息转换机制
     @Override
@@ -47,7 +47,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
      */
     @Override
     public Validator getValidator() {
-//        return super.getValidator();
          return new GlobalValidator();
     }
+
 }
