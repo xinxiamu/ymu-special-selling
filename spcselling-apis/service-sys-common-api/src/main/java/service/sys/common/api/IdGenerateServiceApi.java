@@ -1,6 +1,5 @@
 package service.sys.common.api;
 
-import com.ymu.spcselling.infrastructure.constants.SpcsConstants;
 import com.ymu.spcselling.infrastructure.idgenerator.ID;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +8,7 @@ import service.sys.common.vo.req.VIdGenReq;
 /**
  * 分布式id生成服务。
  */
-@RequestMapping(SpcsConstants.API_VERSION + "/id")
+@RequestMapping("/id")
 public interface IdGenerateServiceApi {
 
     /**

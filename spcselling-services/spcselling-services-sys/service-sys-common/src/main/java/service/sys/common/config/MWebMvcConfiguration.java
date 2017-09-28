@@ -1,11 +1,9 @@
 package service.sys.common.config;
 
 import com.ymu.spcselling.infrastructure.spring.config.GlobalValidator;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.validation.Validator;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.List;
@@ -13,8 +11,8 @@ import java.util.List;
 /**
  * 定义消息转换器
  */
-@Configuration
-@EnableWebMvc
+//@Configuration
+//@EnableWebMvc
 public class MWebMvcConfiguration extends WebMvcConfigurerAdapter {
 
     //定义自己的消息转换机制
