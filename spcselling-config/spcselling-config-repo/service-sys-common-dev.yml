@@ -27,5 +27,5 @@ spring:
 #      defaultZone: http://localhost:1111/eureka/
 
 ---
-logging:
-  config: classpath:dev/log4j2.xml
+#logging:
+#  config: classpath:dev/log4j2.xml
