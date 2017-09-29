@@ -2,12 +2,15 @@ package service.sys.common.controller;
 
 import com.ymu.spcselling.infrastructure.base.AbstractBaseController;
 import com.ymu.spcselling.infrastructure.idgenerator.ID;
+import com.ymu.spcselling.infrastructure.spring.mvc.api.ApiRespResultVO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +18,9 @@ import service.sys.common.api.IdGenerateServiceApi;
 import service.sys.common.service.local.IdService;
 import service.sys.common.vo.req.VIdGenReq;
 import service.sys.common.vo.req.VIdGenReqValidator;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RefreshScope
 @RestController
@@ -39,10 +45,10 @@ public class IdGenerateController extends AbstractBaseController implements IdGe
     }
 
     @Override
-    public ID expId(@RequestParam(value = "id") long id) {
+    public ApiRespResultVO expId(@PathVariable(name = "id") long id) {
         ID ID = idService.expId(id);
         LOGGER.debug("ID=", ID.toString());
-        return ID;
+        return  ApiRespResultVO.getInstance(ID, HttpStatus.CREATED).addLink(linkTo(methodOn(IdGenerateController.class).expId(id)).withSelfRel());
     }
 
 

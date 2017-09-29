@@ -1,6 +1,7 @@
 package service.sys.common.api;
 
 import com.ymu.spcselling.infrastructure.idgenerator.ID;
+import com.ymu.spcselling.infrastructure.spring.mvc.api.ApiRespResultVO;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import service.sys.common.vo.req.VIdGenReq;
@@ -89,9 +90,9 @@ public interface IdGenerateServiceApi {
      *       "error": "NoAccessRight"
      *     }
      *
-     * @apiSampleRequest http://localhost/v1/id/expId
+     * @apiSampleRequest http://localhost:8001/v1/id/expId
      *
      */
-    @GetMapping("/expId")
-    ID expId(@RequestParam(value = "id") long id);
+    @GetMapping("/{id}")
+    ApiRespResultVO expId(@PathVariable(name = "id") long id);
 }
