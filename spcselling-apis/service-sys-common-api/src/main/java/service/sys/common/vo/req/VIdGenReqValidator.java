@@ -13,10 +13,10 @@ public class VIdGenReqValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        ValidationUtils.rejectIfEmpty(errors, "name", "name.empty");
+//        ValidationUtils.rejectIfEmpty(errors, "name", "name.empty");
         VIdGenReq vIdGenReq = (VIdGenReq) o;
         if (vIdGenReq.getDataCenterId() < 0) {
-
+            ValidationUtils.rejectIfEmpty(errors,"dataCenterId","1001","0");
         } else if (vIdGenReq.getDataCenterId() > 31) {
 
         }

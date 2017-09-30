@@ -23,3 +23,7 @@ eureka: #服务注册
   client:
     service-url:
       defaultZone: http://localhost:1111/eureka/
+server:
+  port: 9001
+
+

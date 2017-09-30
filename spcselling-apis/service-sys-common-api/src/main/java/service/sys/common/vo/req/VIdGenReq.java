@@ -1,13 +1,13 @@
 package service.sys.common.vo.req;
 
+import com.ymu.spcselling.infrastructure.base.VBaseReq;
+import com.ymu.spcselling.infrastructure.base.VBaseResp;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public class VIdGenReq {
-
-    @NotNull
-    private String name;
+public class VIdGenReq extends VBaseReq {
 
     /**
      * 数据中心id
@@ -22,14 +22,6 @@ public class VIdGenReq {
     @Min(0)
     @Max(31)
     private long workerId;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public long getDataCenterId() {
         return dataCenterId;

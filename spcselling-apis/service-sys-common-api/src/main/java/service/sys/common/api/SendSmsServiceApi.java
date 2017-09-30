@@ -1,15 +1,26 @@
 package service.sys.common.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import com.ymu.spcselling.infrastructure.spring.mvc.api.ApiRespResultVO;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import service.sys.common.vo.req.VSmsReq;
+
+import javax.validation.Valid;
 
 /**
+ * 短信服务。
  * Created by Administrator on 2017-09-08.
  */
+@RequestMapping("/sms")
 public interface SendSmsServiceApi {
 
-    @RequestMapping(value = "/sendSms", method = RequestMethod.GET)
-    String sendSms(@RequestParam(value = "mobile") String mobile, @RequestParam(value = "content") String content);
+    /**
+     * 发送短信。
+     * @param vSmsReq
+     * @return
+     */
+    @PostMapping
+    ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq,BindingResult result);
 }

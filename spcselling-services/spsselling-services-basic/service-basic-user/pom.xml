@@ -19,6 +19,10 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>com.ymu.spcselling</groupId>
+            <artifactId>spcselling-infrastructure</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
