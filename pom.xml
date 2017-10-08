@@ -30,7 +30,7 @@
         <kaptcha.version>0.0.9</kaptcha.version>
         <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
         <apache.common.beanutils>1.9.3</apache.common.beanutils>
-        <spring.cloud.version>Dalston.SR3</spring.cloud.version>
+        <spring.cloud.version>Dalston.RELEASE</spring.cloud.version>
         <!--<spring.cloud.version>Finchley.M2</spring.cloud.version>-->
     </properties>
 
