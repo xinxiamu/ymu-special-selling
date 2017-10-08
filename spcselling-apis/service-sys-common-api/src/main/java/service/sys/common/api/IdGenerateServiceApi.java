@@ -1,6 +1,5 @@
 package service.sys.common.api;
 
-import com.ymu.spcselling.infrastructure.idgenerator.ID;
 import com.ymu.spcselling.infrastructure.spring.mvc.api.ApiRespResultVO;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -54,7 +53,7 @@ public interface IdGenerateServiceApi {
      * @apiSampleRequest url
      *
      */
-    @PostMapping("/gen")
+    @PostMapping("/")
     long genId(@RequestBody @Validated VIdGenReq vIdGenReq);
 
     /**
