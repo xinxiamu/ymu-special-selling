@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.hateoas.Link;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
@@ -48,7 +49,7 @@ public class IdGenerateController extends AbstractBaseController implements IdGe
     public ApiRespResultVO expId(@PathVariable(name = "id") long id) {
         ID ID = idService.expId(id);
         LOGGER.debug("ID=", ID.toString());
-        return  ApiRespResultVO.getInstance(ID, HttpStatus.CREATED).addLink(linkTo(methodOn(IdGenerateController.class).expId(id)).withSelfRel());
+        return ApiRespResultVO.getInstance(ID, HttpStatus.CREATED).addLink(linkTo(methodOn(IdGenerateController.class).expId(id)).withSelfRel()).addLink(new Link("http://baidu.com").withRel("baidu"));
     }
 
 

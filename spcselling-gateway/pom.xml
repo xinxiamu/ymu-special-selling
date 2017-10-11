@@ -12,6 +12,7 @@
 	<description>统一网关</description>
 
 	<dependencies>
+		<!--引入网关组件-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zuul</artifactId>

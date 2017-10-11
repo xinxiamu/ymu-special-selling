@@ -5,12 +5,13 @@ spring:
 ---
 eureka:
   instance:
-    hostname: api.spcs.com
+    hostname: api.spcs.com #域名,开发环境在host中配置
   client:
     service-url:
-       defaultZone: http://localhost:1111/eureka/
+       defaultZone: http://localhost:1111/eureka/ #注册发现服务
 
 ---
+#从配置中心读取配置
 spring:
   cloud:
     config:

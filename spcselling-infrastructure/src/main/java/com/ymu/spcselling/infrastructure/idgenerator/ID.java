@@ -2,7 +2,7 @@ package com.ymu.spcselling.infrastructure.idgenerator;
 
 import java.io.Serializable;
 
-public class ID implements Serializable {
+public class ID  implements Serializable {
 
     /**
      * 时间戳。41位的时间序列
