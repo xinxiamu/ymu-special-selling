@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: 80
 
 ---
 #eureka:
@@ -16,4 +16,4 @@ zuul:
       #当stripPrefix=true的时候 （http://127.0.0.1:8181/api/sms/hello -> http://192.168.1.100:8080/hello）
       #当stripPrefix=false的时候（http://127.0.0.1:8181/api/hello -> http://192.168.1.100:8080/api/sms/hello
       stripPrefix: true
-      service-id: service-sys-common
+      service-id: service-sys-common #服务id
