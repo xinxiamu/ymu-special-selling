@@ -8,3 +8,23 @@ eureka:
   client:
     service-url:
        defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
+
+#路由配置
+zuul:
+  routes:
+    service-sys-common:
+      path: /common/**
+      #当stripPrefix=true的时候 （http://127.0.0.1:8181/api/sms/hello -> http://192.168.1.100:8080/hello）
+      #当stripPrefix=false的时候（http://127.0.0.1:8181/api/hello -> http://192.168.1.100:8080/api/sms/hello
+      stripPrefix: true
+      service-id: service-sys-common
+
+
+#---- 负载均衡 ----#
+ribbon:
+  eureka:
+    enabled: false
+
+service-sys-common:
+  ribbon:
+    listOfServers: http://service-sys-common:8001,http://service-sys-common:8002
