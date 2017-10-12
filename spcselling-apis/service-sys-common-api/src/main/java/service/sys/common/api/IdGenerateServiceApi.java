@@ -53,7 +53,7 @@ public interface IdGenerateServiceApi {
      * @apiSampleRequest url
      *
      */
-    @PostMapping("/")
+    @PostMapping
     long genId(@RequestBody @Validated VIdGenReq vIdGenReq);
 
     /**

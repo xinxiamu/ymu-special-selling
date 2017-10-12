@@ -1,17 +1,10 @@
 package service.sys.common.config;
 
-import com.ymu.spcselling.infrastructure.spring.config.GlobalValidator;
 import com.ymu.spcselling.infrastructure.spring.mvc.api.CustomRequestMappingHandlerMapping;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.core.annotation.Order;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.stereotype.Component;
-import org.springframework.validation.MessageCodeFormatter;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.support.ConfigurableWebBindingInitializer;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -41,7 +34,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
      */
     @Override
     protected Validator getValidator() {
-//        return new GlobalValidator(); //设置自己的全局表单校验器后，hibernate-valid的将时效
+//        return new GlobalValidator(); //设置自己的全局表单校验器后，hibernate-valid的将失效
         return super.getValidator();
     }
 

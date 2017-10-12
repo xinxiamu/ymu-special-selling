@@ -3,44 +3,40 @@ spring:
     name: api-gateway
 
 ---
-server:
-  port: 9000
-
----
 eureka:
   instance:
-    hostname: api-gateway
+    hostname: api.spcs.com
   client:
     service-url:
-       defaultZone: http://eureka-server1:1111/eureka/,http://eureka-server2:1112/eureka/,http://eureka-server3:1113/eureka/
+       defaultZone: http://localhost:1111/eureka/
 
 ---
 spring:
   cloud:
     config:
-      name: service-sys-common
+      name: api-gateway
       profile: dev
       label: master
       fail-fast: true
       discovery:
         enabled: true
         service-id: config-server
-      username: mutou
-      password: 701712
+      username: admin
+      password: 123456
 
 ---
-encrypt:
-  key: foo
+#encrypt:
+#  key: foo
 
 ---
-zuul:
-  routes:
-    api-sms:
-      path: /api/common/**
-      #当stripPrefix=true的时候 （http://127.0.0.1:8181/api/sms/hello -> http://192.168.1.100:8080/hello）
-      #当stripPrefix=false的时候（http://127.0.0.1:8181/api/hello -> http://192.168.1.100:8080/api/sms/hello
-      stripPrefix: true
-      service-id: service-sys-common
+#zuul:
+#  routes:
+#    api-service-sys-common:
+#      path: /common/**
+#      #当stripPrefix=true的时候 （http://127.0.0.1:8181/api/sms/hello -> http://192.168.1.100:8080/hello）
+#      #当stripPrefix=false的时候（http://127.0.0.1:8181/api/hello -> http://192.168.1.100:8080/api/sms/hello
+#      stripPrefix: true
+#      service-id: service-sys-common
 
 #ribbon:
 #  eureka:
