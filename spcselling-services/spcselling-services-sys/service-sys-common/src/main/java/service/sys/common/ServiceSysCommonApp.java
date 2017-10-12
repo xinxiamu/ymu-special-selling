@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @SpringBootApplication
-@ComponentScan(value = {"service.sys.common","com.ymu.spcselling.infrastructure.spring"})
+//@ComponentScan(value = {"service.sys.common","com.ymu.spcselling.infrastructure.spring"})
 public class ServiceSysCommonApp extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

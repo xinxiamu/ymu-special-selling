@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
  * @author Administrator
  * 
  */
-@Component
 public class SpringBeanFactory implements BeanFactoryAware {
 
 	private static BeanFactory beanFactory;

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 /**
  * 用于便捷的获取Spring上下文
  */
-@Component
 public class AppContext implements ApplicationContextAware {
 
     private static ApplicationContext appContext;
@@ -21,5 +20,7 @@ public class AppContext implements ApplicationContextAware {
     public static ApplicationContext getApplicationContext() {
         return appContext;
     }
+
+
 	
 }
