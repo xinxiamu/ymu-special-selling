@@ -80,6 +80,7 @@ public class UserEntity extends BaseEntity {
     /**
      * 实际是一对一关系。不用OneToOne是为了避免n+1问题。
      */
+    @Column(unique = true)
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     UserDetailsEntity userDetailsEntity;
 

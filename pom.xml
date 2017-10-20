@@ -32,6 +32,7 @@
         <apache.common.beanutils>1.9.3</apache.common.beanutils>
         <spring.cloud.version>Dalston.RELEASE</spring.cloud.version>
         <!--<spring.cloud.version>Finchley.M2</spring.cloud.version>-->
+        <log4jdbc.version>1.16</log4jdbc.version>
     </properties>
 
     <!-- 阿里云maven仓库 -->
@@ -211,6 +212,13 @@
                 <artifactId>lombok</artifactId>
                 <version>1.16.18</version>
                 <optional>true</optional>
+            </dependency>
+
+            <!-- log4jdbc,打印sql语句 -->
+            <dependency>
+                <groupId>org.bgee.log4jdbc-log4j2</groupId>
+                <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+                <version>${log4jdbc.version}</version>
             </dependency>
 
         </dependencies>
