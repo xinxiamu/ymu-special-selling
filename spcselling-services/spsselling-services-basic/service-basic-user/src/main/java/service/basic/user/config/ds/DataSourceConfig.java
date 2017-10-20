@@ -42,7 +42,7 @@ public class DataSourceConfig {
     @Value("${spring.datasource.druid.spcs-user-slave.password}")
     private String spcsUserSlavePwd;
 
-    @Value("${spring.datasource.druid.mysql.driver-class-name}")
+    @Value("${spring.datasource.driver.mysql.driver-class-name}")
     private String driverClassName;
 
     @Value("${spring.datasource.druid.filters}")
