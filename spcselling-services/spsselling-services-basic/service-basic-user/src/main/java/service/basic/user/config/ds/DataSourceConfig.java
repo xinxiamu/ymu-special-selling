@@ -1,10 +1,5 @@
 package service.basic.user.config.ds;
 
-import java.sql.SQLException;
-import java.util.*;
-
-import javax.sql.DataSource;
-
 import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.filter.logging.Log4j2Filter;
 import com.alibaba.druid.pool.DruidDataSource;
@@ -17,6 +12,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
+
+import javax.sql.DataSource;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -35,12 +37,38 @@ public class DataSourceConfig {
     @Value("${spring.datasource.druid.spcs-user.password}")
     private String spcsUserPwd;
 
+    @Value("${spring.datasource.druid.spcs-user.initialSize}")
+    private int initialSize;
+    @Value("${spring.datasource.druid.spcs-user.minIdle}")
+    private int minIdle;
+    @Value("${spring.datasource.druid.spcs-user.minIdle}")
+    private int maxActive;
+    @Value("${spring.datasource.druid.spcs-user.maxWait}")
+    private int maxWait;
+    @Value("${spring.datasource.druid.spcs-user.timeBetweenEvictionRunsMillis}")
+    private int timeBetweenEvictionRunsMillis;
+    @Value("${spring.datasource.druid.spcs-user.minEvictableIdleTimeMillis}")
+    private int minEvictableIdleTimeMillis;
+
     @Value("${spring.datasource.druid.spcs-user-slave.url}")
     private String spcsUserSlaveUrl;
     @Value("${spring.datasource.druid.spcs-user-slave.username}")
     private String spcsUserSlaveUserName;
     @Value("${spring.datasource.druid.spcs-user-slave.password}")
     private String spcsUserSlavePwd;
+    @Value("${spring.datasource.druid.spcs-user-slave.initialSize}")
+    private int initialSizeSlave;
+    @Value("${spring.datasource.druid.spcs-user-slave.minIdle}")
+    private int minIdleSlave;
+    @Value("${spring.datasource.druid.spcs-user-slave.minIdle}")
+    private int maxActiveSlave;
+    @Value("${spring.datasource.druid.spcs-user-slave.maxWait}")
+    private int maxWaitSlave;
+    @Value("${spring.datasource.druid.spcs-user-slave.timeBetweenEvictionRunsMillis}")
+    private int timeBetweenEvictionRunsMillisSlave;
+    @Value("${spring.datasource.druid.spcs-user-slave.minEvictableIdleTimeMillis}")
+    private int minEvictableIdleTimeMillisSlave;
+
 
     @Value("${spring.datasource.driver.mysql.driver-class-name}")
     private String driverClassName;
@@ -74,12 +102,12 @@ public class DataSourceConfig {
         dataSource.setUsername(spcsUserUserName);
         dataSource.setPassword(spcsUserPwd);
         dataSource.setDriverClassName(driverClassName);
-        dataSource.setInitialSize(1);
-        dataSource.setMinIdle(1);
-        dataSource.setMaxActive(50);
-        dataSource.setMaxWait(60000);
-        dataSource.setTimeBetweenEvictionRunsMillis(60000);
-        dataSource.setMinEvictableIdleTimeMillis(300000);
+        dataSource.setInitialSize(initialSize);
+        dataSource.setMinIdle(minIdle);
+        dataSource.setMaxActive(maxActive);
+        dataSource.setMaxWait(maxWait);
+        dataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
+        dataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
 
         //加上这个，否则无法监控sql
         dataSource.setFilters(filters);
@@ -105,12 +133,12 @@ public class DataSourceConfig {
         dataSource.setUsername(spcsUserSlaveUserName);
         dataSource.setPassword(spcsUserSlavePwd);
         dataSource.setDriverClassName(driverClassName);
-        dataSource.setMinIdle(1);
-        dataSource.setInitialSize(1);
-        dataSource.setMaxActive(50);
-        dataSource.setMaxWait(60000);
-        dataSource.setTimeBetweenEvictionRunsMillis(60000);
-        dataSource.setMinEvictableIdleTimeMillis(300000);
+        dataSource.setMinIdle(minIdleSlave);
+        dataSource.setInitialSize(initialSizeSlave);
+        dataSource.setMaxActive(maxActiveSlave);
+        dataSource.setMaxWait(maxWaitSlave);
+        dataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillisSlave);
+        dataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillisSlave);
 
         //加上这个，否则无法监控sql
         dataSource.setFilters(filters);

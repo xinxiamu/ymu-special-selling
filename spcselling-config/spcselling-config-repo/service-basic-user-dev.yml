@@ -1,2 +1,47 @@
 server:
   port: 9001
+
+---
+spring:
+  datasource: #数据库配置
+    driver:
+      mysql:
+        driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      spcs-user: # 会员主库
+        url: jdbc:mysql://119.23.78.160:3306/spcs_user?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useFastDateParsing=false&pinGlobalTxToPhysicalConnection=true&serverTimezone=CST
+        username: root
+        password: 123456
+        initialSize: 1
+        minIdle: 1
+        maxActive: 50
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+      spcs-user-slave: #会员从库
+        url: jdbc:mysql://119.23.78.160:3306/spcs_user_slave?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useFastDateParsing=false&pinGlobalTxToPhysicalConnection=true&serverTimezone=CST
+        username: root
+        password: 123456
+        initialSize: 1
+        minIdle: 1
+        maxActive: 50
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+      filters: stat,wall,log4j2
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      connection-properties: config.decrypt=true;druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+---
+spring:
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+
+---
+logging:
+  config: classpath:dev/log4j2.xml
