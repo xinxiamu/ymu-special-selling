@@ -43,5 +43,5 @@ spring:
           auto: update
 
 ---
-#logging:
-#  config: classpath:dev/log4j2.xml
+logging:
+  config: classpath:dev/log4j2.xml
