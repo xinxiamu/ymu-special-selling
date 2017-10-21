@@ -4,15 +4,13 @@ server:
 ---
 spring:
   datasource: #数据库配置
-    driver:
-      mysql:
-        driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       spcs-user: # 会员主库
         url: jdbc:mysql://localhost:3307/spcs_user?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useFastDateParsing=false&pinGlobalTxToPhysicalConnection=true&serverTimezone=CST
         username: root
         password: root
+        driver-class-name: com.mysql.jdbc.Driver
         initialSize: 1
         minIdle: 1
         maxActive: 50
@@ -23,6 +21,7 @@ spring:
         url: jdbc:mysql://localhost:3307/spcs_user_slave?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&useFastDateParsing=false&pinGlobalTxToPhysicalConnection=true&serverTimezone=CST
         username: root
         password: root
+        driver-class-name: com.mysql.jdbc.Driver
         initialSize: 1
         minIdle: 1
         maxActive: 50
