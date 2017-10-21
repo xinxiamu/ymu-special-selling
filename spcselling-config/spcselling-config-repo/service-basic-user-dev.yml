@@ -3,6 +3,15 @@ server:
 
 ---
 spring:
+  rabbitmq:
+    host: 119.23.78.160
+    port: 5672
+    username: zmt
+    password: 701712
+    virtual-host: /
+
+---
+spring:
   datasource: #数据库配置
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
