@@ -41,7 +41,7 @@ spring:
       hibernate:
         hbm2ddl:
           auto: update
-  show-sql: true
+    show-sql: true
 
 ---
 logging:
