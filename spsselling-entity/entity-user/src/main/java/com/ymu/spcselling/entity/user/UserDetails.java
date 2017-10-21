@@ -9,12 +9,12 @@ import java.util.Date;
 /**
  * 用户详细信息表。
  */
-@Entity(name = "user_details")
+@Entity
 @Table(indexes = {
         // 非唯一索引。
-        @Index(name = "idx_user_age", columnList = "age")
+        @Index(columnList = "age")
 })
-public class UserDetailsEntity extends BaseEntity {
+public class UserDetails extends BaseEntity {
 
 
     private static final long serialVersionUID = -1384159351138305138L;
@@ -56,4 +56,52 @@ public class UserDetailsEntity extends BaseEntity {
      */
     @Column(length = 150)
     private String houseAddr;
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public UserSexType getUserSexType() {
+        return userSexType;
+    }
+
+    public void setUserSexType(UserSexType userSexType) {
+        this.userSexType = userSexType;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Date getBornTime() {
+        return bornTime;
+    }
+
+    public void setBornTime(Date bornTime) {
+        this.bornTime = bornTime;
+    }
+
+    public String getIdCardNum() {
+        return idCardNum;
+    }
+
+    public void setIdCardNum(String idCardNum) {
+        this.idCardNum = idCardNum;
+    }
+
+    public String getHouseAddr() {
+        return houseAddr;
+    }
+
+    public void setHouseAddr(String houseAddr) {
+        this.houseAddr = houseAddr;
+    }
 }

@@ -10,12 +10,12 @@ import java.util.Date;
 /**
  * 用户基础信息表。
  */
-@Entity(name = "user")
+@Entity
 @Table(indexes = {//定义索引
         // 唯一索引。
-        @Index(name = "ux_user_name", columnList = "userName", unique = true)
+        @Index(columnList = "userName", unique = true)
 })
-public class UserEntity extends BaseEntity {
+public class User extends BaseEntity {
 
     private static final long serialVersionUID = 7582369102930562542L;
 
@@ -80,15 +80,14 @@ public class UserEntity extends BaseEntity {
     /**
      * 实际是一对一关系。不用OneToOne是为了避免n+1问题。
      */
-    @Column(unique = true)
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    UserDetailsEntity userDetailsEntity;
+    UserDetails userDetailsEntity;
 
-    public UserDetailsEntity getUserDetailsEntity() {
+    public UserDetails getUserDetailsEntity() {
         return userDetailsEntity;
     }
 
-    public void setUserDetailsEntity(UserDetailsEntity userDetailsEntity) {
+    public void setUserDetailsEntity(UserDetails userDetailsEntity) {
         this.userDetailsEntity = userDetailsEntity;
     }
 
