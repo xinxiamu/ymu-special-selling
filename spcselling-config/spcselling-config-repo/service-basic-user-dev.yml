@@ -37,10 +37,17 @@ spring:
         maxWait: 60000
         timeBetweenEvictionRunsMillis: 60000
         minEvictableIdleTimeMillis: 300000
-      filters: stat,wall,log4j2
+#      filters: wall,stat,log4j2 #改为在代码中定制配置
       pool-prepared-statements: true
       max-pool-prepared-statement-per-connection-size: 20
       connection-properties: config.decrypt=true;druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+---
+druid:
+  login-user-name: admin
+  login-user-pwd: admin
+  allow: 192.168.1.69 #ip白名单
+  deny: 192.168.1.68 #ip黑名单
 
 ---
 spring:
