@@ -5,9 +5,9 @@ package com.ymu.spcselling.entity.constants;
  */
 public enum UserType {
 
-    USER_TYPE_ORDINARY("普通会员"),
-    USER_TYPE_BUSINESS("商家会员"),
-    USER_TYPE_SYSTEM("系统会员");
+    ORDINARY("普通会员"),
+    BUSINESS("商家会员"),
+    SYSTEM("系统会员");
 
     private final String value;
 

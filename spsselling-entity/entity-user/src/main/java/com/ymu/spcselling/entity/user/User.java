@@ -11,10 +11,6 @@ import java.util.Date;
  * 用户基础信息表。
  */
 @Entity
-@Table(indexes = {//定义索引
-        // 唯一索引。
-        @Index(columnList = "userName", unique = true)
-})
 public class User extends BaseEntity {
 
     private static final long serialVersionUID = 7582369102930562542L;
@@ -22,7 +18,7 @@ public class User extends BaseEntity {
     /**
      * 用户登录名。
      */
-    @Column(length = 100, nullable = false)
+    @Column(length = 100, nullable = false,unique = true)
     private String userName;
 
     /**
@@ -32,7 +28,7 @@ public class User extends BaseEntity {
     private String password;
 
     /**
-     * 手机号码。可用手机号码登录。
+     * 手机号码。可用手机号码登录。一个手机号码可以注册多个账号，对应一种用户类型。
      */
     @Column(length = 15, nullable = false)
     private String mobile;
@@ -81,14 +77,14 @@ public class User extends BaseEntity {
      * 实际是一对一关系。不用OneToOne是为了避免n+1问题。
      */
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    UserDetails userDetailsEntity;
+    UserDetails userDetails;
 
-    public UserDetails getUserDetailsEntity() {
-        return userDetailsEntity;
+    public UserDetails getUserDetails() {
+        return userDetails;
     }
 
-    public void setUserDetailsEntity(UserDetails userDetailsEntity) {
-        this.userDetailsEntity = userDetailsEntity;
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
     }
 
     public String getUserName() {

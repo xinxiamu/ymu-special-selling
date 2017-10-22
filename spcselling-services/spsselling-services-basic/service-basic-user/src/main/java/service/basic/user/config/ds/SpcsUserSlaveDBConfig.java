@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -28,23 +27,20 @@ import java.util.Map;
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactorySpcsUserSlaveDB", transactionManagerRef = "transactionManagerSpcsUserSlaveDB", basePackages = {
         Constants.SPCS_USER_REPOSITORY_PACKAGE_PATH}, repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)
-
 public class SpcsUserSlaveDBConfig {
 
     @Autowired
     Environment ev;
 
     @Autowired
-    @Qualifier("dynamicDS")
+    @Qualifier("spcsUserSlaveDataSource")
     private DataSource dataSource; // 数据源
 
-    @Primary
     @Bean(name = "entityManagerSpcsUserSlave")
     public EntityManager entityManager(EntityManagerFactoryBuilder builder) {
         return entityManagerFactorySpcsUserSlaveDB(builder).getObject().createEntityManager();
     }
 
-    @Primary
     @Bean(name = "entityManagerFactorySpcsUserSlaveDB")
     public LocalContainerEntityManagerFactoryBean entityManagerFactorySpcsUserSlaveDB(EntityManagerFactoryBuilder builder) {
         if (ev.acceptsProfiles("dev") || ev.acceptsProfiles("test")
@@ -67,7 +63,6 @@ public class SpcsUserSlaveDBConfig {
      * @param builder
      * @return
      */
-    @Primary
     @Bean(name = "transactionManagerSpcsUserSlaveDB")
     public PlatformTransactionManager transactionManagerSpcsUserSlaveDB(EntityManagerFactoryBuilder builder) {
         return new JpaTransactionManager(entityManagerFactorySpcsUserSlaveDB(builder).getObject());
@@ -75,13 +70,10 @@ public class SpcsUserSlaveDBConfig {
 
     /**
      * spring jdbc。
-     *
-     * @param dataSource
      * @return
      */
     @Bean(name = "jdbcTemplate")
-    @Primary
-    public JdbcTemplate primaryJdbcTemplate(@Qualifier("dynamicDS") DataSource dataSource) {
+    public JdbcTemplate primaryJdbcTemplate() {
         return new JdbcTemplate(dataSource);
     }
 

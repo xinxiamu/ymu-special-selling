@@ -28,14 +28,13 @@ import java.util.Map;
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactorySpcsUserDB", transactionManagerRef = "transactionManagerSpcsUserDB", basePackages = {
         Constants.SPCS_USER_REPOSITORY_PACKAGE_PATH}, repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)
-
 public class SpcsUserDBConfig {
 
     @Autowired
     Environment ev;
 
     @Autowired
-    @Qualifier("dynamicDS")
+    @Qualifier("spcsUserDataSource")
     private DataSource dataSource; // 数据源
 
     @Primary
@@ -76,12 +75,11 @@ public class SpcsUserDBConfig {
     /**
      * spring jdbc。
      *
-     * @param dataSource
      * @return
      */
-    @Bean(name = "jdbcTemplate")
     @Primary
-    public JdbcTemplate primaryJdbcTemplate(@Qualifier("dynamicDS") DataSource dataSource) {
+    @Bean(name = "jdbcTemplate")
+    public JdbcTemplate primaryJdbcTemplate() {
         return new JdbcTemplate(dataSource);
     }
 

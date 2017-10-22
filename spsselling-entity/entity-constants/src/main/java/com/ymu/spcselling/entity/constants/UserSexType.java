@@ -5,8 +5,8 @@ package com.ymu.spcselling.entity.constants;
  */
 public enum UserSexType {
 
-    USER_SEX_MALE("男"),
-    USER_SEX_FEMALE("女");
+    MALE("男"),
+    FEMALE("女");
 
     private final String value;
 

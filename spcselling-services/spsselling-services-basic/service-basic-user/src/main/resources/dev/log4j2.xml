@@ -4,7 +4,7 @@
 			   packages="org.apache.logging.log4j.test">
 	<Properties>
 		<property name="LOG_HOME">logs</property>
-		<property name="FILE_NAME">service-basic-user-log</property>
+		<property name="FILE_NAME">service-basic-user-log-dev</property>
 	</Properties>
 	<ThresholdFilter level="trace" />
 
@@ -39,23 +39,42 @@
 			</Policies>
 		</RollingFile>
 
+		<!-- log4jdbc -->
+		<Console name="Log4jdbcConsole" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} - %msg%n%n" />
+		</Console>
+
+		<!-- log4jdbc -->
+		<RollingFile name="Log4jdbcRollingFile" fileName="${LOG_HOME}/jdbc/${FILE_NAME}.log"
+					 filePattern="logs/$${date:yyyy-MM}/core.jdbc-%d{MM-dd-yyyy}-%i.log.gz">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} %t - %msg%n" />
+			<SizeBasedTriggeringPolicy size="10 MB" />
+		</RollingFile>
+
 		<!-- 异步保存日志文件，不阻塞主线程 -->
 		<Async name="RollingFileAsync">
 			<AppenderRef ref="RollingFile" />
+			<AppenderRef ref="Log4jdbcRollingFile" />
 		</Async>
+
 	</Appenders>
 
 
 	<Loggers>
-		<Logger name="org.apache.logging.log4j.test1" level="debug"
-				additivity="false"><!-- logger中输出的日志不会再延伸到父层logger -->
+		<Root level="info">
+			<AppenderRef ref="STDOUT" level="debug"/>
+			<AppenderRef ref="RollingFileAsync" level="error" />
+		</Root>
+
+		<!--<Logger name="org.apache.logging.log4j.test1" level="debug"
+				additivity="false">&lt;!&ndash; logger中输出的日志不会再延伸到父层logger &ndash;&gt;
 			<ThreadContextMapFilter>
 				<KeyValuePair key="test" value="123" />
 			</ThreadContextMapFilter>
 			<AppenderRef ref="STDOUT" />
-		</Logger>
+		</Logger>-->
 
-		<Logger name="org.apache.logging.log4j.test2" level="debug"
+		<!--<Logger name="org.apache.logging.log4j.test2" level="debug"
 				additivity="false">
 			<Property name="user">${sys:user.name}</Property>
 			<AppenderRef ref="File">
@@ -65,16 +84,24 @@
 			</AppenderRef>
 			<AppenderRef ref="STDOUT" level="error" />
 		</Logger>
-
-		<!-- spring -->
-		<logger name="org.springframework" level="info">
-			<AppenderRef ref="STDOUT" level="error" />
+-->
+		<logger name="service.basic.user" level="debug" additivity="false">
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="RollingFileAsync" level="error"/>
 		</logger>
 
-		<Root level="debug">
+		<!-- spring -->
+		<!--<logger name="org.springframework" level="debug">
 			<AppenderRef ref="STDOUT" />
-			<AppenderRef ref="RollingFileAsync" level="error" />
-		</Root>
+		</logger>-->
+
+		<logger name="log4jdbc.log4j2" level="debug" additivity="false">
+			<MarkerFilter marker="LOG4JDBC_SQL" onMatch="ACCEPT"
+						  onMismatch="DENY" />
+			<appender-ref ref="Log4jdbcConsole" />
+			<appender-ref ref="Log4jdbcRollingFile" />
+		</logger>
+
 	</Loggers>
 
 </Configuration>

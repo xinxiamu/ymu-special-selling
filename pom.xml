@@ -5,7 +5,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <!--<version>2.0.0.M3</version>-->
-        <version>1.5.7.RELEASE</version>
+        <version>1.5.8.RELEASE</version>
     </parent>
     <groupId>com.ymu.spcselling</groupId>
     <artifactId>ymu-special-selling</artifactId>
@@ -33,6 +33,7 @@
         <spring.cloud.version>Dalston.RELEASE</spring.cloud.version>
         <!--<spring.cloud.version>Finchley.M2</spring.cloud.version>-->
         <log4jdbc.version>1.16</log4jdbc.version>
+        <alibaba.fastjson>1.2.39</alibaba.fastjson>
     </properties>
 
     <!-- 阿里云maven仓库 -->
@@ -69,19 +70,6 @@
     </modules>
 
     <dependencies>
-        <!-- spring boot -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- log4j日志 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -95,6 +83,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -219,6 +213,12 @@
                 <groupId>org.bgee.log4jdbc-log4j2</groupId>
                 <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
                 <version>${log4jdbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${alibaba.fastjson}</version>
             </dependency>
 
         </dependencies>

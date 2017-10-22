@@ -2,11 +2,13 @@ package service.basic.user.config.ds;
 
 import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.filter.logging.Log4j2Filter;
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.wall.WallConfig;
+import com.alibaba.druid.wall.WallFilter;
 import com.ymu.spcselling.infrastructure.dao.ds.DynamicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -30,63 +32,60 @@ public class DataSourceConfig {
     @Autowired
     private Environment env;
 
-    @Value("${spring.datasource.druid.spcs-user.url}")
-    private String spcsUserUrl;
-    @Value("${spring.datasource.druid.spcs-user.username}")
-    private String spcsUserUserName;
-    @Value("${spring.datasource.druid.spcs-user.password}")
-    private String spcsUserPwd;
+//    @Value("${spring.datasource.druid.filters}")
+//    private String filters;
 
-    @Value("${spring.datasource.druid.spcs-user.initialSize}")
-    private int initialSize;
-    @Value("${spring.datasource.druid.spcs-user.minIdle}")
-    private int minIdle;
-    @Value("${spring.datasource.druid.spcs-user.minIdle}")
-    private int maxActive;
-    @Value("${spring.datasource.druid.spcs-user.maxWait}")
-    private int maxWait;
-    @Value("${spring.datasource.druid.spcs-user.timeBetweenEvictionRunsMillis}")
-    private int timeBetweenEvictionRunsMillis;
-    @Value("${spring.datasource.druid.spcs-user.minEvictableIdleTimeMillis}")
-    private int minEvictableIdleTimeMillis;
+    /**
+     * druid监控filter配置。
+     * @return
+     */
+    @Bean
+    public StatFilter statFilter() {
+        StatFilter statFilter = new StatFilter();
+        statFilter.setSlowSqlMillis(5 * 1000); //超过5秒执行的为慢sql
+        statFilter.setLogSlowSql(true); //日志记录慢sql
+        statFilter.setMergeSql(true); //相同sql合并
+        return statFilter;
+    }
 
-    @Value("${spring.datasource.druid.spcs-user-slave.url}")
-    private String spcsUserSlaveUrl;
-    @Value("${spring.datasource.druid.spcs-user-slave.username}")
-    private String spcsUserSlaveUserName;
-    @Value("${spring.datasource.druid.spcs-user-slave.password}")
-    private String spcsUserSlavePwd;
-    @Value("${spring.datasource.druid.spcs-user-slave.initialSize}")
-    private int initialSizeSlave;
-    @Value("${spring.datasource.druid.spcs-user-slave.minIdle}")
-    private int minIdleSlave;
-    @Value("${spring.datasource.druid.spcs-user-slave.minIdle}")
-    private int maxActiveSlave;
-    @Value("${spring.datasource.druid.spcs-user-slave.maxWait}")
-    private int maxWaitSlave;
-    @Value("${spring.datasource.druid.spcs-user-slave.timeBetweenEvictionRunsMillis}")
-    private int timeBetweenEvictionRunsMillisSlave;
-    @Value("${spring.datasource.druid.spcs-user-slave.minEvictableIdleTimeMillis}")
-    private int minEvictableIdleTimeMillisSlave;
+    //----------- sql注入攻击防御配置 start ---------//
+
+    @Bean
+    public WallConfig wallConfig() {
+        WallConfig wallConfig = new WallConfig();
+        wallConfig.setDir("classpath:druid/wall/mysql"); //sql过滤规则装载位置。
+        return wallConfig;
+    }
+
+    @Bean
+    public WallFilter wallFilter() {
+        WallFilter wallFilter = new WallFilter();
+        wallFilter.setDbType("mysql"); //指定数据库类型。
+        wallFilter.setConfig(wallConfig());
+        return wallFilter;
+    }
+
+    //----------- sql注入攻击防御配置 end ---------//
 
 
-    @Value("${spring.datasource.driver.mysql.driver-class-name}")
-    private String driverClassName;
-
-    @Value("${spring.datasource.druid.filters}")
-    private String filters;
-
-
+    /**
+     * 打印sql语句。
+     * @return
+     */
     @Bean(name = "log4j2Filter")
     public Log4j2Filter log4j2Filter() {
         Log4j2Filter log4j2Filter = new Log4j2Filter();
         log4j2Filter.setConnectionLogEnabled(false);
         log4j2Filter.setResultSetLogEnabled(true); //显示sql
         log4j2Filter.setDataSourceLogEnabled(false);
-        log4j2Filter.setStatementExecutableSqlLogEnable(true);
+        log4j2Filter.setStatementExecutableSqlLogEnable(true); //输出可执行的SQL
         log4j2Filter.setStatementLogEnabled(false);
         return log4j2Filter;
     }
+
+
+
+    //-------------- 数据源配置 start ---------------//
 
     /**
      * 会员主库（spcs_user）数据源。
@@ -96,24 +95,28 @@ public class DataSourceConfig {
      */
     @Bean(name = "spcsUserDataSource")
     @Qualifier("spcsUserDataSource")
-    public DataSource spcsUserDataSource() throws SQLException {
+    public DataSource spcsUserDataSource(@Autowired SpcsUserDSArgs args) throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(spcsUserUrl);
-        dataSource.setUsername(spcsUserUserName);
-        dataSource.setPassword(spcsUserPwd);
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setInitialSize(initialSize);
-        dataSource.setMinIdle(minIdle);
-        dataSource.setMaxActive(maxActive);
-        dataSource.setMaxWait(maxWait);
-        dataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
-        dataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
+        dataSource.setUrl(args.getUrl());
+        dataSource.setUsername(args.getUsername());
+        dataSource.setPassword(args.getPassword());
+        dataSource.setDriverClassName(args.getDriverClassName());
+        dataSource.setInitialSize(args.getInitialSize());
+        dataSource.setMinIdle(args.getMinIdle());
+        dataSource.setMaxActive(args.getMaxActive());
+        dataSource.setMaxWait(args.getMaxWait());
+        dataSource.setTimeBetweenEvictionRunsMillis(args.getTimeBetweenEvictionRunsMillis());
+        dataSource.setMinEvictableIdleTimeMillis(args.getMinEvictableIdleTimeMillis());
+
+        dataSource.setUseGlobalDataSourceStat(true); //合并多个DruidDataSource的监控数据
 
         //加上这个，否则无法监控sql
-        dataSource.setFilters(filters);
+//        dataSource.setFilters(filters);
 
         List<Filter> proxyFilters = new ArrayList<>();
+        proxyFilters.add(statFilter());
         proxyFilters.add(log4j2Filter());
+        proxyFilters.add(wallFilter());
         dataSource.setProxyFilters(proxyFilters);
 
         return dataSource;
@@ -127,24 +130,26 @@ public class DataSourceConfig {
      */
     @Bean(name = "spcsUserSlaveDataSource")
     @Qualifier("spcsUserSlaveDataSource")
-    public DataSource spcsUserSlaveDataSource() throws SQLException {
+    public DataSource spcsUserSlaveDataSource(@Autowired SpcsUserSlaveDSArgs args) throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
-        dataSource.setUrl(spcsUserSlaveUrl);
-        dataSource.setUsername(spcsUserSlaveUserName);
-        dataSource.setPassword(spcsUserSlavePwd);
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setMinIdle(minIdleSlave);
-        dataSource.setInitialSize(initialSizeSlave);
-        dataSource.setMaxActive(maxActiveSlave);
-        dataSource.setMaxWait(maxWaitSlave);
-        dataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillisSlave);
-        dataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillisSlave);
+        dataSource.setUrl(args.getUrl());
+        dataSource.setUsername(args.getUsername());
+        dataSource.setPassword(args.getPassword());
+        dataSource.setDriverClassName(args.getDriverClassName());
+        dataSource.setMinIdle(args.getMinIdle());
+        dataSource.setInitialSize(args.getInitialSize());
+        dataSource.setMaxActive(args.getMaxActive());
+        dataSource.setMaxWait(args.getMaxWait());
+        dataSource.setTimeBetweenEvictionRunsMillis(args.getTimeBetweenEvictionRunsMillis());
+        dataSource.setMinEvictableIdleTimeMillis(args.getMinEvictableIdleTimeMillis());
 
         //加上这个，否则无法监控sql
-        dataSource.setFilters(filters);
+//        dataSource.setFilters(filters);
 
         List<Filter> proxyFilters = new ArrayList<>();
+        proxyFilters.add(statFilter());
         proxyFilters.add(log4j2Filter());
+        proxyFilters.add(wallFilter());
         dataSource.setProxyFilters(proxyFilters);
 
         return dataSource;
@@ -161,15 +166,14 @@ public class DataSourceConfig {
     @Scope("singleton")
     public DataSource muDynamicDataSource(@Qualifier("spcsUserDataSource") DataSource spcsUserDataSource,
                                           @Qualifier("spcsUserSlaveDataSource") DataSource spcsUserSlaveDataSource) {
-        DynamicDataSource dynamicDataSource = new DynamicDataSource();
-        // 默认数据源
-        dynamicDataSource.setDefaultTargetDataSource(spcsUserDataSource);
-
         // 配置多数据源
         Map<Object, Object> dsMap = new HashMap<>(5);
         dsMap.put(DSType.SPCS_USER.name(), spcsUserDataSource);
         dsMap.put(DSType.SPCS_USER_SLAVE.name(), spcsUserSlaveDataSource);
 
+        DynamicDataSource dynamicDataSource = new DynamicDataSource();
+        // 默认数据源
+        dynamicDataSource.setDefaultTargetDataSource(spcsUserDataSource);
         dynamicDataSource.setTargetDataSources(dsMap);
 
         return dynamicDataSource;

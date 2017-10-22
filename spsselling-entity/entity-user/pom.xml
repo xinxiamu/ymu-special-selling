@@ -17,6 +17,7 @@
         <dependency>
             <groupId>com.ymu.spcselling</groupId>
             <artifactId>spcselling-infrastructure</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
