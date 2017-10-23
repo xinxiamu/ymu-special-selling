@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ymu.spcselling</groupId>
-        <artifactId>spcselling-services</artifactId>
+        <artifactId>ymu-special-selling</artifactId>
         <version>1.0.0</version>
     </parent>
     <artifactId>spsselling-entity</artifactId>

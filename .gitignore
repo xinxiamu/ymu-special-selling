@@ -2,6 +2,9 @@
 *.iml
 node_modules/
 
+.settings/
+.project
+
 ### Java template
 # Compiled class file
 *.class
