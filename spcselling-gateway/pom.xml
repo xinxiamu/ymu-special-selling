@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ymu.spcselling</groupId>
-		<artifactId>ymu-special-selling</artifactId>
+		<artifactId>specseling-parent</artifactId>
 		<version>1.0.0</version>
+		<relativePath>../spcselling-parent</relativePath>
 	</parent>
-	<groupId>com.ymu.spcselling.gateway</groupId>
 	<artifactId>spcselling-gateway</artifactId>
 	<name>spcselling-gateway</name>
 	<description>统一网关</description>

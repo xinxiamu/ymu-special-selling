@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ymu.spcselling</groupId>
-		<artifactId>ymu-special-selling</artifactId>
-		<version>1.0.0</version>
+		<artifactId>specseling-parent</artifactId>
+		<version>${revision}</version>
+		<relativePath>../spcselling-parent/pom.xml</relativePath>
 	</parent>
-	<groupId>com.ymu.spcselling.eureka.server</groupId>
 	<artifactId>spcselling-server</artifactId>
 	<name>spcselling-server</name>
 	<packaging>jar</packaging>

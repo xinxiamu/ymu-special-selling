@@ -4,37 +4,34 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <!--<version>2.0.0.M3</version>-->
         <version>1.5.8.RELEASE</version>
     </parent>
     <groupId>com.ymu.spcselling</groupId>
-    <artifactId>ymu-special-selling</artifactId>
-    <version>1.0.0</version>
+    <artifactId>spcselling-build</artifactId>
+    <version>${revision}</version>
     <packaging>pom</packaging>
-    <name>ymu-special-selling</name>
+    <name>spcselling-build</name>
     <description>
-        spring-cloud微服务架构
+        本系统构建
     </description>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-
-        <dubbo.version>2.5.3</dubbo.version>
-        <zookeeper.version>3.4.6</zookeeper.version>
-        <swagger.version>2.6.1</swagger.version>
-        <druid.version>1.0.25</druid.version>
-        <mysql.connector.version>5.1.21</mysql.connector.version>
-        <joda.time.version>2.9.7</joda.time.version>
-        <guava.version>20.0</guava.version>
-        <kaptcha.version>0.0.9</kaptcha.version>
-        <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
-        <apache.common.beanutils>1.9.3</apache.common.beanutils>
-        <spring.cloud.version>Dalston.RELEASE</spring.cloud.version>
-        <!--<spring.cloud.version>Finchley.M2</spring.cloud.version>-->
-        <log4jdbc.version>1.16</log4jdbc.version>
-        <alibaba.fastjson>1.2.39</alibaba.fastjson>
+        <revision>1.0.0</revision>
+        <main.basedir>${basedir}</main.basedir>
     </properties>
+
+    <modules>
+        <module>spcselling-parent</module>
+        <module>spcselling-dependencies</module>
+        <module>spcselling-services</module>
+        <module>spcselling-clients</module>
+        <module>spcselling-infrastructure</module>
+        <module>spcselling-config</module>
+        <module>spcselling-gateway</module>
+        <module>spcselling-server</module>
+        <module>spcselling-apis</module>
+        <module>spsselling-entity</module>
+    </modules>
 
     <!-- 阿里云maven仓库 -->
     <repositories>
@@ -57,181 +54,30 @@
         </repository>
     </repositories>
 
-    <modules>
-        <module>spcselling-services</module>
-        <module>spcselling-clients</module>
-        <module>spcselling-infrastructure</module>
-        <module>spcselling-config</module>
-        <module>spcselling-gateway</module>
-        <module>spcselling-server</module>
-        <module>spcselling-apis</module>
-        <module>spsselling-entity</module>
-        <module>spsselling-entity/entity-constants</module>
-    </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-    </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-
-            <dependency>
-                <groupId>com.ymu.spcselling</groupId>
-                <artifactId>spcselling-infrastructure</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.ymu.spcselling</groupId>
-                <artifactId>service-sys-common-api</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.ymu.spcselling</groupId>
-                <artifactId>entity-constants</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.ymu</groupId>
-                <artifactId>ymu-framework</artifactId>
-                <version>1.0</version>
-            </dependency>
-
-            <!-- spring cloud -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- 项目模块应用 -->
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>ymu-api</artifactId>
-                <version>${project.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-data-jpa</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>ymu-infrastructure</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>ymu-webui-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <!-- Apache common start -->
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>${apache.common.beanutils}</version>
-            </dependency>
-            <!-- Apache common end -->
-
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.connector.version}</version><!--$NO-MVN-MAN-VER$ -->
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-
-            <!--日期，时间处理 -->
-            <!--http://www.joda.org/ -->
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>${joda.time.version}</version>
-            </dependency>
-
-            <!--https://github.com/google/guava -->
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-
-            <!--图形验证码 -->
-            <dependency>
-                <groupId>com.github.axet</groupId>
-                <artifactId>kaptcha</artifactId>
-                <version>${kaptcha.version}</version>
-            </dependency>
-
-            <!-- -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>1.1.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.16.18</version>
-                <optional>true</optional>
-            </dependency>
-
-            <!-- log4jdbc,打印sql语句 -->
-            <dependency>
-                <groupId>org.bgee.log4jdbc-log4j2</groupId>
-                <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
-                <version>${log4jdbc.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${alibaba.fastjson}</version>
-            </dependency>
-
-        </dependencies>
-
-    </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-milestone</id>
+            <name>Spring Milestone</name>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-snapshot</id>
+            <name>Spring Snapshot</name>
+            <url>http://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>

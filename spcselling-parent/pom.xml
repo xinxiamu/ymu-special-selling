@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ymu.spcselling</groupId>
+        <artifactId>spcselling-dependencies</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../spcselling-dependencies</relativePath>
+    </parent>
+    <groupId>com.ymu.spcselling</groupId>
+    <artifactId>spcselling-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>spcselling-parent</name>
+    <description>
+        spring-cloud微服务架构
+    </description>
+
+    <properties>
+        <main.basedir>${basedir}/..</main.basedir>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+
+        <dubbo.version>2.5.3</dubbo.version>
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <swagger.version>2.6.1</swagger.version>
+        <druid.version>1.0.25</druid.version>
+        <mysql.connector.version>5.1.21</mysql.connector.version>
+        <joda.time.version>2.9.7</joda.time.version>
+        <guava.version>20.0</guava.version>
+        <kaptcha.version>0.0.9</kaptcha.version>
+        <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
+        <apache.common.beanutils>1.9.3</apache.common.beanutils>
+        <spring.cloud.version>Dalston.RELEASE</spring.cloud.version>
+        <!--<spring.cloud.version>Finchley.M2</spring.cloud.version>-->
+        <log4jdbc.version>1.16</log4jdbc.version>
+        <alibaba.fastjson>1.2.39</alibaba.fastjson>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.ymu.spcselling</groupId>
+                <artifactId>spcselling-infrastructure</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ymu.spcselling</groupId>
+                <artifactId>service-sys-common-api</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ymu.spcselling</groupId>
+                <artifactId>entity-constants</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ymu</groupId>
+                <artifactId>ymu-framework</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+            <!-- spring cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 项目模块应用 -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ymu-api</artifactId>
+                <version>${project.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-data-jpa</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ymu-infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ymu-webui-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
