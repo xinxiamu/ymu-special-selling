@@ -3,11 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ymu.spcselling</groupId>
-        <artifactId>specseling-parent</artifactId>
-        <version>1.0.0</version>
-        <relativePath>../spcselling-parent</relativePath>
+        <artifactId>spcselling-build</artifactId>
+        <version>${revision}</version>
+        <relativePath>..</relativePath>
     </parent>
     <artifactId>spcselling-apis</artifactId>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>spcselling-apis</name>
     <description>微服务</description>
@@ -15,6 +16,10 @@
         <module>service-sys-common-api</module>
         <module>service-basic-user-api</module>
     </modules>
+
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+    </properties>
 
     <dependencies>
         <dependency>

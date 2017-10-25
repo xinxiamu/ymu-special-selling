@@ -7,6 +7,7 @@
 		<version>1.0.0</version>
 		<relativePath>../spcselling-parent</relativePath>
 	</parent>
+	<groupId>com.ymu.spcselling</groupId>
 	<artifactId>spcselling-infrastructure</artifactId>
 	<name>spcselling-infrastructure</name>
 	<description>基础工具</description>
@@ -21,7 +22,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.16.18</version>
 			<optional>true</optional>
 		</dependency>
 
@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.1.41</version>
+			<optional>true</optional>
 		</dependency>
 
 		<!--<dependency>

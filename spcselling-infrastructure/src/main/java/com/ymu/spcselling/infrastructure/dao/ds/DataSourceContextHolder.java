@@ -1,11 +1,10 @@
 package com.ymu.spcselling.infrastructure.dao.ds;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 public class DataSourceContextHolder {
 
-    public static final Logger log = LoggerFactory.getLogger(DataSourceContextHolder.class);
+//    private static final Logger LOGGER = LogManager.getLogger(DataSourceContextHolder.class);
 
     private static final ThreadLocal<String> contextHolder = new ThreadLocal<>();
 
@@ -14,7 +13,7 @@ public class DataSourceContextHolder {
      * @param dbType
      */
     public static void setDS(String dbType) {
-        log.debug("切换到{}数据源", dbType);
+//        log.debug("切换到{}数据源", dbType);
         contextHolder.set(dbType);
     }
 

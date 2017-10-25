@@ -1,23 +1,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.ymu.spcselling</groupId>
-		<artifactId>specseling-parent</artifactId>
-		<version>1.0.0</version>
-		<relativePath>../spcselling-parent</relativePath>
-	</parent>
-	<artifactId>spcselling-server</artifactId>
-	<version>1.0.0</version>
-	<name>spcselling-server</name>
-	<packaging>jar</packaging>
-	<description>服务注册与发现中心,高可用，做集群（3个）</description>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ymu.spcselling</groupId>
+        <artifactId>spcselling-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../spcselling-parent</relativePath>
+    </parent>
+    <artifactId>spcselling-server</artifactId>
+    <version>1.0.0</version>
+    <name>spcselling-server</name>
+    <packaging>jar</packaging>
+    <description>服务注册与发现中心,高可用，做集群（3个）</description>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka-server</artifactId>
-		</dependency>
-	</dependencies>
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
