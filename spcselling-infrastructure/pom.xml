@@ -3,31 +3,26 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ymu.spcselling</groupId>
-		<artifactId>specseling-parent</artifactId>
+		<artifactId>spcselling-parent</artifactId>
 		<version>1.0.0</version>
 		<relativePath>../spcselling-parent</relativePath>
 	</parent>
 	<groupId>com.ymu.spcselling</groupId>
 	<artifactId>spcselling-infrastructure</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
 	<name>spcselling-infrastructure</name>
 	<description>基础工具</description>
-	<!--<dependencies>
-		<dependency>
-			<groupId>com.ymu</groupId>
-			<artifactId>ymu-framework</artifactId>
-		</dependency>
-	</dependencies>-->
+
+	<properties>
+		<main.basedir>${basedir}/..</main.basedir>
+	</properties>
+
 
 	<dependencies>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
 			<optional>true</optional>
 		</dependency>
 

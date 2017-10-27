@@ -3,9 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ymu.spcselling</groupId>
-        <artifactId>specseling-parent</artifactId>
+        <artifactId>spcselling-build</artifactId>
         <version>1.0.0</version>
-        <relativePath>../spcselling-parent</relativePath>
+        <relativePath>..</relativePath>
     </parent>
     <artifactId>spcselling-config</artifactId>
     <packaging>pom</packaging>
@@ -13,6 +13,6 @@
     <description>配置中心</description>
     <modules>
         <module>spcselling-cofing-server</module>
-        <module>spcselling-config-client</module>
+        <!--<module>spcselling-config-client</module>-->
     </modules>
 </project>

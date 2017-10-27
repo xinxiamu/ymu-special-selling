@@ -9,7 +9,6 @@
         <version>1.0.0</version>
     </parent>
     <artifactId>service-sys-common</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>service-sys-common</name>

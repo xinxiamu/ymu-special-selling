@@ -3,12 +3,42 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ymu.spcselling</groupId>
-        <artifactId>spcselling-apis</artifactId>
+        <artifactId>spcselling-parent</artifactId>
         <version>1.0.0</version>
+        <relativePath>../../spcselling-parent</relativePath>
     </parent>
     <artifactId>service-sys-common-api</artifactId>
     <name>service-sys-common-api</name>
     <packaging>jar</packaging>
     <description>系统公共服务api</description>
+
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ymu.spcselling</groupId>
+            <artifactId>entity-constants</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ymu.spcselling</groupId>
+            <artifactId>spcselling-infrastructure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

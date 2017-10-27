@@ -3,14 +3,18 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ymu.spcselling</groupId>
-		<artifactId>specseling-parent</artifactId>
+		<artifactId>spcselling-build</artifactId>
 		<version>1.0.0</version>
-		<relativePath>../spcselling-parent</relativePath>
+		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>spcselling-clients</artifactId>
 	<packaging>pom</packaging>
 	<name>spcselling-clients</name>
 	<description>门户</description>
+
+	<modules>
+		<module>spcselling-facade</module>
+	</modules>
 
 	<dependencies>
 		<!-- 热部署工具 -->

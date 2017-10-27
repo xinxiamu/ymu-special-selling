@@ -8,7 +8,6 @@
         <version>1.0.0</version>
     </parent>
     <artifactId>service-basic-user</artifactId>
-    <version>${project.version}}</version>
     <packaging>jar</packaging>
     <name>service-basic-user</name>
     <description>用户相关基础模块</description>
@@ -18,10 +17,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.ymu.spcselling</groupId>
-            <artifactId>spcselling-infrastructure</artifactId>
         </dependency>
 
         <dependency>

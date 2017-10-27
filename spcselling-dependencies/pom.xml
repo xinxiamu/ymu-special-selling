@@ -87,13 +87,6 @@
                 <version>1.1.0</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.16.18</version>
-                <optional>true</optional>
-            </dependency>
-
             <!-- log4jdbc,打印sql语句 -->
             <dependency>
                 <groupId>org.bgee.log4jdbc-log4j2</groupId>

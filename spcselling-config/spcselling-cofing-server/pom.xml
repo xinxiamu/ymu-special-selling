@@ -3,8 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ymu.spcselling</groupId>
-		<artifactId>spcselling-config</artifactId>
+		<artifactId>spcselling-parent</artifactId>
 		<version>1.0.0</version>
+		<relativePath>../../spcselling-parent</relativePath>
 	</parent>
 	<artifactId>spcselling-cofing-server</artifactId>
 	<name>spcselling-cofing-server</name>

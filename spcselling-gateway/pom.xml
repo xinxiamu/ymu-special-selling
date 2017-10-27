@@ -3,13 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ymu.spcselling</groupId>
-		<artifactId>specseling-parent</artifactId>
+		<artifactId>spcselling-parent</artifactId>
 		<version>1.0.0</version>
 		<relativePath>../spcselling-parent</relativePath>
 	</parent>
+	<groupId>com.ymu.spcselling</groupId>
 	<artifactId>spcselling-gateway</artifactId>
 	<name>spcselling-gateway</name>
+	<packaging>jar</packaging>
 	<description>统一网关</description>
+
+	<properties>
+		<main.basedir>${basedir}/..</main.basedir>
+	</properties>
 
 	<dependencies>
 		<!--引入网关组件-->

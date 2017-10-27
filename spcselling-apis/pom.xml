@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.ymu.spcselling</groupId>
         <artifactId>spcselling-build</artifactId>
-        <version>${revision}</version>
+        <version>1.0.0</version>
         <relativePath>..</relativePath>
     </parent>
     <artifactId>spcselling-apis</artifactId>
@@ -12,37 +12,13 @@
     <packaging>pom</packaging>
     <name>spcselling-apis</name>
     <description>微服务</description>
+
+    <properties>
+        <main.basedir>${basedir}/..</main.basedir>
+    </properties>
+
     <modules>
         <module>service-sys-common-api</module>
         <module>service-basic-user-api</module>
     </modules>
-
-    <properties>
-        <main.basedir>${basedir}/../..</main.basedir>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-hateoas</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ymu.spcselling</groupId>
-            <artifactId>entity-constants</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ymu.spcselling</groupId>
-            <artifactId>spcselling-infrastructure</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-        </dependency>
-    </dependencies>
 </project>
