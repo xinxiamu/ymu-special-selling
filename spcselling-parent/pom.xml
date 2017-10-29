@@ -19,19 +19,8 @@
     <properties>
         <main.basedir>${basedir}/../..</main.basedir>
 
-        <dubbo.version>2.5.3</dubbo.version>
-        <zookeeper.version>3.4.6</zookeeper.version>
-        <swagger.version>2.6.1</swagger.version>
-        <druid.version>1.0.25</druid.version>
-        <mysql.connector.version>5.1.21</mysql.connector.version>
-        <joda.time.version>2.9.7</joda.time.version>
         <guava.version>20.0</guava.version>
-        <kaptcha.version>0.0.9</kaptcha.version>
-        <mybatis.spring.boot.version>1.1.1</mybatis.spring.boot.version>
-        <apache.common.beanutils>1.9.3</apache.common.beanutils>
         <spring.cloud.version>Dalston.RELEASE</spring.cloud.version>
-        <log4jdbc.version>1.16</log4jdbc.version>
-        <alibaba.fastjson>1.2.39</alibaba.fastjson>
     </properties>
 
     <dependencies>

@@ -33,7 +33,7 @@
         <module>spcselling-gateway</module>
         <module>spcselling-server</module>
         <module>spcselling-apis</module>
-        <module>spsselling-entity</module>
+        <module>spcselling-entity</module>
     </modules>
 
     <!-- 阿里云maven仓库 -->
