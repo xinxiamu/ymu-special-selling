@@ -18,6 +18,7 @@
         <dependency>
             <groupId>com.ymu.spcselling</groupId>
             <artifactId>entity-constants</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
