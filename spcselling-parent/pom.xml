@@ -68,12 +68,6 @@
                 <version>1.0.0</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.ymu</groupId>
-                <artifactId>ymu-framework</artifactId>
-                <version>1.0</version>
-            </dependency>
-
             <!-- spring cloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -94,16 +88,6 @@
                         <artifactId>spring-boot-starter-data-jpa</artifactId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>ymu-infrastructure</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>ymu-webui-common</artifactId>
-                <version>${project.version}</version>
             </dependency>
 
         </dependencies>
