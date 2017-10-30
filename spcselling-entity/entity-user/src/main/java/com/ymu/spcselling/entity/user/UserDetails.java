@@ -1,7 +1,6 @@
 package com.ymu.spcselling.entity.user;
 
 import com.ymu.spcselling.entity.constants.UserSexType;
-import com.ymu.spcselling.infrastructure.base.BaseEntity;
 
 import javax.persistence.*;
 import java.util.Date;
