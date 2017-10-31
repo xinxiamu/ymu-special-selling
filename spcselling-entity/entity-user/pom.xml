@@ -17,6 +17,10 @@
     <dependencies>
         <dependency>
             <groupId>com.ymu.spcselling</groupId>
+            <artifactId>spcselling-infrastructure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ymu.spcselling</groupId>
             <artifactId>entity-constants</artifactId>
         </dependency>
 
@@ -35,6 +39,7 @@
         <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

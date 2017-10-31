@@ -22,7 +22,7 @@ public class QUser extends EntityPathBase<User> {
 
     public static final QUser user = new QUser("user");
 
-    public final QBaseEntity _super = new QBaseEntity(this);
+    public final com.ymu.spcselling.infrastructure.base.QBaseEntity _super = new com.ymu.spcselling.infrastructure.base.QBaseEntity(this);
 
     //inherited
     public final DateTimePath<java.util.Date> dateCreated = _super.dateCreated;

@@ -1,4 +1,4 @@
-package com.ymu.spcselling.entity.user;
+package com.ymu.spcselling.infrastructure.base;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -15,7 +15,7 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.SupertypeSerializer")
 public class QBaseEntity extends EntityPathBase<BaseEntity> {
 
-    private static final long serialVersionUID = 1629123126L;
+    private static final long serialVersionUID = 572018480L;
 
     public static final QBaseEntity baseEntity = new QBaseEntity("baseEntity");
 

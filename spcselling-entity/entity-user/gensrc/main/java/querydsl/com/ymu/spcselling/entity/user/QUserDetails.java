@@ -19,7 +19,7 @@ public class QUserDetails extends EntityPathBase<UserDetails> {
 
     public static final QUserDetails userDetails = new QUserDetails("userDetails");
 
-    public final QBaseEntity _super = new QBaseEntity(this);
+    public final com.ymu.spcselling.infrastructure.base.QBaseEntity _super = new com.ymu.spcselling.infrastructure.base.QBaseEntity(this);
 
     public final NumberPath<Integer> age = createNumber("age", Integer.class);
 
