@@ -19,7 +19,6 @@
     <properties>
         <main.basedir>${basedir}/../..</main.basedir>
 
-        <guava.version>20.0</guava.version>
         <spring.cloud.version>Dalston.RELEASE</spring.cloud.version>
     </properties>
 
