@@ -18,7 +18,7 @@ public class User extends BaseEntity {
     /**
      * 用户登录名。
      */
-    @Column(length = 100, nullable = false,unique = true)
+    @Column(length = 100, nullable = false, unique = true)
     private String userName;
 
     /**
@@ -74,10 +74,11 @@ public class User extends BaseEntity {
     private Date logoutTime;
 
     /**
-     * 实际是一对一关系。不用OneToOne是为了避免n+1问题。
+     * 用户详情。
      */
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    UserDetails userDetails;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_details_id")
+    private UserDetails userDetails;
 
     public UserDetails getUserDetails() {
         return userDetails;

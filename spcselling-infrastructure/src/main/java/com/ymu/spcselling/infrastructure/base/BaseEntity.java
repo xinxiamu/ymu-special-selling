@@ -18,31 +18,27 @@ public abstract class BaseEntity implements Serializable, Cloneable {
     /**
      * 是否无效（默认是有效）
      */
-    @NotNull
-    @Column(columnDefinition = "decimal(1,0)")
+    @Column(nullable = false,columnDefinition = "decimal(1,0)")
     protected Boolean disabled;
 
     /**
      * 最后更新时间
      */
-    @NotNull
-    @Column
+    @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     protected Date lastUpdated;
 
     /**
      * 创建时间
      */
-    @NotNull
-    @Column
+    @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     protected Date dateCreated;
 
     /**
      * 数据库版本号（用于乐观锁）
      */
-    @NotNull
-    @Column(name = "version")
+    @Column(nullable = false,name = "version")
     @Version
     protected Integer version;
 
