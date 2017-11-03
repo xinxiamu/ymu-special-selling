@@ -1,10 +1,15 @@
 package service.basic.user.api;
 
 import com.ymu.spcselling.infrastructure.spring.mvc.api.ApiRespResultVO;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import service.basic.user.vo.req.VUserReq;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 /**
  * 会员管理。
@@ -19,5 +24,8 @@ public interface UsersServiceApi {
      */
     @PostMapping
     ApiRespResultVO saveUser(@RequestBody VUserReq vUserReq);
+
+    @GetMapping(name = "/{mobile}")
+    ApiRespResultVO getUserByMobile(@Valid @NotNull @NotEmpty  String mobile);
 
 }
