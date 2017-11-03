@@ -18,7 +18,7 @@ public abstract class BaseEntity implements Serializable, Cloneable {
     /**
      * 是否无效（默认是有效）
      */
-    @Column(nullable = false,columnDefinition = "decimal(1,0)")
+    @Column(nullable = false, columnDefinition = "decimal(1,0)")
     protected Boolean disabled;
 
     /**
@@ -38,9 +38,74 @@ public abstract class BaseEntity implements Serializable, Cloneable {
     /**
      * 数据库版本号（用于乐观锁）
      */
-    @Column(nullable = false,name = "version")
+    @Column(nullable = false, name = "version")
     @Version
     protected Integer version;
+
+    /**
+     * 客户端设备类型。
+     */
+    @Column(length = 50)
+    @Enumerated(EnumType.STRING)
+    protected ClientDeviceType clientDeviceType;
+
+    /**
+     * 系统类型。
+     */
+    @Column(length = 50)
+    @Enumerated(EnumType.STRING)
+    protected SysPlatformType sysPlatformType;
+
+    public enum ClientDeviceType {
+
+        ANDROID("android"),
+        IOS("ios"),
+        BROWSER("web");
+
+        private final String value;
+
+        ClientDeviceType(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+    }
+
+    public enum SysPlatformType {
+
+        IPS("ips"),
+        CMP("cmp");
+
+        private final String value;
+
+        SysPlatformType(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+    }
+
+    public ClientDeviceType getClientDeviceType() {
+        return clientDeviceType;
+    }
+
+    public void setClientDeviceType(ClientDeviceType clientDeviceType) {
+        this.clientDeviceType = clientDeviceType;
+    }
+
+    public SysPlatformType getSysPlatformType() {
+        return sysPlatformType;
+    }
+
+    public void setSysPlatformType(SysPlatformType sysPlatformType) {
+        this.sysPlatformType = sysPlatformType;
+    }
 
     public Long getId() {
         return id;

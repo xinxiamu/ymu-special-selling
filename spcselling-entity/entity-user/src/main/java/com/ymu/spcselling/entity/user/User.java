@@ -18,7 +18,7 @@ public class User extends BaseEntity {
     /**
      * 用户登录名。
      */
-    @Column(length = 100, nullable = false, unique = true)
+    @Column(length = 100, unique = true)
     private String userName;
 
     /**
