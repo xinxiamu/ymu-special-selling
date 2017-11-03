@@ -38,7 +38,7 @@ public class IdServiceImplTest {
         idService = null;
     }
 
-    @Test
+//    @Test
     public void expId() throws Exception {
         ID actual = idService.expId(id);
         Assert.assertThat(actual.getSequence(), equalTo(23L));
@@ -46,7 +46,7 @@ public class IdServiceImplTest {
         Assert.assertThat(actual.getTimeStamp(), equalTo(84068427231L));
     }
 
-    @Test
+//    @Test
     public void genId() throws Exception {
         List<IdService> idServices = new ArrayList<>();
         for (int j = 0; j < 1024; j++) {
@@ -68,7 +68,7 @@ public class IdServiceImplTest {
         }
     }
 
-    @Test
+//    @Test
     public void stressTest() throws Exception {
         loop(2000000000);
         //loop(2000000000);

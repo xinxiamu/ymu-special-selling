@@ -19,6 +19,8 @@ public class QBaseEntity extends EntityPathBase<BaseEntity> {
 
     public static final QBaseEntity baseEntity = new QBaseEntity("baseEntity");
 
+    public final EnumPath<BaseEntity.ClientDeviceType> clientDeviceType = createEnum("clientDeviceType", BaseEntity.ClientDeviceType.class);
+
     public final DateTimePath<java.util.Date> dateCreated = createDateTime("dateCreated", java.util.Date.class);
 
     public final BooleanPath disabled = createBoolean("disabled");
@@ -26,6 +28,8 @@ public class QBaseEntity extends EntityPathBase<BaseEntity> {
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final DateTimePath<java.util.Date> lastUpdated = createDateTime("lastUpdated", java.util.Date.class);
+
+    public final EnumPath<BaseEntity.SysPlatformType> sysPlatformType = createEnum("sysPlatformType", BaseEntity.SysPlatformType.class);
 
     public final NumberPath<Integer> version = createNumber("version", Integer.class);
 

@@ -26,6 +26,9 @@ public class QUserDetails extends EntityPathBase<UserDetails> {
     public final DateTimePath<java.util.Date> bornTime = createDateTime("bornTime", java.util.Date.class);
 
     //inherited
+    public final EnumPath<com.ymu.spcselling.infrastructure.base.BaseEntity.ClientDeviceType> clientDeviceType = _super.clientDeviceType;
+
+    //inherited
     public final DateTimePath<java.util.Date> dateCreated = _super.dateCreated;
 
     //inherited
@@ -42,6 +45,9 @@ public class QUserDetails extends EntityPathBase<UserDetails> {
     public final DateTimePath<java.util.Date> lastUpdated = _super.lastUpdated;
 
     public final StringPath realName = createString("realName");
+
+    //inherited
+    public final EnumPath<com.ymu.spcselling.infrastructure.base.BaseEntity.SysPlatformType> sysPlatformType = _super.sysPlatformType;
 
     public final EnumPath<com.ymu.spcselling.entity.constants.UserSexType> userSexType = createEnum("userSexType", com.ymu.spcselling.entity.constants.UserSexType.class);
 

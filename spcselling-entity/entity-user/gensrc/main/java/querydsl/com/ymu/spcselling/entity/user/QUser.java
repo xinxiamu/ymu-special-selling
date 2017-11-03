@@ -25,6 +25,9 @@ public class QUser extends EntityPathBase<User> {
     public final com.ymu.spcselling.infrastructure.base.QBaseEntity _super = new com.ymu.spcselling.infrastructure.base.QBaseEntity(this);
 
     //inherited
+    public final EnumPath<com.ymu.spcselling.infrastructure.base.BaseEntity.ClientDeviceType> clientDeviceType = _super.clientDeviceType;
+
+    //inherited
     public final DateTimePath<java.util.Date> dateCreated = _super.dateCreated;
 
     //inherited
@@ -47,6 +50,9 @@ public class QUser extends EntityPathBase<User> {
     public final StringPath nickName = createString("nickName");
 
     public final StringPath password = createString("password");
+
+    //inherited
+    public final EnumPath<com.ymu.spcselling.infrastructure.base.BaseEntity.SysPlatformType> sysPlatformType = _super.sysPlatformType;
 
     public final QUserDetails userDetails;
 
