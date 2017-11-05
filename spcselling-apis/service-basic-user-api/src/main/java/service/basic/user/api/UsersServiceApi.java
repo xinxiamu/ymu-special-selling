@@ -25,6 +25,11 @@ public interface UsersServiceApi {
     @PostMapping
     ApiRespResultVO saveUser(@RequestBody VUserReq vUserReq);
 
+    /**
+     * 根据手机号码查找用户。
+     * @param mobile
+     * @return
+     */
     @GetMapping(name = "/{mobile}")
     ApiRespResultVO getUserByMobile(@Valid @NotNull @NotEmpty  String mobile);
 
