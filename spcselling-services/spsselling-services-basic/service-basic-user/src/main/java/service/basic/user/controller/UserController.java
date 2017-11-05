@@ -1,9 +1,12 @@
 package service.basic.user.controller;
 
+import com.ymu.spcselling.entity.user.User;
 import com.ymu.spcselling.infrastructure.base.AbstractBaseController;
 import com.ymu.spcselling.infrastructure.spring.mvc.api.ApiRespResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import service.basic.user.api.UsersServiceApi;
@@ -30,7 +33,8 @@ public class UserController extends AbstractBaseController implements UsersServi
     }
 
     @Override
-    public ApiRespResultVO getUserByMobile(@Valid String mobile) {
-        return null;
+    public ApiRespResultVO getUserByMobile(@PathVariable(name = "mobile") @Valid String mobile) {
+        User user = userService.getUserByMobile(mobile);
+        return ApiRespResultVO.getInstance(user, HttpStatus.FOUND);
     }
 }
