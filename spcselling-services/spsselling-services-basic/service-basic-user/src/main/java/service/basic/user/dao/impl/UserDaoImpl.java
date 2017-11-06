@@ -28,6 +28,7 @@ public class UserDaoImpl extends BaseDaoImpl<UserRepository> implements UserDao 
             }
         }.toString();
         LOGGER.debug("\n---sql:" + sql);
+        DataSourceContextHolder.setDS(DSType.SPCS_USER_SLAVE.name());
         String mobile = jdbcTemplate.queryForObject(sql,new Object[]{id},String.class);
         return mobile;
     }

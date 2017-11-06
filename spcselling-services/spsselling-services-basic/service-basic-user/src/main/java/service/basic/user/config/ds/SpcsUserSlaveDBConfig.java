@@ -4,14 +4,12 @@ import com.ymu.spcselling.infrastructure.dao.BaseRepositoryFactoryBean;
 import net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -23,7 +21,6 @@ import javax.sql.DataSource;
 import java.util.Map;
 
 @Configuration
-@AutoConfigureAfter(DataSourceConfig.class)
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactorySpcsUserSlaveDB", transactionManagerRef = "transactionManagerSpcsUserSlaveDB", basePackages = {
         Constants.SPCS_USER_REPOSITORY_PACKAGE_PATH}, repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class)
@@ -33,7 +30,7 @@ public class SpcsUserSlaveDBConfig {
     Environment ev;
 
     @Autowired
-    @Qualifier("dynamicDS")
+    @Qualifier("spcsUserSlaveDataSource")
     private DataSource dataSource; // 数据源
 
     @Bean(name = "entityManagerSpcsUserSlave")
@@ -66,15 +63,6 @@ public class SpcsUserSlaveDBConfig {
     @Bean(name = "transactionManagerSpcsUserSlaveDB")
     public PlatformTransactionManager transactionManagerSpcsUserSlaveDB(EntityManagerFactoryBuilder builder) {
         return new JpaTransactionManager(entityManagerFactorySpcsUserSlaveDB(builder).getObject());
-    }
-
-    /**
-     * spring jdbc。
-     * @return
-     */
-    @Bean(name = "jdbcTemplate")
-    public JdbcTemplate primaryJdbcTemplate() {
-        return new JdbcTemplate(dataSource);
     }
 
 }

@@ -90,7 +90,7 @@ public class DataSourceConfig {
      * @return
      * @throws SQLException
      */
-    @Bean(name = "spcsUserDataSource")
+    @Bean
     @Qualifier("spcsUserDataSource")
     public DataSource spcsUserDataSource(@Autowired SpcsUserDSArgs args) throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
@@ -122,7 +122,7 @@ public class DataSourceConfig {
      * @return
      * @throws SQLException
      */
-    @Bean(name = "spcsUserSlaveDataSource")
+    @Bean
     @Qualifier("spcsUserSlaveDataSource")
     public DataSource spcsUserSlaveDataSource(@Autowired SpcsUserSlaveDSArgs args) throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();

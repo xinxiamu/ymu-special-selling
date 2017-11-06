@@ -16,6 +16,9 @@ package com.ymu.spcselling.infrastructure.utils.sql;
  * limitations under the License.
  */
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +29,8 @@ import java.util.List;
  * @author Adam Gent
  */
 public abstract class AbstractSqlBuilder<T> {
+
+    private static final Log logger = LogFactory.getLog(AbstractSqlBuilder.class);
 
     private static final String AND = ") \nAND (";
     private static final String OR = ") \nOR (";
@@ -151,6 +156,7 @@ public abstract class AbstractSqlBuilder<T> {
         StringBuilder sb = new StringBuilder();
         sql().sql(sb);
 //        System.out.println("执行sql语句：" + sb.toString());
+        logger.debug("执行sql语句：" + sb.toString());
         return sb.toString();
     }
 
