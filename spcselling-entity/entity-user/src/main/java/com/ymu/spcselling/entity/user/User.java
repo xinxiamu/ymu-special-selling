@@ -28,9 +28,9 @@ public class User extends BaseEntity {
     private String password;
 
     /**
-     * 手机号码。可用手机号码登录。一个手机号码可以注册多个账号，对应一种用户类型。
+     * 手机号码。可用手机号码登录。
      */
-    @Column(length = 15, nullable = false)
+    @Column(length = 15,unique = true,nullable = false)
     private String mobile;
 
     /**
@@ -40,18 +40,18 @@ public class User extends BaseEntity {
     private String nickName;
 
     /**
-     * 会员类型
+     * 会员类型。默认是普通会员。
      */
     @Column(length = 25, nullable = false)
     @Enumerated(EnumType.STRING)
-    private UserType userType;
+    private UserType userType = UserType.ORDINARY;
 
     /**
-     * 会员可用状态
+     * 会员可用状态。默认不可用。
      */
     @Column(length = 25, nullable = false)
     @Enumerated(EnumType.STRING)
-    private UserUsableType userUsableType;
+    private UserUsableType userUsableType = UserUsableType.DISABLE;
 
     /**
      * 登录状态。1-在线；0-不在线;

@@ -1,4 +1,4 @@
-package com.ymu.spcselling.infrastructure.spring.mvc.api;
+package com.spcs.apis.common;
 
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.ResourceSupport;
@@ -6,9 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.io.Serializable;
-
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 public class ApiRespResultVO extends ResourceSupport implements Serializable {
 	
@@ -47,7 +44,7 @@ public class ApiRespResultVO extends ResourceSupport implements Serializable {
 	 * 成功返回。
 	 * @param data
 	 */
-	public ApiRespResultVO(Object data,HttpStatus status) {
+	public ApiRespResultVO(Object data, HttpStatus status) {
 		this.data = (new ResponseEntity(data,status)).getBody();
 		this.code = status.value();
 	}

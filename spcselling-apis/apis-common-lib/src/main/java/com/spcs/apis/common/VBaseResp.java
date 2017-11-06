@@ -1,4 +1,4 @@
-package com.ymu.spcselling.infrastructure.base;
+package com.spcs.apis.common;
 
 import org.springframework.hateoas.ResourceSupport;
 

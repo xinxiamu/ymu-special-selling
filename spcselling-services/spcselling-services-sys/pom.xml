@@ -17,6 +17,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.ymu.spcselling</groupId>
+            <artifactId>spcselling-infrastructure</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>

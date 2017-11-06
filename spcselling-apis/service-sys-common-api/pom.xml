@@ -30,14 +30,15 @@
             <groupId>com.ymu.spcselling</groupId>
             <artifactId>entity-constants</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.ymu.spcselling</groupId>
-            <artifactId>spcselling-infrastructure</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ymu.spcselling</groupId>
+            <artifactId>apis-common-lib</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

@@ -1,11 +1,10 @@
 package service.sys.common.vo.req;
 
-import com.ymu.spcselling.infrastructure.base.VBaseReq;
-import com.ymu.spcselling.infrastructure.base.VBaseResp;
+
+import com.spcs.apis.common.VBaseReq;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 
 public class VIdGenReq extends VBaseReq {
 

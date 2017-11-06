@@ -33,7 +33,7 @@ public class SpcsUserSlaveDBConfig {
     Environment ev;
 
     @Autowired
-    @Qualifier("spcsUserSlaveDataSource")
+    @Qualifier("dynamicDS")
     private DataSource dataSource; // 数据源
 
     @Bean(name = "entityManagerSpcsUserSlave")

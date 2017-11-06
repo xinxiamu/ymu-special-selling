@@ -1,6 +1,7 @@
 package service.sys.common.vo.resp;
 
-import com.ymu.spcselling.infrastructure.base.VBaseResp;
+
+import com.spcs.apis.common.VBaseResp;
 
 public class VUserResp extends VBaseResp {
 }

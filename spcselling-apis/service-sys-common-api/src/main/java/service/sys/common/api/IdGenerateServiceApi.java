@@ -1,6 +1,6 @@
 package service.sys.common.api;
 
-import com.ymu.spcselling.infrastructure.spring.mvc.api.ApiRespResultVO;
+import com.spcs.apis.common.ApiRespResultVO;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import service.sys.common.vo.req.VIdGenReq;

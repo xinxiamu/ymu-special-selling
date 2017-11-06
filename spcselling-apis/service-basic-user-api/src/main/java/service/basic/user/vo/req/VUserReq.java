@@ -1,6 +1,8 @@
 package service.basic.user.vo.req;
 
-import com.ymu.spcselling.infrastructure.base.VBaseReq;
+
+import com.spcs.apis.common.VBaseReq;
 
 public class VUserReq extends VBaseReq {
+
 }

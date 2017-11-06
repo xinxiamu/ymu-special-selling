@@ -4,5 +4,7 @@ import com.ymu.spcselling.entity.user.User;
 
 public interface UserService {
 
-    public User getUserByMobile(String mobile);
+    User getUserByMobile(String mobile);
+
+    String findUserMobileById(long id);
 }

@@ -5,7 +5,12 @@ import com.ymu.spcselling.infrastructure.dao.BaseDao;
 
 public interface UserDao extends BaseDao<UserRepository> {
 
-    String findUsernameByMobile();
+    /**
+     * 根据用户id获取用户手机号码。
+     * @param id
+     * @return
+     */
+    String findUserMobileById(long id);
 
     /**
      * 根据电话号码查找用户。

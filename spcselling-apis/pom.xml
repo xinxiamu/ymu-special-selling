@@ -20,5 +20,7 @@
     <modules>
         <module>service-sys-common-api</module>
         <module>service-basic-user-api</module>
+        <module>apis-common-lib</module>
     </modules>
+
 </project>

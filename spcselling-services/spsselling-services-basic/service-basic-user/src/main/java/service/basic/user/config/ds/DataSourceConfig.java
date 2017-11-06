@@ -32,9 +32,6 @@ public class DataSourceConfig {
     @Autowired
     private Environment env;
 
-//    @Value("${spring.datasource.druid.filters}")
-//    private String filters;
-
     /**
      * druid监控filter配置。
      * @return
@@ -110,9 +107,6 @@ public class DataSourceConfig {
 
         dataSource.setUseGlobalDataSourceStat(true); //合并多个DruidDataSource的监控数据
 
-        //加上这个，否则无法监控sql
-//        dataSource.setFilters(filters);
-
         List<Filter> proxyFilters = new ArrayList<>();
         proxyFilters.add(statFilter());
         proxyFilters.add(log4j2Filter());
@@ -142,9 +136,6 @@ public class DataSourceConfig {
         dataSource.setMaxWait(args.getMaxWait());
         dataSource.setTimeBetweenEvictionRunsMillis(args.getTimeBetweenEvictionRunsMillis());
         dataSource.setMinEvictableIdleTimeMillis(args.getMinEvictableIdleTimeMillis());
-
-        //加上这个，否则无法监控sql
-//        dataSource.setFilters(filters);
 
         List<Filter> proxyFilters = new ArrayList<>();
         proxyFilters.add(statFilter());

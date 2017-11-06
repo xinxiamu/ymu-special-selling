@@ -1,6 +1,6 @@
 package service.sys.common.vo.req;
 
-import com.ymu.spcselling.infrastructure.base.VBaseResp;
+import com.spcs.apis.common.VBaseResp;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;

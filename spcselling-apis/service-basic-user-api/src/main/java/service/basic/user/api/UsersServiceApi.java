@@ -1,12 +1,8 @@
 package service.basic.user.api;
 
-import com.ymu.spcselling.infrastructure.spring.mvc.api.ApiRespResultVO;
-import org.hibernate.validator.constraints.NotEmpty;
+import com.spcs.apis.common.ApiRespResultVO;
 import org.springframework.web.bind.annotation.*;
 import service.basic.user.vo.req.VUserReq;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 /**
  * 会员管理。
@@ -27,7 +23,10 @@ public interface UsersServiceApi {
      * @param mobile
      * @return
      */
-    @GetMapping(name = "/{mobile}")
-    ApiRespResultVO getUserByMobile(@PathVariable(name = "mobile") @Valid @NotNull @NotEmpty  String mobile);
+    @GetMapping("/user/{mobile}")
+    ApiRespResultVO getUserByMobile(@PathVariable(name = "mobile") String mobile);
+
+    @GetMapping("/user/mobile/{id}")
+    ApiRespResultVO getUserMobileById(@PathVariable(name = "id") long id);
 
 }

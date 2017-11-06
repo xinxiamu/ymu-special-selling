@@ -66,26 +66,16 @@
 			<AppenderRef ref="RollingFileAsync" level="error" />
 		</Root>
 
-		<!--<Logger name="org.apache.logging.log4j.test1" level="debug"
-				additivity="false">&lt;!&ndash; logger中输出的日志不会再延伸到父层logger &ndash;&gt;
+		<Logger name="org.apache.logging.log4j.test1" level="debug"
+				additivity="false"><!-- logger中输出的日志不会再延伸到父层logger -->
 			<ThreadContextMapFilter>
 				<KeyValuePair key="test" value="123" />
 			</ThreadContextMapFilter>
 			<AppenderRef ref="STDOUT" />
-		</Logger>-->
-
-		<!--<Logger name="org.apache.logging.log4j.test2" level="debug"
-				additivity="false">
-			<Property name="user">${sys:user.name}</Property>
-			<AppenderRef ref="File">
-				<ThreadContextMapFilter>
-					<KeyValuePair key="test" value="123" />
-				</ThreadContextMapFilter>
-			</AppenderRef>
-			<AppenderRef ref="STDOUT" level="error" />
 		</Logger>
--->
-		<logger name="service.basic.user" level="debug" additivity="false">
+
+
+						<logger name="service.basic.user" level="debug" additivity="false">
 			<appender-ref ref="STDOUT" />
 			<appender-ref ref="RollingFileAsync" level="error"/>
 		</logger>
