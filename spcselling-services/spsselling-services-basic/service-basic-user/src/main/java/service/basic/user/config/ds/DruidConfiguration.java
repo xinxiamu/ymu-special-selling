@@ -43,7 +43,7 @@ public class DruidConfiguration {
         StatViewServlet statViewServlet = new StatViewServlet();
         servletRegistrationBean.setServlet(statViewServlet);
         servletRegistrationBean.addUrlMappings("/druid/*");
-        Map<String, String> initParameters = new HashMap<String, String>();
+        Map<String, String> initParameters = new HashMap<>();
 
         initParameters.put("loginUsername", loginUsername);// 用户名
         initParameters.put("loginPassword", loginPwd);// 密码

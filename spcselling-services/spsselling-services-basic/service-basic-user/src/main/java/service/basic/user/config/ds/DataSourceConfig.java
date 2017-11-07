@@ -9,10 +9,7 @@ import com.alibaba.druid.wall.WallFilter;
 import com.ymu.spcselling.infrastructure.dao.ds.DynamicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 
 import javax.sql.DataSource;
@@ -28,9 +25,6 @@ import java.util.Map;
  */
 @Configuration
 public class DataSourceConfig {
-
-    @Autowired
-    private Environment env;
 
     /**
      * druid监控filter配置。
@@ -155,7 +149,7 @@ public class DataSourceConfig {
     @Primary
     @Bean(name = "dynamicDS")
     @Scope("singleton")
-    public DataSource muDynamicDataSource(@Qualifier("spcsUserDataSource") DataSource spcsUserDataSource,
+    public DataSource dynamicDataSource(@Qualifier("spcsUserDataSource") DataSource spcsUserDataSource,
                                           @Qualifier("spcsUserSlaveDataSource") DataSource spcsUserSlaveDataSource) {
         // 配置多数据源
         Map<Object, Object> dsMap = new HashMap<>(5);
@@ -166,7 +160,6 @@ public class DataSourceConfig {
         // 默认数据源
         dynamicDataSource.setDefaultTargetDataSource(spcsUserDataSource);
         dynamicDataSource.setTargetDataSources(dsMap);
-
         return dynamicDataSource;
     }
 

@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface UserRepository extends BaseRepository<User,Long>,JpaSpecificationExecutor<User> {
 
+    User findUserByMobile(String mobile);
 }

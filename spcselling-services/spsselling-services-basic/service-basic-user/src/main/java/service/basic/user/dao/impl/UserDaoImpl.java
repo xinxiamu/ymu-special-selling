@@ -22,7 +22,7 @@ public class UserDaoImpl extends BaseDaoImpl<UserRepository> implements UserDao 
     public String findUserMobileById(long id) {
         String sql = new SqlBuilder(){
             {
-                SELECT("u.mobile");
+                SELECT("u.password");
                 FROM("user as u");
                 WHERE("u.id=?");
             }

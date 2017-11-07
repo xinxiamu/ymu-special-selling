@@ -15,6 +15,9 @@ public class DataSourceContextHolder {
      * @param dbType
      */
     public static void setDS(String dbType) {
+        if (dbType == null) {
+            throw new NullPointerException("数据源不能null");
+        }
         LOGGER.debug("切换到{}数据源", dbType);
         contextHolder.set(dbType);
     }

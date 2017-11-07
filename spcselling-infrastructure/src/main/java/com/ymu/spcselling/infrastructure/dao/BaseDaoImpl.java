@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public abstract class BaseDaoImpl<T extends BaseRepository> implements BaseDao<T> {
 
 	@Autowired
-	@PersistenceContext
+	@PersistenceContext(unitName = "spcsUserSlaveUnit")
 	protected EntityManager em;
 
 	@Autowired
