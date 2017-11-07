@@ -2,6 +2,9 @@ package service.basic.user.dao;
 
 import com.ymu.spcselling.entity.user.User;
 import com.ymu.spcselling.infrastructure.dao.BaseDao;
+import com.ymu.spcselling.infrastructure.dao.ds.DSInject;
+import service.basic.user.common.Constants;
+import service.basic.user.config.ds.DSType;
 
 public interface UserDao extends BaseDao<UserRepository> {
 
