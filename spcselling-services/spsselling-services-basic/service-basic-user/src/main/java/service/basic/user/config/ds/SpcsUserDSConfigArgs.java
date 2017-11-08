@@ -4,8 +4,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "spring.datasource.druid.spcs-user-slave")
-public class SpcsUserSlaveDSArgs {
+@ConfigurationProperties(prefix = "spring.datasource.druid.spcs-user")
+public class SpcsUserDSConfigArgs {
 
     private String url;
     private String username;

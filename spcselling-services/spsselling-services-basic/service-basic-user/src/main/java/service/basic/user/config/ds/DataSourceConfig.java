@@ -10,7 +10,6 @@ import com.ymu.spcselling.infrastructure.dao.ds.DynamicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
-import org.springframework.core.env.Environment;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -86,7 +85,7 @@ public class DataSourceConfig {
      */
     @Bean(name = "spcsUserDataSourceWrite")
     @Qualifier("spcsUserDataSourceWrite")
-    public DataSource spcsUserDataSource(@Autowired SpcsUserDSArgs args) throws SQLException {
+    public DataSource spcsUserDataSource(@Autowired SpcsUserDSConfigArgs args) throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(args.getUrl());
         dataSource.setUsername(args.getUsername());
@@ -118,7 +117,7 @@ public class DataSourceConfig {
      */
     @Bean(name = "spcsUserDataSourceRead_0")
     @Qualifier("spcsUserDataSourceRead_0")
-    public DataSource spcsUserSlaveDataSource(@Autowired SpcsUserSlaveDSArgs args) throws SQLException {
+    public DataSource spcsUserSlaveDataSource(@Autowired SpcsUserSlaveDSConfigArgs args) throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(args.getUrl());
         dataSource.setUsername(args.getUsername());
