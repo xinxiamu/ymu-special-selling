@@ -31,7 +31,7 @@ public class SpcsUserDBConfig {
     Environment ev;
 
     @Autowired
-    @Qualifier("spcsUserDataSource")
+    @Qualifier("dataSource")
     private DataSource dataSource; // 数据源
 
     @Primary

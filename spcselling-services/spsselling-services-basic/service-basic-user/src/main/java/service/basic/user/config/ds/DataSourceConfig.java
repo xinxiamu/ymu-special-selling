@@ -84,8 +84,8 @@ public class DataSourceConfig {
      * @return
      * @throws SQLException
      */
-    @Bean
-    @Qualifier("spcsUserDataSource")
+    @Bean(name = "spcsUserDataSourceWrite")
+    @Qualifier("spcsUserDataSourceWrite")
     public DataSource spcsUserDataSource(@Autowired SpcsUserDSArgs args) throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(args.getUrl());
@@ -116,8 +116,8 @@ public class DataSourceConfig {
      * @return
      * @throws SQLException
      */
-    @Bean
-    @Qualifier("spcsUserSlaveDataSource")
+    @Bean(name = "spcsUserDataSourceRead_0")
+    @Qualifier("spcsUserDataSourceRead_0")
     public DataSource spcsUserSlaveDataSource(@Autowired SpcsUserSlaveDSArgs args) throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(args.getUrl());
@@ -147,10 +147,11 @@ public class DataSourceConfig {
      * @return
      */
     @Primary
-    @Bean(name = "dynamicDS")
+    @Bean(name = "dataSource")
     @Scope("singleton")
-    public DataSource dynamicDataSource(@Qualifier("spcsUserDataSource") DataSource spcsUserDataSource,
-                                          @Qualifier("spcsUserSlaveDataSource") DataSource spcsUserSlaveDataSource) {
+    @DependsOn({"spcsUserDataSourceWrite","spcsUserDataSourceRead_0"}) //要加入这个注解，在数据源初始化之后，再初始化本bean，否则会出现循环依赖注入无法启动。
+    public DataSource dynamicDataSource(@Qualifier("spcsUserDataSourceWrite") DataSource spcsUserDataSource,
+                                          @Qualifier("spcsUserDataSourceRead_0") DataSource spcsUserSlaveDataSource) {
         // 配置多数据源
         Map<Object, Object> dsMap = new HashMap<>(5);
         dsMap.put(DSType.SPCS_USER.name(), spcsUserDataSource);

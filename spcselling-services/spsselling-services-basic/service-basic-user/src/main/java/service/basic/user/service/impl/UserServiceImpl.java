@@ -17,11 +17,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @DSInject(value = Constants.SPCS_USER_SLAVE)
     @Override
     public User getUserByMobile(String mobile) {
-//        return userDao.findUserByMobile(mobile);
-
-        return userDao.getMRepository().findUserByMobile(mobile);
+        return userDao.findUserByMobile(mobile);
     }
 
     @Override

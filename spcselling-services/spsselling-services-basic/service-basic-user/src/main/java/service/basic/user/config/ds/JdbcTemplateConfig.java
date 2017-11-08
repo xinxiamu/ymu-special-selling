@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 public class JdbcTemplateConfig {
 
     @Autowired
-    @Qualifier(value = "dynamicDS")
+    @Qualifier(value = "dataSource")
     private DataSource dataSource;
 
     /**
