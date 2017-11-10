@@ -13,7 +13,7 @@
 	<description>门户</description>
 
 	<modules>
-		<module>spcselling-facade</module>
+		<module>spcselling-web-facade</module>
 	</modules>
 
 	<dependencies>
