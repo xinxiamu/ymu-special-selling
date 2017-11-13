@@ -4,11 +4,10 @@
     <parent>
         <groupId>com.ymu.spcselling</groupId>
         <artifactId>spcselling-parent</artifactId>
-        <version>1.0.0</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../spcselling-parent</relativePath>
     </parent>
     <artifactId>spcselling-server</artifactId>
-    <version>1.0.0</version>
     <name>spcselling-server</name>
     <packaging>jar</packaging>
     <description>服务注册与发现中心,高可用，做集群（3个）</description>

@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.ymu.spcselling</groupId>
         <artifactId>spcselling-services-sys</artifactId>
-        <version>1.0.0</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>service-sys-common</artifactId>
     <packaging>jar</packaging>

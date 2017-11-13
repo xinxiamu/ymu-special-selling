@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.ymu.spcselling</groupId>
         <artifactId>spcselling-parent</artifactId>
-        <version>1.0.0</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../../spcselling-parent</relativePath>
     </parent>
     <artifactId>service-basic-user-api</artifactId>
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>com.ymu.spcselling</groupId>
             <artifactId>apis-common-lib</artifactId>
-            <version>1.0.0</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

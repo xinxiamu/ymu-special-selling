@@ -8,7 +8,7 @@
     </parent>
     <groupId>com.ymu.spcselling</groupId>
     <artifactId>spcselling-build</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>spcselling-build</name>
     <description>
@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
 
-        <revision>1.0.0</revision>
+        <!--<revision>0.0.1-SNAPSHOT</revision>-->
         <main.basedir>${basedir}</main.basedir>
     </properties>
 
@@ -36,8 +36,17 @@
         <module>spcselling-entity</module>
     </modules>
 
-    <!-- 阿里云maven仓库 -->
     <repositories>
+        <!--自己私仓,下载jar-->
+        <repository>
+            <id>ymu-hosted</id>
+            <url>http://47.52.236.72:8081/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <!-- 阿里云maven仓库 -->
         <repository>
             <id>public</id>
             <name>aliyun nexus</name>
@@ -47,6 +56,7 @@
             </releases>
         </repository>
 
+        <!-- spring仓库 -->
         <repository>
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
@@ -58,6 +68,14 @@
     </repositories>
 
     <pluginRepositories>
+        <!--私服，插件-->
+        <pluginRepository>
+            <id>public</id>
+            <url>http://47.52.236.72:8081/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
         <pluginRepository>
             <id>central</id>
             <url>https://repo.maven.apache.org/maven2</url>
@@ -82,5 +100,19 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+
+    <!--mavne 发布-->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>ymu-hosted-snapshots</name>
+            <url>http://47.52.236.72:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>repository</id>
+            <name>ymu-hosted-repository</name>
+            <url>http://47.52.236.72:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 
 </project>

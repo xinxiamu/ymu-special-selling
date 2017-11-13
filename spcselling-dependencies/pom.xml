@@ -4,12 +4,12 @@
     <parent>
         <groupId>com.ymu.spcselling</groupId>
         <artifactId>spcselling-build</artifactId>
-        <version>1.0.0</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
     <groupId>com.ymu.spcselling</groupId>
     <artifactId>spcselling-dependencies</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>spcselling-dependencies</name>
     <description>常用依赖库。</description>

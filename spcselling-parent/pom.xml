@@ -4,12 +4,12 @@
     <parent>
         <groupId>com.ymu.spcselling</groupId>
         <artifactId>spcselling-dependencies</artifactId>
-        <version>1.0.0</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../spcselling-dependencies</relativePath>
     </parent>
     <groupId>com.ymu.spcselling</groupId>
     <artifactId>spcselling-parent</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>spcselling-parent</name>
     <description>
@@ -52,19 +52,19 @@
             <dependency>
                 <groupId>com.ymu.spcselling</groupId>
                 <artifactId>spcselling-infrastructure</artifactId>
-                <version>1.0.0</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.ymu.spcselling</groupId>
                 <artifactId>service-sys-common-api</artifactId>
-                <version>1.0.0</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.ymu.spcselling</groupId>
                 <artifactId>entity-constants</artifactId>
-                <version>1.0.0</version>
+                <version>${project.version}</version>
             </dependency>
 
             <!-- spring cloud -->

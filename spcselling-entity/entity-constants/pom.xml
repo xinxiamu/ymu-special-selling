@@ -2,9 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.ymu.spcselling</groupId>
+    <parent>
+        <groupId>com.ymu.spcselling</groupId>
+        <artifactId>spsselling-entity</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
     <artifactId>entity-constants</artifactId>
-    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>entity-constants</name>
     <description>实体类常量。共用</description>
