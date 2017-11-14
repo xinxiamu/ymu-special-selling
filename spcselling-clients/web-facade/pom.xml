@@ -9,10 +9,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../../spcselling-parent</relativePath>
 	</parent>
-	<artifactId>spcselling-web-facade</artifactId>
+	<artifactId>web-facade</artifactId>
 	<packaging>jar</packaging>
 
-	<name>spcselling-web-facade</name>
+	<name>web-facade</name>
 	<description>门户</description>
 
 
