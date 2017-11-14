@@ -13,30 +13,6 @@
 	<description>门户</description>
 
 	<modules>
-		<module>spcselling-web-facade</module>
+		<module>spcselling-web-facade</module>  
 	</modules>
-
-	<dependencies>
-		<!-- 热部署工具 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<fork>
-						true
-					</fork>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>

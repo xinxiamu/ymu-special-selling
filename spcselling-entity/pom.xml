@@ -7,9 +7,9 @@
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>..</relativePath>
     </parent>
-    <artifactId>spsselling-entity</artifactId>
+    <artifactId>spcselling-entity</artifactId>
     <packaging>pom</packaging>
-    <name>spsselling-entity</name>
+    <name>spcselling-entity</name>
     <description>业务基础支撑服务对应数据库</description>
     <modules>
         <module>entity-constants</module>
