@@ -3,6 +3,21 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Page Index</title>
+
+    <!--<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>-->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $.ajax({
+            url: 'http://localhost:8001/v1/id/23423423424',
+            type: "GET",
+            success: function (data) {
+                $("#info").html("跨域访问成功:"+data);
+            },
+            error: function (data) {
+                $("#info").html("跨域失败!!");
+            }
+        })
+    </script>
 </head>
 <body>
 <h2>前台系统</h2>
@@ -10,19 +25,5 @@
 <p id="info"></p>
 
 </body>
-
-<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
-<script>
-    $.ajax({
-        url: 'http://localhost:8090/hello',
-        type: "POST",
-        success: function (data) {
-            $("#info").html("跨域访问成功:"+data);
-        },
-        error: function (data) {
-            $("#info").html("跨域失败!!");
-        }
-    })
-</script>
 
 </html>
