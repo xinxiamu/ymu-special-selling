@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Page Index</title>
+
+    <!--<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>-->
+</head>
+<body>
+<h2>前台系统</h2>
+
+<p id="info"></p>
+
+</body>
+
+<!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+<!--<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+<!--使用相对协议。否则https协议请求http协议资源将报错。参考：https://csspod.com/the-protocol-relative-url/-->
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    $.ajax({
+        url: '//localhost:8001/v1/id/23423423424',
+        type: "GET",
+        success: function (data) {
+            $("#info").html("跨域访问成功:"+data);
+        },
+        error: function (data) {
+            $("#info").html("跨域失败!!");
+        }
+    })
+</script>
+
+</html>

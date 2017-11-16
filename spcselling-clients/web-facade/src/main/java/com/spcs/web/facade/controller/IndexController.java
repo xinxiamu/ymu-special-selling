@@ -4,12 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller("/index")
+@Controller
 public class IndexController {
 
-    @RequestMapping
+    @RequestMapping("/index")
     public String cachePage(Model model) {
-        model.addAttribute("name", "abc");
+        model.addAttribute("name", "111111111");
         return "index";
     }
 }
