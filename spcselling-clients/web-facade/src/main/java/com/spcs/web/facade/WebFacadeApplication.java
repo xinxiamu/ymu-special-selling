@@ -11,9 +11,11 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.util.SocketUtils;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 @SpringBootApplication
-public class WebFacadeApplication {
+public class WebFacadeApplication{
 
 	public static void main(String[] args) {
 		SpringApplication.run(WebFacadeApplication.class, args);
