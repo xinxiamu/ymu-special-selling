@@ -1,5 +1,9 @@
 server:
   port: 8001
+  ssl:
+      key-store: classpath:dev/mykeys.jks
+      key-store-password: 701712
+      key-password: 701712
 
 #---
 #spring:
