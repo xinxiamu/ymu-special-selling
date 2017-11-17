@@ -1,11 +1,17 @@
 package com.spcs.web.facade.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration
-public class WebConfig extends WebMvcConfigurationSupport {
+/**
+ * spring mvc配置类。添加这个后，自动配置WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter将失效。
+ * 所以推荐默认，一般情况不引入这个。
+ */
+//@Configuration
+//@EnableWebMvc
+public class WebConfig extends WebMvcConfigurerAdapter {
 
     /**
      * 1、 extends WebMvcConfigurationSupport
@@ -16,7 +22,8 @@ public class WebConfig extends WebMvcConfigurationSupport {
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
         configurer.setUseSuffixPatternMatch(true)
-                .setUseTrailingSlashMatch(true);
+                .setUseTrailingSlashMatch(false);
+        super.configurePathMatch(configurer);
     }
 
 }
