@@ -16,7 +16,7 @@ public class IndexController {
         return "index";
     }
 
-    @Value("${user.home}")
+//    @Value("${spring.resources.static-locations}")
     private String usrname;
 
     @GetMapping("/username")
