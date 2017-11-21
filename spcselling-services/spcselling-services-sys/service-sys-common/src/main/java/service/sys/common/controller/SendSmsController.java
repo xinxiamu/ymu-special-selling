@@ -3,6 +3,7 @@ package service.sys.common.controller;
 import com.spcs.apis.common.ApiRespResultVO;
 import com.ymu.spcselling.infrastructure.base.AbstractBaseController;
 import com.ymu.spcselling.infrastructure.spring.AppContext;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class SendSmsController extends AbstractBaseController implements SendSms
     private EurekaRegistration eurekaRegistration;
 
     @Override
-    public ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq, BindingResult result) {
+    public ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq, BindingResult result, HttpServletRequest request) {
         Locale locale = RequestContextUtils.getLocaleResolver(request).resolveLocale(request);
         String menuName = AppContext.getApplicationContext().getMessage("hello",null, "菜单A", locale);
 

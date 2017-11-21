@@ -1,6 +1,7 @@
 package service.sys.common.api;
 
 import com.spcs.apis.common.ApiRespResultVO;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,5 +23,5 @@ public interface SendSmsServiceApi {
      * @return
      */
     @PostMapping
-    ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq, BindingResult result);
+    ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq, BindingResult result, HttpServletRequest httpServletRequest);
 }
