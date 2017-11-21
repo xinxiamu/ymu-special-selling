@@ -27,10 +27,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         super.configurePathMatch(configurer);
     }*/
 
-    @Override
+   /* @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/myres/**").addResourceLocations("F:/mu/ymu-special-selling/static/**");
         super.addResourceHandlers(registry);
-    }
+    }*/
 
 }

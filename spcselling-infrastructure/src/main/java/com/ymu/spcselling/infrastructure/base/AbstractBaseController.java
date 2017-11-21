@@ -9,18 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 public abstract class AbstractBaseController {
 
-    protected HttpServletRequest request;
-    protected HttpServletResponse response;
-
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
     }
 
     @ModelAttribute
-    public void setReqAndRes(HttpServletRequest request,
-                             HttpServletResponse response) {
-        this.request = request;
-        this.response = response;
+    public void setReqAndRes() {
     }
 
 }

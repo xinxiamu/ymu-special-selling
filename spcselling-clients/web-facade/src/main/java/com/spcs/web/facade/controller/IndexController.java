@@ -1,6 +1,5 @@
 package com.spcs.web.facade.controller;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +15,9 @@ public class IndexController {
         return "index";
     }
 
-//    @Value("${spring.resources.static-locations}")
-    private String usrname;
-
-    @GetMapping("/username")
+    @GetMapping("/hello")
     @ResponseBody
     public String hello(){
-        return usrname;
+        return "hello";
     }
 }
