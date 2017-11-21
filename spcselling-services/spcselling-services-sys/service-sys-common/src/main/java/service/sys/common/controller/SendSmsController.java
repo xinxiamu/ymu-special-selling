@@ -14,6 +14,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.RequestContextUtils;
 import service.sys.common.api.SendSmsServiceApi;
 import service.sys.common.vo.req.VSmsReq;
@@ -38,7 +40,8 @@ public class SendSmsController extends AbstractBaseController implements SendSms
     private EurekaRegistration eurekaRegistration;
 
     @Override
-    public ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq, BindingResult result, HttpServletRequest request) {
+    public ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq, BindingResult result) {
+        HttpServletRequest request = (HttpServletRequest) ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         Locale locale = RequestContextUtils.getLocaleResolver(request).resolveLocale(request);
         String menuName = AppContext.getApplicationContext().getMessage("hello",null, "菜单A", locale);
 

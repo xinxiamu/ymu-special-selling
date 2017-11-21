@@ -23,5 +23,5 @@ public interface SendSmsServiceApi {
      * @return
      */
     @PostMapping
-    ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq, BindingResult result, HttpServletRequest httpServletRequest);
+    ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq, BindingResult result);
 }
