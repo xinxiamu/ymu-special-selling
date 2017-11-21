@@ -54,7 +54,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
      */
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
+        /*registry.addMapping("/**")
                 //放行哪些原始域
                 .allowedOrigins("*")
                 //是否发送Cookie信息
@@ -62,10 +62,16 @@ public class WebConfig extends WebMvcConfigurationSupport {
                 //放行哪些原始域(请求方式)
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 //放行哪些原始域(头部信息)
-                .allowedHeaders("*");
+                .allowedHeaders("*");*/
 
-        //配置允许跨域访问的路径
-       /* registry.addMapping("/**");*/
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:8484", "http://localhost:9000")
+                .allowedMethods("POST", "GET", "PUT", "DELETE")
+                .allowedHeaders("Content-Type")
+                .exposedHeaders("header-1", "header-2")
+                .allowCredentials(false)
+                .maxAge(6000);
+
     }
 
 }
