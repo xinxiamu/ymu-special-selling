@@ -1,9 +1,16 @@
 server:
-  port: 8001
+  port: 8001 # https端口
   ssl:
       key-store: ${user.dir}/ssl-keys-dev.jks
       key-store-password: 701712
       key-password: 701712
+
+---
+custom:
+  tomcat:
+    http:
+      port: 8000 # http端口
+    redirect-flg: false # false表示打开http端口时不自动跳转到https
 
 #---
 #spring:

@@ -65,7 +65,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
                 .allowedHeaders("*");*/
 
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:8484", "http://localhost:9000")
+                .allowedOrigins("http://localhost:9000", "https://localhost:9001")
                 .allowedMethods("POST", "GET", "PUT", "DELETE")
                 .allowedHeaders("Content-Type")
                 .exposedHeaders("header-1", "header-2")

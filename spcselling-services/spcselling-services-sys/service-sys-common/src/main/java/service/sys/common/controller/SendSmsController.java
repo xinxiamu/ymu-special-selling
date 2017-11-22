@@ -3,7 +3,6 @@ package service.sys.common.controller;
 import com.spcs.apis.common.ApiRespResultVO;
 import com.ymu.spcselling.infrastructure.base.AbstractBaseController;
 import com.ymu.spcselling.infrastructure.spring.AppContext;
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,8 @@ import service.sys.common.api.SendSmsServiceApi;
 import service.sys.common.vo.req.VSmsReq;
 import service.sys.common.vo.req.VSmsReqValidator;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Locale;
 
@@ -41,7 +42,8 @@ public class SendSmsController extends AbstractBaseController implements SendSms
 
     @Override
     public ApiRespResultVO sendSms(@RequestBody @Valid VSmsReq vSmsReq, BindingResult result) {
-        HttpServletRequest request = (HttpServletRequest) ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
         Locale locale = RequestContextUtils.getLocaleResolver(request).resolveLocale(request);
         String menuName = AppContext.getApplicationContext().getMessage("hello",null, "菜单A", locale);
 
