@@ -11,6 +11,7 @@ import org.springframework.hateoas.Link;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +45,7 @@ public class IdGenerateController extends AbstractBaseController implements IdGe
         return id;
     }
 
+//    @CrossOrigin(origins = "http://localhost:9000",maxAge = 600)
     @Override
     public ApiRespResultVO expId(@PathVariable(name = "id") long id) {
         ID ID = idService.expId(id);
