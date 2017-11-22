@@ -47,6 +47,6 @@ custom:
   cors:
     mapping: /**
     allowCredentials: false
-    allowedOrigins: <![CDATA[*]]>
+    allowedOrigins: "*"
     allowedMethods: POST,GET,DELETE,PUT
 #    allowedHeaders: *
