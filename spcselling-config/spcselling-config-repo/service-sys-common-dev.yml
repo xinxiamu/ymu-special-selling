@@ -40,3 +40,13 @@ spring:
 ---
 logging:
   config: classpath:dev/log4j2.xml
+
+---
+# cors跨域设置
+custom:
+  cors:
+    mapping: /**
+    allowCredentials: false
+    allowedOrigins: * #允许的域，多个用逗号隔开。*允许全部的域通过
+    allowedMethods: POST,GET,DELETE,PUT
+    allowedHeaders: *
