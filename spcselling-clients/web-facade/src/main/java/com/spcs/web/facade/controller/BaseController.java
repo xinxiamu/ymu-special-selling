@@ -11,7 +11,7 @@ public class BaseController {
 
     @ModelAttribute
     public void setReqAndRes(Model model) {
-        model.addAttribute("static.url",staticUrl);
+        model.addAttribute("staticUrl",staticUrl);
     }
 
 }

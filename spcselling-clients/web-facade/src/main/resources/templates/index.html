@@ -7,14 +7,20 @@
   <!--  <script>
         location.replace(location.href.replace("https://","http://"));
     </script>-->
-
-    <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
-    <!--<script src="//code.jquery.com/jquery-3.2.1.min.jsjquery-3.2.1.min.js"></script>-->
 </head>
 <body>
 <!--<h1 th:text="${host}">Hello World</h1>-->
 <h1 th:text="${name}">name</h1>
+<p th:text="${staticUrl}">name</p>
 <!--<h1 th:text="${bg}">重定向传过来参数,出现在地址栏</h1>-->
 <!--<h1 th:text="${abcd}">重定向传过来参数,不出现在地址栏</h1>-->
+<button onclick=""></button>
 </body>
+<!--<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js" th:src="@{/static/js/jquery-3.2.1.min.js}"></script>-->
+<script type="text/javascript" src="../../../../../../web-statics/web-facade/js/jquery-3.2.1.min.js"></script>
+<script>
+    function submit() {
+        alert("-------");
+    }
+</script>
 </html>
