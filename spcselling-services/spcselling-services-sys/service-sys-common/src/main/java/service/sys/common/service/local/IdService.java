@@ -1,7 +1,7 @@
 package service.sys.common.service.local;
 
 
-import com.ymu.spcselling.infrastructure.idgenerator.ID;
+import service.sys.common.vo.resp.VSnowflakeIdResp;
 
 public interface IdService {
 
@@ -19,7 +19,7 @@ public interface IdService {
      * @param id 生成的ID
      * @return 封装的ID类
      */
-    ID expId(long id);
+    VSnowflakeIdResp expId(long id);
 
 
 }

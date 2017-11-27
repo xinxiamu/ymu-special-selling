@@ -19,6 +19,6 @@ public class SendEmailController implements SendEmailServiceApi {
 
     @Override
     public String sendEmail(String email, String content) {
-        return null;
+        return email + ":" + content;
     }
 }

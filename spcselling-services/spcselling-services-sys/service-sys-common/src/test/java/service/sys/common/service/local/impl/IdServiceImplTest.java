@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import service.sys.common.service.local.IdService;
+import service.sys.common.vo.resp.VSnowflakeIdResp;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -40,7 +41,7 @@ public class IdServiceImplTest {
 
 //    @Test
     public void expId() throws Exception {
-        ID actual = idService.expId(id);
+        VSnowflakeIdResp actual = idService.expId(id);
         Assert.assertThat(actual.getSequence(), equalTo(23L));
         Assert.assertThat(actual.getWorkerId(), equalTo(92L));
         Assert.assertThat(actual.getTimeStamp(), equalTo(84068427231L));

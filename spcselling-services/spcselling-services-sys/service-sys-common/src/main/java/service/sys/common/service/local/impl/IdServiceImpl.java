@@ -2,12 +2,12 @@ package service.sys.common.service.local.impl;
 
 import com.ymu.spcselling.infrastructure.idgenerator.ID;
 import com.ymu.spcselling.infrastructure.idgenerator.SnowflakeIdWorker;
+import com.ymu.spcselling.infrastructure.utils.BeanUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import service.sys.common.service.local.IdService;
-
-import java.util.Date;
+import service.sys.common.vo.resp.VSnowflakeIdResp;
 
 @Service
 public class IdServiceImpl implements IdService {
@@ -22,7 +22,10 @@ public class IdServiceImpl implements IdService {
     }
 
     @Override
-    public ID expId(long id) {
-        return SnowflakeIdWorker.convert(id);
+    public VSnowflakeIdResp expId(long id) {
+        ID snowflakeId = SnowflakeIdWorker.convert(id);
+        VSnowflakeIdResp v = new VSnowflakeIdResp();
+        BeanUtil.from(snowflakeId).to(v);
+        return v;
     }
 }
