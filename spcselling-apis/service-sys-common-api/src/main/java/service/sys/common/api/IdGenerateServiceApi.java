@@ -8,7 +8,7 @@ import service.sys.common.vo.req.VIdGenReq;
 /**
  * 分布式id生成服务。
  */
-@RequestMapping("/id")
+@RequestMapping("/ids")
 public interface IdGenerateServiceApi {
 
     /**
@@ -89,7 +89,7 @@ public interface IdGenerateServiceApi {
      *       "error": "NoAccessRight"
      *     }
      *
-     * @apiSampleRequest http://localhost:8001/v1/id/expId
+     * @apiSampleRequest http://localhost:8001/v1/ids/expId
      *
      */
     @GetMapping("/{id}")
