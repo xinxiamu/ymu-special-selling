@@ -5,6 +5,9 @@ import com.ymu.spcselling.infrastructure.idgenerator.SnowflakeIdWorker;
 import com.ymu.spcselling.infrastructure.utils.BeanUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import service.sys.common.service.local.IdService;
 import service.sys.common.vo.resp.VSnowflakeIdResp;
@@ -14,6 +17,8 @@ public class IdServiceImpl implements IdService {
 
     private static final Logger LOGGER = LogManager.getLogger(IdServiceImpl.class);
 
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Override
     public long genId(long dataCenterId, long workerId) {
