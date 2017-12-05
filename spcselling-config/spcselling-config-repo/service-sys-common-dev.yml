@@ -51,3 +51,9 @@ custom:
 #    allowedMethods: POST,GET,DELETE,PUT #这样设置，静态资源将不能跨域
     allowedMethods: "*"
     allowedHeaders: "*"
+
+---
+### redis
+spring:
+  profiles:
+    include: redis-config-dev
