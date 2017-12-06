@@ -20,10 +20,10 @@ public class RedisConfig {
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
         JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
-//        jedisConnectionFactory.setUsePool(true);
-//        jedisConnectionFactory.setHostName("119.23.78.160");
-//        jedisConnectionFactory.setPort(6379);
-//        jedisConnectionFactory.setPassword("");
+        jedisConnectionFactory.setUsePool(true);
+        jedisConnectionFactory.setHostName("119.23.78.160");
+        jedisConnectionFactory.setPort(6379);
+        jedisConnectionFactory.setPassword("123456");
         return jedisConnectionFactory;
     }
 

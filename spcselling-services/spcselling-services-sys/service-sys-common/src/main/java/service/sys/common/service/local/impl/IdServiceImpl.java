@@ -31,6 +31,9 @@ public class IdServiceImpl implements IdService {
         ID snowflakeId = SnowflakeIdWorker.convert(id);
         VSnowflakeIdResp v = new VSnowflakeIdResp();
         BeanUtil.from(snowflakeId).to(v);
+        ValueOperations ops = redisTemplate.opsForValue();
+//        ops.set("username","abcd");
+        LOGGER.debug("==============username:" + ops.get("username"));
         return v;
     }
 }
