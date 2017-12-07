@@ -54,5 +54,5 @@ custom:
 
 ---
 ### redis
-#spring:
-#  profiles: redis-config-dev
+spring:
+  profiles: redis-config-dev
