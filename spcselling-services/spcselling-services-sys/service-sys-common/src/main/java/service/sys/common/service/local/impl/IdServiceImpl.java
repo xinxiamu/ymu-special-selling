@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 import service.sys.common.service.local.IdService;
@@ -16,9 +17,6 @@ import service.sys.common.vo.resp.VSnowflakeIdResp;
 public class IdServiceImpl implements IdService {
 
     private static final Logger LOGGER = LogManager.getLogger(IdServiceImpl.class);
-
-    @Autowired
-    private RedisTemplate redisTemplate;
 
     @Override
     public long genId(long dataCenterId, long workerId) {
@@ -31,9 +29,9 @@ public class IdServiceImpl implements IdService {
         ID snowflakeId = SnowflakeIdWorker.convert(id);
         VSnowflakeIdResp v = new VSnowflakeIdResp();
         BeanUtil.from(snowflakeId).to(v);
-        ValueOperations ops = redisTemplate.opsForValue();
-//        ops.set("username","abcd");
-        LOGGER.debug("==============username:" + ops.get("username"));
+//        ValueOperations ops = stringRedisTemplate.opsForValue();
+////        ops.set("username","abcd");
+//        LOGGER.debug("==============username:" + ops.get("username"));
         return v;
     }
 }
