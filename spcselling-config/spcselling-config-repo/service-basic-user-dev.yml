@@ -4,10 +4,10 @@ server:
 ---
 spring:
   rabbitmq:
-    host: 119.23.78.160
-    port: 5672
-    username: zmt
-    password: 701712
+    host: 47.52.236.72
+    port: 15672
+    username: spcs
+    password: spcs
     virtual-host: /
 
 ---
