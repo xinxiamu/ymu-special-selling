@@ -55,4 +55,5 @@ custom:
 ---
 ### redis,rabbitmq
 spring:
-  profiles: redis-config-dev,rabbitmq-config-dev
+  profiles:
+    include: redis-config-dev,rabbitmq-config-dev
