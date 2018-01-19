@@ -1,14 +1,14 @@
 server:
   port: 9001
 
----
-spring:
-  rabbitmq:
-    host: 47.52.236.72
-    port: 15672
-    username: spcs
-    password: spcs
-    virtual-host: /
+#---
+#spring:
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 15672
+#    username: zmt
+#    password: zmt123!
+#    virtual-host: /
 
 ---
 spring:
@@ -71,3 +71,9 @@ custom:
     allowedOrigins: * #允许的域，多个用逗号隔开。*允许全部的域通过
     allowedMethods: POST,GET,DELETE,PUT
     allowedHeaders: *
+
+
+---
+### redis,rabbitmq
+spring:
+  profiles: redis-config-dev,rabbitmq-config-dev

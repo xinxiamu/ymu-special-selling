@@ -19,14 +19,14 @@ custom:
 #      username: admin
 #      password: 123456
 
----
-spring:
-  rabbitmq:
-    host: 47.52.236.72
-    port: 15672
-    username: spcs
-    password: spcs
-    virtual-host: /
+#---
+#spring:
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 15672
+#    username: zmt
+#    password: zmt123!
+#    virtual-host: /
 
 ---
 #eureka: #服务注册
@@ -53,6 +53,6 @@ custom:
     allowedHeaders: "*"
 
 ---
-### redis
+### redis,rabbitmq
 spring:
-  profiles: redis-config-dev
+  profiles: redis-config-dev,rabbitmq-config-dev
