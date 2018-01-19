@@ -1,7 +1,5 @@
 package service.basic.user.dao.impl;
 
-import com.querydsl.jpa.impl.JPAQuery;
-import com.spcs.entity.user.QUser;
 import com.spcs.entity.user.User;
 import com.ymu.spcselling.infrastructure.dao.BaseDaoImpl;
 import com.ymu.spcselling.infrastructure.dao.ds.DSInject;
@@ -41,9 +39,10 @@ public class UserDaoImpl extends BaseDaoImpl<UserRepository> implements UserDao 
      */
     @Override
     public User findUserByMobile(String mobile) {
-        QUser qUser = QUser.user;
+        /*QUser qUser = QUser.user;
         JPAQuery<User> query = new JPAQuery<>(em);
         User user = query.from(qUser).where(qUser.mobile.eq(mobile)).fetchOne();
-        return user;
+        return user;*/
+        return null;
     }
 }
