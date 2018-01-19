@@ -1,7 +1,8 @@
 spring:
   rabbitmq:
     host: 127.0.0.1
-    port: 15672
-    username: zmt
-    password: zmt123!
+    port: 5672
+    username: spcs
+    password: spcs
+    publisher-confirms: true
     virtual-host: /
