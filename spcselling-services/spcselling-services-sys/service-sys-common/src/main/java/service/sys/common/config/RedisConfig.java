@@ -16,6 +16,10 @@ public class RedisConfig {
 
     @Value("${spring.redis.host}")
     private String redisUrl;
+    @Value("${spring.redis.port}")
+    private int port;
+    @Value("${spring.redis.password}")
+    private String pwd;
 
 	/**
 	 * 采用默认连接池
@@ -26,8 +30,8 @@ public class RedisConfig {
         JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
         jedisConnectionFactory.setUsePool(true);
         jedisConnectionFactory.setHostName(redisUrl);
-        jedisConnectionFactory.setPort(6379);
-        jedisConnectionFactory.setPassword("123456");
+        jedisConnectionFactory.setPort(port);
+        jedisConnectionFactory.setPassword(pwd);
         return jedisConnectionFactory;
     }
 

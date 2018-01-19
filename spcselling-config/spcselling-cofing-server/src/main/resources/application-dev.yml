@@ -13,9 +13,10 @@ security:
 #  context-path: /admin
 
 ---
+#作为服务注册到注册中心
 eureka:
   instance:
-    prefer-ip-address: true
+#    prefer-ip-address: false
     hostname: localhost
   client:
     service-url:
@@ -24,6 +25,7 @@ eureka:
 #    status-page-url-path: /admin/info
 
 ---
+#git配置中心
 spring:
   cloud:
     config:
@@ -32,12 +34,14 @@ spring:
           uri: https://github.com/xinxiamu/ymu-special-selling.git
           search-paths: spcselling-config/spcselling-config-repo
 
+
 ---
 # spring-cloud-bus刷新配置
 spring:
   rabbitmq:
-    host: 119.23.78.160
+    host: 127.0.0.1
     port: 5672
-    username: zmt
-    password: 701712
+    username: spcs
+    password: spcs
+    publisher-confirms: true
     virtual-host: /
