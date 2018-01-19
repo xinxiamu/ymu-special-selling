@@ -1,8 +1,8 @@
 package service.basic.user.dao.impl;
 
 import com.querydsl.jpa.impl.JPAQuery;
-import com.ymu.spcselling.entity.user.QUser;
-import com.ymu.spcselling.entity.user.User;
+import com.spcs.entity.user.QUser;
+import com.spcs.entity.user.User;
 import com.ymu.spcselling.infrastructure.dao.BaseDaoImpl;
 import com.ymu.spcselling.infrastructure.dao.ds.DSInject;
 import com.ymu.spcselling.infrastructure.utils.sql.SqlBuilder;

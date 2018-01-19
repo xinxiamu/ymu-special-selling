@@ -52,7 +52,7 @@
             <dependency>
                 <groupId>com.ymu.spcselling</groupId>
                 <artifactId>spcselling-infrastructure</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0</version>
             </dependency>
 
             <dependency>
@@ -64,7 +64,7 @@
             <dependency>
                 <groupId>com.ymu.spcselling</groupId>
                 <artifactId>entity-constants</artifactId>
-                <version>${project.version}</version>
+                <version>1.0.0</version>
             </dependency>
 
             <!-- spring cloud -->

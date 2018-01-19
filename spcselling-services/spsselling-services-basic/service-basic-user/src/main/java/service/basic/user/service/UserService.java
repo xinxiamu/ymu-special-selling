@@ -1,6 +1,6 @@
 package service.basic.user.service;
 
-import com.ymu.spcselling.entity.user.User;
+import com.spcs.entity.user.User;
 
 public interface UserService {
 

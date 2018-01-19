@@ -1,7 +1,7 @@
 package service.basic.user.controller;
 
 import com.spcs.apis.common.ApiRespResultVO;
-import com.ymu.spcselling.entity.user.User;
+import com.spcs.entity.user.User;
 import com.ymu.spcselling.infrastructure.base.AbstractBaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

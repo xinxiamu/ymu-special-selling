@@ -1,7 +1,7 @@
 package service.sys.common.vo.req;
 
 import com.spcs.apis.common.VBaseReq;
-import com.ymu.spcselling.entity.constants.UserType;
+import com.spcs.entity.constants.UserType;
 
 public class VUserReq extends VBaseReq {
 

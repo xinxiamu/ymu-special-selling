@@ -10,6 +10,7 @@
     <artifactId>entity-constants</artifactId>
     <packaging>jar</packaging>
     <name>entity-constants</name>
+    <version>1.0.0</version>
     <description>实体类常量。共用</description>
 
 

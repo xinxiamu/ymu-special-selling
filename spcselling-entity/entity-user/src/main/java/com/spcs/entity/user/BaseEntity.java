@@ -1,7 +1,6 @@
-package com.ymu.spcselling.infrastructure.base;
+package com.spcs.entity.user;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 

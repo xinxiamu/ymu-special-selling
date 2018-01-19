@@ -54,7 +54,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
      *
      * @param registry
      */
-    @Override
+    /*@Override
     protected void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 //放行哪些原始域
@@ -67,6 +67,6 @@ public class WebConfig extends WebMvcConfigurationSupport {
                 .allowedHeaders("*");
 //                //暴露哪些头部信息（因为跨域访问默认不能获取全部头部信息）
 //                .exposedHeaders("Header1", "Header2");
-    }
+    }*/
 
 }

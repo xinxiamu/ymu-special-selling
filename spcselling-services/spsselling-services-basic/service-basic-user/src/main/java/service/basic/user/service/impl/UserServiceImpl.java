@@ -1,6 +1,6 @@
 package service.basic.user.service.impl;
 
-import com.ymu.spcselling.entity.user.User;
+import com.spcs.entity.user.User;
 import com.ymu.spcselling.infrastructure.dao.ds.DSInject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

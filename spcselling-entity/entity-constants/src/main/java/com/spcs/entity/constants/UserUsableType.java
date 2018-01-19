@@ -1,4 +1,4 @@
-package com.ymu.spcselling.entity.constants;
+package com.spcs.entity.constants;
 
 public enum UserUsableType {
 
