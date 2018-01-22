@@ -1,5 +1,6 @@
 package service.sys.common.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ymu.spcselling.infrastructure.spring.mvc.api.CustomRequestMappingHandlerMapping;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import java.util.List;
 
 @Configuration
+//@EnableWebMvc
 public class WebConfig extends WebMvcConfigurationSupport {
 
     @Override
@@ -24,10 +26,19 @@ public class WebConfig extends WebMvcConfigurationSupport {
         return handlerMapping;
     }
 
+    /**
+     * 配置消息转换规则。无效。
+     * @param converters
+     */
     @Override
     protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        JsonViewHttpMessageConverter jsonConverter = new JsonViewHttpMessageConverter();
+        ObjectMapper objectMapper = new CustomObjectMapper();
+        jsonConverter.setObjectMapper(objectMapper);
+        converters.add(jsonConverter);
         super.configureMessageConverters(converters);
     }
+
 
     /**
      * 全局验证器
