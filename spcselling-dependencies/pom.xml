@@ -50,12 +50,6 @@
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
-                <version>${apache.common.beanutils}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
                 <version>${apache.common.beanutils}</version><!--$NO-MVN-MAN-VER$ -->
             </dependency>
 
