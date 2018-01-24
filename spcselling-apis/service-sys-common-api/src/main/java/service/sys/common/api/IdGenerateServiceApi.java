@@ -94,4 +94,7 @@ public interface IdGenerateServiceApi {
      */
     @GetMapping("/{id}")
     ApiRespResultVO expId(@PathVariable(name = "id") long id);
+
+    @GetMapping("/name/{name}")
+    Object test(@PathVariable(name = "name") String name);
 }

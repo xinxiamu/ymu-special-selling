@@ -1,6 +1,5 @@
 package service.sys.common.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ymu.spcselling.infrastructure.spring.AppContext;
 import com.ymu.spcselling.infrastructure.spring.SpringBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,4 +54,5 @@ public class MainConfig {
         //3.返回新的CorsFilter.
         return new CorsFilter(configSource);
     }
+
 }

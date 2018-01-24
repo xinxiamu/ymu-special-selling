@@ -1,10 +1,14 @@
 package service.sys.common.config;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ymu.spcselling.infrastructure.spring.mvc.api.CustomRequestMappingHandlerMapping;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -12,11 +16,36 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
+/**
+ * 采用继承WebMvcConfigurationSupport方式。
+ * 这种方式会屏蔽springboot的@EnableAutoConfiguration中的设置
+ */
 @Configuration
-//@EnableWebMvc
 public class WebConfig extends WebMvcConfigurationSupport {
+
+    @Bean
+    public MappingJackson2HttpMessageConverter customJackson2HttpMessageConverter() {
+         Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder()
+                .indentOutput(true)
+                .dateFormat(new SimpleDateFormat("yyyy-MM-dd"));
+
+        MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter(builder.build());
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        jsonConverter.setObjectMapper(objectMapper);
+        return jsonConverter;
+    }
+
+    @Bean
+    public JsonViewHttpMessageConverter jsonViewHttpMessageConverter() {
+        JsonViewHttpMessageConverter jsonConverter = new JsonViewHttpMessageConverter();
+        ObjectMapper objectMapper = new CustomObjectMapper();
+        jsonConverter.setObjectMapper(objectMapper);
+        return  jsonConverter;
+    }
 
     @Override
     public RequestMappingHandlerMapping requestMappingHandlerMapping() {
@@ -32,11 +61,8 @@ public class WebConfig extends WebMvcConfigurationSupport {
      */
     @Override
     protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        JsonViewHttpMessageConverter jsonConverter = new JsonViewHttpMessageConverter();
-        ObjectMapper objectMapper = new CustomObjectMapper();
-        jsonConverter.setObjectMapper(objectMapper);
-        converters.add(jsonConverter);
-        super.configureMessageConverters(converters);
+        converters.add(jsonViewHttpMessageConverter());
+        super.addDefaultHttpMessageConverters(converters);
     }
 
 

@@ -19,6 +19,9 @@ import service.sys.common.vo.req.VIdGenReq;
 import service.sys.common.vo.req.VIdGenReqValidator;
 import service.sys.common.vo.resp.VSnowflakeIdResp;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
@@ -54,5 +57,10 @@ public class IdGenerateController extends AbstractBaseController implements IdGe
         return ApiRespResultVO.getInstance(sid, HttpStatus.CREATED).addLink(new Link("http://baidu.com").withRel("baidu"));
     }
 
-
+    @Override
+    public Object test(@PathVariable(name = "name") String name) {
+        Map map = new HashMap();
+        map.put("name",name);
+        return map;
+    }
 }
