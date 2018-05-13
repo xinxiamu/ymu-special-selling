@@ -56,7 +56,7 @@ public class WebConfig extends WebMvcConfigurationSupport {
     }
 
     /**
-     * 配置消息转换规则。无效。
+     * 配置消息转换规则。无效。是因为返回bean继承了ResourceSupport，超媒体链接。
      * @param converters
      */
     @Override
